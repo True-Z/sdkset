@@ -1,6 +1,6 @@
 {
   "name": "@sdkset/axios",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Axios re encapsulation",
   "author": "True",
   "license": "MIT",
