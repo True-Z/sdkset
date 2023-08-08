@@ -10,6 +10,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
+    "publish:version": "npm version %npm_config_version%",
     "publish:package": "npm publish",
     "rimraf:package": "rimraf dist/* -g",
     "test:package": "vitest run -c vitest.config.unit.ts",
@@ -54,5 +55,13 @@
   "peerDependencies": {
     "@sdkset/types": "*",
     "axios": "^1.4.0"
+  },
+  "standard-version": {
+    "skip": {
+      "bump": false,
+      "changelog": true,
+      "commit": true,
+      "tag": true
+    }
   }
 }

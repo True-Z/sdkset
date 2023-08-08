@@ -10,6 +10,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
+    "publish:version": "npm version %npm_config_version%",
     "publish:package": "npm publish"
   },
   "keywords": [
@@ -19,5 +20,13 @@
   "files": [
     "src/index.ts"
   ],
-  "types": "index.ts"
+  "types": "index.ts",
+  "standard-version": {
+    "skip": {
+      "bump": false,
+      "changelog": true,
+      "commit": true,
+      "tag": true
+    }
+  }
 }

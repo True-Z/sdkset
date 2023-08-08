@@ -9,4 +9,4 @@ async function build(target) {
   await execa('rollup', ['--bundleConfigAsCjs', '-c', '--environment', `target:${target}`], { stdio: 'inherit' })
 }
 
-runParallel(conversArr, build)
+runParallel(conversArr, build).catch()

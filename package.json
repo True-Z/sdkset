@@ -98,7 +98,9 @@
   "standard-version": {
     "skip": {
       "bump": false,
-      "changelog": true
+      "changelog": false,
+      "commit": false,
+      "tag": false
     }
   }
 }
