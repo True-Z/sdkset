@@ -1,4 +1,16 @@
 # 更新日志（CHANGELOG）
+## [2.2.0](https://github.com/True-Z/sdkset-utils/compare/v2.1.1...v2.2.0) (2023-08-08)
+
+
+### ✨ Features | 新功能
+
+* **core:** 123 ([347d618](https://github.com/True-Z/sdkset-utils/commit/347d618f7c4095f760a44ef6eb8d1195e525e841))
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* **core:** 321 ([6961c0c](https://github.com/True-Z/sdkset-utils/commit/6961c0c15d64373a33a5d7a132e1819d28abb6a9))
+
 ### [2.1.1](https://github.com/True-Z/sdkset-utils/compare/v2.1.0...v2.1.1) (2023-08-08)
 
 ## [2.1.0](https://github.com/True-Z/sdkset-utils/compare/v2.0.8...v2.1.0) (2023-08-08)
