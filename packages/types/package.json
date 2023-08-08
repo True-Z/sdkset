@@ -1,6 +1,6 @@
 {
   "name": "@sdkset/types",
-  "version": "1.0.2",
+  "version": "2.2.7",
   "description": "Types re encapsulation",
   "author": "True",
   "license": "MIT",
@@ -10,7 +10,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "version:package": "standard-version",
     "publish:package": "npm publish"
   },
   "keywords": [
@@ -20,13 +19,5 @@
   "files": [
     "src/index.ts"
   ],
-  "types": "index.ts",
-  "standard-version": {
-    "skip": {
-      "bump": false,
-      "changelog": true,
-      "commit": true,
-      "tag": true
-    }
-  }
+  "types": "index.ts"
 }

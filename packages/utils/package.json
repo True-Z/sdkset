@@ -1,6 +1,6 @@
 {
   "name": "@sdkset/utils",
-  "version": "1.0.2",
+  "version": "2.2.7",
   "description": "Re encapsulation of commonly used libraries",
   "author": "True",
   "license": "MIT",
@@ -10,7 +10,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "version:package": "standard-version",
     "publish:package": "npm publish",
     "rimraf:package": "rimraf dist/* -g",
     "test:package": "vitest run -c vitest.config.unit.ts",
@@ -71,13 +70,5 @@
     "@sdkset/socket": "*",
     "@sdkset/storage": "*",
     "@sdkset/types": "*"
-  },
-  "standard-version": {
-    "skip": {
-      "bump": false,
-      "changelog": true,
-      "commit": true,
-      "tag": true
-    }
   }
 }
