@@ -29,6 +29,7 @@
     "package:test": "pnpm -r test:package",
     "package:rimraf": "pnpm -r rimraf:package",
     "package:build": "pnpm -r build:package",
+    "package:version": "node scripts/version.mjs",
     "package:publish": "pnpm -r publish:package",
     "husky:init": "husky install && pnpm husky:commit-msg && pnpm husky:pre-commit",
     "husky:pre-commit": "npx husky add .husky/pre-commit \"npx lint-staged\"",
