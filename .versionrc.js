@@ -38,7 +38,7 @@ module.exports = {
     { type: 'chore', section: '🏗 Chore | 构建/工程依赖/工具' },
     { type: 'wip', section: '🚧 Wip | 开发中' },
     { type: 'init', section: '🎉 Init | 初始化' }
-  ]
+  ],
 
   /** @type {boolean}
    * 指示是否正在针对预主要版本执行正在运行的操作，此配置设置通常由工具而不是用户设置 */
@@ -62,7 +62,7 @@ module.exports = {
 
   /** @type {string} "chore(release): {{currentTag}}"
    * 用于格式化自动生成的发布提交消息的字符串 */
-  releaseCommitMessageFormat: "chore(release): v{{currentTag}}",
+  releaseCommitMessageFormat: 'chore(release): v{{currentTag}}'
 
   /** @type {string[]} "['#']"
    * 用于检测问题引用的前缀数组 */
