@@ -1,6 +1,6 @@
 {
   "name": "sdkset",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Re encapsulation of commonly used libraries",
   "author": "True",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "lint": "eslint packages/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint packages/**/*.{js,jsx,ts,tsx} --fix",
     "prettier": "prettier --write --cache .",
-    "release": "standard-version && package:publish && git push --follow-tag",
+    "release": "standard-version  && git push --follow-tag",
     "release:first": "standard-version --first-release && git push --follow-tag",
     "doc:dev": "vitepress dev docs --host",
     "doc:build": "vitepress build docs",
@@ -29,6 +29,7 @@
     "package:test": "pnpm -r test:package",
     "package:rimraf": "pnpm -r rimraf:package",
     "package:build": "pnpm -r build:package",
+    "package:version": "node scripts/version.mjs",
     "package:publish": "pnpm -r publish:package",
     "husky:init": "husky install && pnpm husky:commit-msg && pnpm husky:pre-commit",
     "husky:pre-commit": "npx husky add .husky/pre-commit \"npx lint-staged\"",
@@ -93,5 +94,11 @@
     "*.{js,jsx,ts,tsx,vue}": [
       "eslint"
     ]
+  },
+  "standard-version": {
+    "skip": {
+      "bump": false,
+      "changelog": true
+    }
   }
 }
