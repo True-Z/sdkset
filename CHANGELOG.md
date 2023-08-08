@@ -1,4 +1,13 @@
 # 更新日志（CHANGELOG）
+### [2.2.5](https://github.com/True-Z/sdkset-utils/compare/v2.2.3...v2.2.5) (2023-08-08)
+
+### [2.2.4](https://github.com/True-Z/sdkset-utils/compare/v2.2.2...v2.2.4) (2023-08-08)
+
+
+### 🏗 Chore | 构建/工程依赖/工具
+
+* **release:** v2.2.3 ([4135f1b](https://github.com/True-Z/sdkset-utils/commit/4135f1b613eb48375907f5b72fab76b9fd8fcd8e))
+
 ### [2.2.3](https://github.com/True-Z/sdkset-utils/compare/v2.2.2...v2.2.3) (2023-08-08)
 
 ### [2.2.2](https://github.com/True-Z/sdkset-utils/compare/v2.2.0...v2.2.2) (2023-08-08)
