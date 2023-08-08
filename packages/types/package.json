@@ -1,0 +1,23 @@
+{
+  "name": "@sdkset/types",
+  "version": "1.0.0",
+  "description": "Types re encapsulation",
+  "author": "True",
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "publish:package": "npm publish"
+  },
+  "keywords": [
+    "@sdkset/utils",
+    "types"
+  ],
+  "files": [
+    "src/index.ts"
+  ],
+  "types": "index.ts"
+}

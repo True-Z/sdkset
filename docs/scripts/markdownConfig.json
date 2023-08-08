@@ -1,0 +1,28 @@
+{
+  "path": {
+    "简介": null,
+    "起步（start）": "README",
+    "更新日志（changelog）": "CHANGELOG",
+    "函数库（core）": null,
+    "集合（collections）": "core_src_modules___indexCollections",
+    "对象（objects）": "core_src_modules___indexObjects",
+    "数组（arrays）": "core_src_modules___indexArrays",
+    "函数（functions）": "core_src_modules___indexFunctions",
+    "语言（language）": "core_src_modules___indexLanguage",
+    "工具（utility）": "core_src_modules___indexUtility",
+    "链式（chaining）": "core_src___indexChaining",
+    "格式化（format）": null,
+    "时间（dayjs）": "dayjs",
+    "数值（numeral）": "numeral",
+    "网络（network）": null,
+    "Ajax（axios）": "axios",
+    "WebSocket（socket）": "socket",
+    "缓存（storage）": null,
+    "本地缓存（local）": "storage_src_localStorage",
+    "超时缓存（expire）": "storage_src_expireLocal",
+    "会话缓存（session）": "storage_src_sessionStorage",
+    "设计模式（mode）": null,
+    "观察者（发布/订阅）（observer）": "mode_src_observer"
+  },
+  "shallowList": ["README", "CHANGELOG"]
+}
