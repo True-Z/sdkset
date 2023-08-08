@@ -1,0 +1,60 @@
+{
+  "name": "@sdkset/socket",
+  "version": "1.0.0",
+  "description": "WebSocket re encapsulation",
+  "author": "True",
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "publish:package": "npm publish",
+    "rimraf:package": "rimraf dist/* -g",
+    "test:package": "vitest run -c vitest.config.unit.ts",
+    "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:socket"
+  },
+  "keywords": [
+    "@sdkset/utils",
+    "websocket"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./babel": {
+      "import": "./dist/babel.es.js",
+      "require": "./dist/babel.cjs.js"
+    }
+  },
+  "main": "dist/index.cjs.js",
+  "babel_main": "dist/babel.cjs.js",
+  "module": "dist",
+  "babel_module": "dist/babel.es.js",
+  "browser": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
+  "buildOptions": {
+    "name": "*",
+    "formats": [
+      "es",
+      "babel_es",
+      "cjs",
+      "babel_cjs"
+    ]
+  },
+  "dependencies": {
+    "@sdkset/core": "workspace:*",
+    "@sdkset/mode": "workspace:*",
+    "@sdkset/types": "workspace:*"
+  },
+  "peerDependencies": {
+    "@sdkset/core": "*",
+    "@sdkset/mode": "*",
+    "@sdkset/types": "*"
+  }
+}

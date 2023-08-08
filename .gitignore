@@ -1,0 +1,14 @@
+# Resource directory
+node_modules
+
+# Editor directories and files
+.vscode
+.history
+.idea
+
+# Custom ignore directories
+.husky
+dist
+docs/typeDoc
+
+# Custom ignore files
