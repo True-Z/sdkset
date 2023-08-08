@@ -62,7 +62,7 @@ module.exports = {
 
   /** @type {string} "chore(release): {{currentTag}}"
    * 用于格式化自动生成的发布提交消息的字符串 */
-  // releaseCommitMessageFormat: '',
+  releaseCommitMessageFormat: "chore(release): v{{currentTag}}",
 
   /** @type {string[]} "['#']"
    * 用于检测问题引用的前缀数组 */
