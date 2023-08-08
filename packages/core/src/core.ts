@@ -5,7 +5,7 @@ import type { Dictionary, New } from '@sdkset/types'
  * 返回`core`包装器对象，如果`core`作为函数调用，它将返回一个可以使用`OO-style`的包装器，通过`mixin`方法包装的自定义函数对象可以被链接使用。
  *
  * @example
- * _(obj)
+ * core(obj)
  * => { _wrapped: obj, ... }
  *
  * @param value 给定值

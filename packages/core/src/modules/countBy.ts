@@ -2,12 +2,10 @@ import { _group } from './_group'
 import { _has } from './_has'
 
 /**
- * 返回一个对象，对象由给定集合通过`iterator`处理分组为多个集合后组成，类似`groupBy`，但是不是返回列表的值，而是返回在该组中值的计数。
+ * 返回一个对象，对象由给定集合通过`iterator`处理分组为多个计数后组成，类似`groupBy`，但是不是返回列表的值，而是返回在该组中值的计数。
  *
  * @example
- * countBy([1, 2, 3, 4, 5], function(num) {
- *   return num % 2 == 0 ? 'even': 'odd'
- * })
+ * countBy([1, 2, 3, 4, 5], (val) => val % 2 === 0 ? 'even': 'odd')
  * => { odd: 3, even: 2 }
  *
  * @param list 给定集合

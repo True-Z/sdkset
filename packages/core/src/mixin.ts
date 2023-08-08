@@ -13,7 +13,7 @@ import type { Dictionary, Func } from '@sdkset/types'
  *     return string.charAt(0).toUpperCase() + string.substring(1).toLowerCase()
  *   }
  * })
- * _("fabio").capitalize()
+ * core("fabio").capitalize()
  * => 'Fabio'
  *
  * @param object 给定函数对象

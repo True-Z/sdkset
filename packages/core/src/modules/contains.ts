@@ -13,6 +13,9 @@ import type { Collection } from '@sdkset/types'
  * contains([1, 2, 3], 3)
  * => true
  *
+ * contains({ a: 1, b: 2, c: 3 }, 3)
+ * => true
+ *
  * @param list 给定集合
  * @param value 给定值
  * @param fromIndex 起始索引，传递 true 将采用二分查找（需数据已升序）

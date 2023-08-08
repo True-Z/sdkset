@@ -11,4 +11,4 @@
 
 ### 🎉 Init | 初始化
 
-* 初始化 [@sdkset](https://github.com/sdkset) ([d784e8d](https://github.com/True-Z/sdkset-utils/commit/d784e8d62a6308a5bcf74522fb44bb03a8261317))
+* 初始化 [@sdkset](https://github.com/True-Z/sdkset-utils) ([d784e8d](https://github.com/True-Z/sdkset-utils/commit/d784e8d62a6308a5bcf74522fb44bb03a8261317))

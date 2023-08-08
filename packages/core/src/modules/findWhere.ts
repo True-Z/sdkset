@@ -9,8 +9,8 @@ import type { Collection } from '@sdkset/types'
  * 如果没有找到匹配的属性，或者`list`为空，返回`undefined`。
  *
  * @example
- * findWhere([{ id: 1, name: 'x' }, { id: 2 }, { id: 2, name: 'x' }], { id: 2 })
- * => { id: 2 }
+ * findWhere([{ id: 1 }, { id: 2, data: 'data' }, { id: 3 }], { id: 2 })
+ * => { id: 2, data: 'data' }
  *
  * @param list 给定集合
  * @param properties 谓语对象

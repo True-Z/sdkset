@@ -11,7 +11,7 @@ import type { Collection } from '@sdkset/types'
  * 返回一个布尔值，判断给定集合内的所有元素是否都能通过`predicate`真值检测。
  *
  * @example
- * every([2, 4, 5], function(num) { return num % 2 == 0; })
+ * every({a: 2, b: 4, c: 5}, (val) => val % 2 === 0)
  * => false
  *
  * @param list 给定集合

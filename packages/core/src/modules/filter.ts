@@ -11,8 +11,8 @@ import type { Collection } from '@sdkset/types'
  * 返回一个数组，数组由给定集合中通过`predicate`真值检测的元素组成。
  *
  * @example
- * filter([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0 })
- * => [2, 4, 6]
+ * filter({ a: 1, b: 2, c: 3, d: 4 }, (val) => val % 2 === 0)
+ * => [2, 4]
  *
  * @param list 给定集合
  * @param predicate 谓语迭代器函数，通过 iteratee 进行转换，以简化速记语法

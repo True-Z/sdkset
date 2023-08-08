@@ -11,7 +11,7 @@ import type { Collection } from '@sdkset/types'
  * 返回给定集合中第一个通过`predicate`真值检测的元素值，如果没有元素通过检测则返回`undefined`。
  *
  * @example
- * find([1, 2, 3, 4, 5, 6], function(num){ return num % 2 == 0 })
+ * find({ a: 1, b: 2, c: 3, d: 4 }, (val) => val % 2 === 0)
  * => 2
  *
  * @param list 给定集合

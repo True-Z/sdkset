@@ -1,6 +1,6 @@
 /**
  * @plugins
- * "@commitlint/cli": commitlint cli 检查提交消息是否符合 Conventional commit format
+ * "standard-version": commitlint cli 检查提交消息是否符合 Conventional commit format
  * "commitlint-config-cz": commitlint 用于 cz-customized 的可共享配置文件
  */
 
