@@ -12,7 +12,7 @@
   "scripts": {
     "publish:package": "npm publish",
     "rimraf:package": "rimraf dist/* -g",
-    "test:package": "vitest run -c vitest.config.unit.ts",
+    "vitest:package": "vitest run -c vitest.config.unit.ts",
     "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:dayjs"
   },
   "keywords": [

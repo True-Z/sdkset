@@ -33,10 +33,10 @@ module.exports = {
     { type: 'test', section: '✅ Tests | 测试', hidden: true },
 
     { type: 'build', section: '📦‍ Build System | 打包构建' },
-    { type: 'ci', section: '👷 Continuous Integration | CI 配置' },
+    { type: 'ci', section: '👷 Continuous Integration | CI 配置', hidden: true },
 
-    { type: 'chore', section: '🏗 Chore | 构建/工程依赖/工具' },
-    { type: 'wip', section: '🚧 Wip | 开发中' },
+    { type: 'chore', section: '🏗 Chore | 构建/工程依赖/工具', hidden: true },
+    { type: 'wip', section: '🚧 Wip | 开发中', hidden: true },
     { type: 'init', section: '🎉 Init | 初始化' }
   ],
 
