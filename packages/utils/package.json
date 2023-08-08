@@ -71,5 +71,13 @@
     "@sdkset/socket": "*",
     "@sdkset/storage": "*",
     "@sdkset/types": "*"
+  },
+  "standard-version": {
+    "skip": {
+      "bump": false,
+      "changelog": true,
+      "commit": true,
+      "tag": true
+    }
   }
 }

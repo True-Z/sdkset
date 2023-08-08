@@ -1,6 +1,6 @@
 {
   "name": "@sdkset/types",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Types re encapsulation",
   "author": "True",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "publish:version": "npm version %npm_config_version%",
+    "version:package": "standard-version",
     "publish:package": "npm publish"
   },
   "keywords": [

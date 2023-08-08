@@ -1,6 +1,6 @@
 {
   "name": "@sdkset/axios",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Axios re encapsulation",
   "author": "True",
   "license": "MIT",
@@ -10,7 +10,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "publish:version": "npm version %npm_config_version%",
+    "version:package": "standard-version",
     "publish:package": "npm publish",
     "rimraf:package": "rimraf dist/* -g",
     "test:package": "vitest run -c vitest.config.unit.ts",
