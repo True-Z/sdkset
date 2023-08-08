@@ -1,6 +1,6 @@
 {
   "name": "sdkset",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Re encapsulation of commonly used libraries",
   "author": "True",
   "license": "MIT",
@@ -15,7 +15,7 @@
     "lint": "eslint packages/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint packages/**/*.{js,jsx,ts,tsx} --fix",
     "prettier": "prettier --write --cache .",
-    "release": "standard-version  && git push --follow-tag",
+    "release": "standard-version && pnpm -r version:package && git push --follow-tag",
     "release:first": "standard-version --first-release && git push --follow-tag",
     "doc:dev": "vitepress dev docs --host",
     "doc:build": "vitepress build docs",
