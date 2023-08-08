@@ -23,7 +23,6 @@ module.exports = {
   types: [
     { type: 'feat', section: '✨ Features | 新功能' },
     { type: 'fix', section: '🐛 Bug Fixes | Bug 修复' },
-
     { type: 'perf', section: '⚡️ Performance Improvements | 性能优化' },
     { type: 'refactor', section: '♻️ Code Refactoring | 代码重构' },
     { type: 'revert', section: '⏪ Code Revert | 代码回退', hidden: true },
