@@ -1,6 +1,6 @@
 {
   "name": "@sdkset/types",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Types re encapsulation",
   "author": "True",
   "license": "MIT",
@@ -19,5 +19,5 @@
   "files": [
     "src"
   ],
-  "types": "index.ts"
+  "types": "src/index.ts"
 }
