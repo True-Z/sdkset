@@ -17,7 +17,7 @@
     "types"
   ],
   "files": [
-    "src/index.ts"
+    "src"
   ],
   "types": "index.ts"
 }
