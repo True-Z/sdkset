@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+## [3.1.0](https://github.com/True-Z/sdkset-utils/compare/v3.0.1...v3.1.0) (2023-08-09)
+
+
+### ✨ Features | 新功能
+
+* **core:** types 插件支持通用类型，类型集合 ([025cb45](https://github.com/True-Z/sdkset-utils/commit/025cb45b3b5c056fb2c5570577184ee3c50df1e2))
+
 ### [3.0.1](https://github.com/True-Z/sdkset-utils/compare/v1.0.1...v3.0.1) (2023-08-09)
 
 
