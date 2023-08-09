@@ -7,7 +7,7 @@ const mainVersion = JSON.parse(mainPackage).version
 const ignoreArr = []
 const conversArr = targets.filter((fileName) => !ignoreArr.some((ignore) => ignore === fileName))
 
-function updateVersion() {
+function version() {
   for (const path of conversArr) {
     const filePath = `packages/${path}/package.json`
     const pkgData = fs.readFileSync(filePath, 'utf-8')
@@ -16,4 +16,4 @@ function updateVersion() {
     fs.writeFileSync(filePath, JSON.stringify(pkgJson, null, 2))
   }
 }
-updateVersion()
+version()
