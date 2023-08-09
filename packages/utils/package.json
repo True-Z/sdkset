@@ -16,13 +16,7 @@
   },
   "keywords": [
     "@sdkset/utils",
-    "axios",
-    "underscore",
-    "dayjs",
-    "numeral",
-    "socket",
-    "storage",
-    "types"
+    "summary"
   ],
   "files": [
     "dist"
