@@ -1,6 +1,6 @@
 {
   "name": "@sdkset/utils",
-  "version": "1.0.1",
+  "version": "3.0.0",
   "description": "Re encapsulation of commonly used libraries",
   "author": "True",
   "license": "MIT",
