@@ -1,4 +1,4 @@
-import { isArrayBuffer, isBlob, isFunction, isTypedArray, keys, toParams, wait } from '@sdkset/core'
+import * as core from '@sdkset/core'
 
 import type { SocketHandle, SocketQuery } from '../types'
 import type { Observer } from '@sdkset/mode'
@@ -58,8 +58,11 @@ export class Socket {
       maxReconnectNum,
       reconnectTimeout
     } = config
+
+    const queryUrl = `${url}?${core.toParams(params)}`
+
     this._config = config
-    this._ws = new WebSocket(`${url}?${toParams(params)}`, protocols)
+    this._ws = new WebSocket(queryUrl, protocols)
     this._heartCheckTimeout = heartCheckTimeout ?? SOCKET_CHECK_TIMEOUT
     this._heartCheckData = heartCheckData ?? ''
     this._reconnectCount = reconnectCount
@@ -74,11 +77,11 @@ export class Socket {
    * 初始化`Handle`，订阅特定事件，处理边界情况。
    */
   _initHandle(handle: SocketConfig['handle'] = {}) {
-    const _keys = keys(handle)
+    const _keys = core.keys(handle)
     for (let i = 0, { length } = _keys; i < length; i++) {
       const currKey = _keys[i]
       const currHandle = handle[currKey]
-      if (!isFunction(currHandle)) {
+      if (!core.isFunction(currHandle)) {
         return console.error('"Handle" not a function, We need a function here')
       }
       if (!SOCKET_METHOD_NAME.includes(currKey)) {
@@ -122,7 +125,7 @@ export class Socket {
       this._observer.notify('close', e)
       if (e.code === CLOSE_ABNORMAL) {
         if (this._reconnectCount < this._maxReconnectNum) {
-          await wait(this._reconnectTimeout)
+          await core.wait(this._reconnectTimeout)
           this._reconnectCount++
           const _reconnectSocket = new Socket(this._config, this._reconnectCount)
           this._observer.notify('reconnect', _reconnectSocket)
@@ -154,7 +157,7 @@ export class Socket {
    * 可以以二进制帧的形式发送任何 JavaScript 类数组对象 ；其二进制数据内容将被队列于缓冲区中。值 bufferedAmount 将加上必要字节数的值。
    */
   send(data: unknown) {
-    if (isArrayBuffer(data) || isBlob(data) || isTypedArray(data)) {
+    if (core.isArrayBuffer(data) || core.isBlob(data) || core.isTypedArray(data)) {
       this._ws.send(data)
     }
     this._ws.send(JSON.stringify(data))

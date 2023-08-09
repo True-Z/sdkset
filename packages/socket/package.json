@@ -39,16 +39,19 @@
   "browser": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "buildOptions": {
-    "name": "*",
+    "name": "_socket",
     "formats": [
       "es",
       "babel_es",
       "cjs",
-      "babel_cjs"
+      "babel_cjs",
+      "umd"
     ]
   },
+  "devDependencies": {
+    "@sdkset/core": "workspace:*"
+  },
   "dependencies": {
-    "@sdkset/core": "workspace:*",
     "@sdkset/mode": "workspace:*",
     "@sdkset/types": "workspace:*"
   },

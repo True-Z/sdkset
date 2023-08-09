@@ -39,7 +39,7 @@
   "browser": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "buildOptions": {
-    "name": "storage",
+    "name": "_storage",
     "formats": [
       "es",
       "babel_es",

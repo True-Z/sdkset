@@ -6,7 +6,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import strip from '@rollup/plugin-strip'
-import terser from '@rollup/plugin-terser'
+// import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import _esbuild from 'rollup-plugin-esbuild'
 import externals from 'rollup-plugin-node-externals'
@@ -62,8 +62,7 @@ const outputConfig = {
     format: 'es',
     plugins: [
       getBabelOutputPlugin({
-        presets: ['@babel/preset-env'],
-        plugins: [['@babel/plugin-transform-runtime', { useESModules: true }]]
+        configFile: path.resolve(__dirname, 'babel.config.js')
       })
     ]
   },
@@ -76,8 +75,7 @@ const outputConfig = {
     format: 'cjs',
     plugins: [
       getBabelOutputPlugin({
-        presets: ['@babel/preset-env'],
-        plugins: [['@babel/plugin-transform-runtime']]
+        configFile: path.resolve(__dirname, 'babel.config.js')
       })
     ]
   },
@@ -87,10 +85,8 @@ const outputConfig = {
     plugins: [
       getBabelOutputPlugin({
         allowAllFormats: true,
-        presets: ['@babel/preset-env'],
-        plugins: ['@babel/plugin-transform-runtime']
-      }),
-      terser()
+        configFile: path.resolve(__dirname, 'babel.config.js')
+      })
     ]
   }
 }
@@ -118,7 +114,9 @@ function createConfig(format, output) {
       commonjs(),
       nodeResolve(),
       externals({
-        devDeps: false
+        devDeps: true,
+        deps: false,
+        peerDeps: true
       }),
       typescript({
         tsconfig: resolve('tsconfig.json')

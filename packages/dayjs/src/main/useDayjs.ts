@@ -48,3 +48,5 @@ export function useDayjs<C extends DayjsConfig>(config?: C) {
   }
   return dayjsChangeTo(change, dayjs(time), format) as DayjsTo<C['change']>
 }
+
+console.log('🚀 ~~ path: useDayjs.ts ~ line: 52 : ', useDayjs({ time: '2020', change: 'format' }))

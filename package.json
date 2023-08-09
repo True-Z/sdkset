@@ -10,7 +10,7 @@
   },
   "scripts": {
     "commit": "git add . && cz",
-    "dev": "rollup --bundleConfigAsCjs -wc rollup.dev.config.js --environment target:%npm_config_target%",
+    "dev": "rimraf dist/* -g && rollup --bundleConfigAsCjs -c rollup.dev.config.js --environment target:socket",
     "test": "vitest",
     "lint": "eslint packages/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint packages/**/*.{js,jsx,ts,tsx} --fix",
@@ -73,6 +73,7 @@
     "rollup-plugin-json": "^4.0.0",
     "rollup-plugin-livereload": "^2.0.5",
     "rollup-plugin-node-externals": "^5.1.3",
+    "rollup-plugin-polyfill-node": "^0.12.0",
     "rollup-plugin-serve": "^2.0.2",
     "standard-version": "^9.5.0",
     "tslib": "^2.5.0",
@@ -81,6 +82,10 @@
     "typescript": "^5.0.4",
     "vitepress": "1.0.0-alpha.75",
     "vitest": "^0.32.0"
+  },
+  "dependencies": {
+    "@babel/runtime-corejs3": "^7.22.10",
+    "babel-runtime": "^6.26.0"
   },
   "config": {
     "commitizen": {
