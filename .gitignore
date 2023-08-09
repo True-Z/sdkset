@@ -7,8 +7,9 @@ node_modules
 .idea
 
 # Custom ignore directories
-.husky
+.husk
 dist
 docs/typeDoc
+docs/.vitepress/dist
 
 # Custom ignore files

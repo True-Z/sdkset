@@ -31,7 +31,7 @@ yran add @sdkset/<pluginName>
 
 ```ts
 /* 引入 */
-import { List } from '@sdkset/types'
+import type { List } from '@sdkset/types'
 
 /* 使用 */
 ...

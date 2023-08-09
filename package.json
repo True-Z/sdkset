@@ -22,7 +22,7 @@
     "doc:serve": "vitepress serve docs",
     "doc:deploy:summary": "pnpm doc:deploy:html && pnpm doc:deploy:markdown",
     "doc:deploy:html": "pnpm scripts/global/deploy.html.bat",
-    "doc:deploy:markdown": "pnpm doc:build && pnpm scripts/global/deploy.markdown.bat",
+    "doc:deploy:markdown": "rimraf docs/.vitepress/dist/* -g && pnpm doc:build && pnpm scripts/global/deploy.markdown.bat",
     "typedoc:summary": " pnpm typedoc:html && pnpm typedoc:markdown",
     "typedoc:html": "typedoc --options typedoc.html.json",
     "typedoc:markdown": "typedoc --options typedoc.markdown.json && node scripts/package/copyFile.mjs && node docs/scripts/createFrontmatter.cjs",
