@@ -1,1 +1,1 @@
-export type * from './modules'
+export * from './modules'
