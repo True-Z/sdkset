@@ -10,6 +10,8 @@ node_modules
 .husk
 dist
 docs/typeDoc
+docs/.vitepress/.temp
+docs/.vitepress/cache
 docs/.vitepress/dist
 
 # Custom ignore files

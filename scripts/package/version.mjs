@@ -4,7 +4,7 @@ import fs from 'fs'
 const mainPackage = fs.readFileSync('package.json', 'utf-8')
 const mainVersion = JSON.parse(mainPackage).version
 
-const ignoreArr = ['types', 'utils']
+const ignoreArr = []
 const conversArr = targets.filter((fileName) => !ignoreArr.some((ignore) => ignore === fileName))
 
 function version() {
