@@ -1,4 +1,4 @@
-import * as core from '@sdkset/core'
+import * as sdkCore from '@sdkset/core'
 
 import type { SocketHandle, SocketQuery } from '../types'
 import type { Observer } from '@sdkset/mode'
@@ -59,16 +59,14 @@ export class Socket {
       reconnectTimeout
     } = config
 
-    const queryUrl = `${url}?${core.toParams(params)}`
-
     this._config = config
-    this._ws = new WebSocket(queryUrl, protocols)
     this._heartCheckTimeout = heartCheckTimeout ?? SOCKET_CHECK_TIMEOUT
     this._heartCheckData = heartCheckData ?? ''
     this._reconnectCount = reconnectCount
     this._reconnectTimeout = reconnectTimeout ?? SOCKET_RECONNECT_TIMEOUT
     this._maxReconnectNum = maxReconnectNum ?? SOCKET_CHECK_COUNT
     this._observer = observer
+    this._ws = new WebSocket(`${url}${params}`, protocols)
     this._initHandle(handle)
     this._initSocket()
   }
@@ -77,11 +75,11 @@ export class Socket {
    * 初始化`Handle`，订阅特定事件，处理边界情况。
    */
   _initHandle(handle: SocketConfig['handle'] = {}) {
-    const _keys = core.keys(handle)
+    const _keys = sdkCore.keys(handle)
     for (let i = 0, { length } = _keys; i < length; i++) {
       const currKey = _keys[i]
       const currHandle = handle[currKey]
-      if (!core.isFunction(currHandle)) {
+      if (!sdkCore.isFunction(currHandle)) {
         return console.error('"Handle" not a function, We need a function here')
       }
       if (!SOCKET_METHOD_NAME.includes(currKey)) {
@@ -125,7 +123,7 @@ export class Socket {
       this._observer.notify('close', e)
       if (e.code === CLOSE_ABNORMAL) {
         if (this._reconnectCount < this._maxReconnectNum) {
-          await core.wait(this._reconnectTimeout)
+          await sdkCore.wait(this._reconnectTimeout)
           this._reconnectCount++
           const _reconnectSocket = new Socket(this._config, this._reconnectCount)
           this._observer.notify('reconnect', _reconnectSocket)
@@ -157,7 +155,7 @@ export class Socket {
    * 可以以二进制帧的形式发送任何 JavaScript 类数组对象 ；其二进制数据内容将被队列于缓冲区中。值 bufferedAmount 将加上必要字节数的值。
    */
   send(data: unknown) {
-    if (core.isArrayBuffer(data) || core.isBlob(data) || core.isTypedArray(data)) {
+    if (sdkCore.isArrayBuffer(data) || sdkCore.isBlob(data) || sdkCore.isTypedArray(data)) {
       this._ws.send(data)
     }
     this._ws.send(JSON.stringify(data))

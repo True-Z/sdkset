@@ -2,10 +2,10 @@ import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
-// import livereload from 'rollup-plugin-livereload'
+import livereload from 'rollup-plugin-livereload'
 import externals from 'rollup-plugin-node-externals'
-// import serve from 'rollup-plugin-serve'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
+import serve from 'rollup-plugin-serve'
 
 /**
  * @plugins
@@ -24,6 +24,7 @@ export default {
   plugins: [
     commonjs(),
     externals({
+      builtins: false,
       packagePath: `packages/${process.env.target}/package.json`,
       devDeps: true,
       deps: false,
@@ -34,11 +35,11 @@ export default {
       declaration: false
     }),
     json(),
-    nodePolyfills()
-    // livereload(),
-    // serve({
-    //   open: false,
-    //   port: 7810
-    // })
+    nodePolyfills(),
+    livereload(),
+    serve({
+      open: false,
+      port: 7810
+    })
   ]
 }

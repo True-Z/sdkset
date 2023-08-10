@@ -10,7 +10,7 @@
   },
   "scripts": {
     "commit": "git add . && cz",
-    "dev": "rimraf dist/* -g && rollup --bundleConfigAsCjs -c rollup.dev.config.js --environment target:socket",
+    "dev": "rimraf dist/* -g && rollup --bundleConfigAsCjs -wc rollup.dev.config.js --environment target:axios",
     "test": "vitest",
     "lint": "eslint packages/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint packages/**/*.{js,jsx,ts,tsx} --fix",
@@ -39,7 +39,6 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.21.8",
-    "@babel/plugin-transform-runtime": "^7.21.4",
     "@babel/preset-env": "^7.21.5",
     "@commitlint/cli": "^17.6.7",
     "@rollup/plugin-babel": "^6.0.3",
@@ -84,8 +83,7 @@
     "vitest": "^0.32.0"
   },
   "dependencies": {
-    "@babel/runtime-corejs3": "^7.22.10",
-    "babel-runtime": "^6.26.0"
+    "@babel/runtime-corejs3": "^7.22.10"
   },
   "config": {
     "commitizen": {

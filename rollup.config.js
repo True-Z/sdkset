@@ -6,7 +6,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import strip from '@rollup/plugin-strip'
-// import terser from '@rollup/plugin-terser'
+import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import _esbuild from 'rollup-plugin-esbuild'
 import externals from 'rollup-plugin-node-externals'
@@ -57,27 +57,9 @@ const outputConfig = {
     format: 'es',
     preserveModules: true
   },
-  babel_es: {
-    file: resolve(pkg.babel_module),
-    format: 'es',
-    plugins: [
-      getBabelOutputPlugin({
-        configFile: path.resolve(__dirname, 'babel.config.js')
-      })
-    ]
-  },
   cjs: {
     file: resolve(pkg.main),
     format: 'cjs'
-  },
-  babel_cjs: {
-    file: resolve(pkg.babel_main),
-    format: 'cjs',
-    plugins: [
-      getBabelOutputPlugin({
-        configFile: path.resolve(__dirname, 'babel.config.js')
-      })
-    ]
   },
   umd: {
     file: resolve(pkg.browser),
@@ -86,7 +68,8 @@ const outputConfig = {
       getBabelOutputPlugin({
         allowAllFormats: true,
         configFile: path.resolve(__dirname, 'babel.config.js')
-      })
+      }),
+      terser()
     ]
   }
 }

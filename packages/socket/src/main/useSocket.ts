@@ -1,3 +1,4 @@
+import * as sdkCore from '@sdkset/core'
 import { useObserver } from '@sdkset/mode'
 
 import { Socket } from '../_'
@@ -48,6 +49,12 @@ export async function useSocket(config: SocketQuery, handle?: Partial<SocketHand
     if (!window.WebSocket) {
       reject(new TypeError('Browser does not support "WebSocket", it is recommended to replace or upgrade the browser'))
     }
+    if (sdkCore.isNil(config.url)) {
+      reject(new TypeError('The request url cannot be null or undefined'))
+    }
+    const conversParams = sdkCore.toParams(config.params)
+    config.params = sdkCore.ifNilorBlank(conversParams, '', (val) => `?${val}`)
+
     const observer = useObserver()
     const ws = new Socket({ ...config, observer, handle })
     observer.depend('load', () => {

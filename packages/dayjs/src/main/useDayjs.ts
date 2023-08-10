@@ -9,15 +9,24 @@ import { dayjsChangeTo, defineConfig } from '../_'
 
 import type { DayjsConfig, DayjsTo } from '../types'
 
-dayjs.extend(quarterOfYear)
-dayjs.extend(advancedFormat)
-dayjs.extend(weekOfYear)
-dayjs.extend(dayOfYear)
-dayjs.extend(utc)
+try {
+  dayjs.extend(quarterOfYear)
+  dayjs.extend(advancedFormat)
+  dayjs.extend(weekOfYear)
+  dayjs.extend(dayOfYear)
+  dayjs.extend(utc)
+} catch {
+  console.log(
+    'browser 环境下，需自行添加安装 dayjs 包装器插件：https://day.js.org/docs/zh-CN/plugin/loading-into-browser'
+  )
+}
 
 /**
- * 返回一个[day.js](https://dayjs.fenxianglu.cn/)包装器对象。
+ * 返回一个[day.js](https://dayjs.fenxianglu.cn/)包装器对象，
+ * 通过传入`config`配置对象给定时间和其他配置项，
+ * 可以通过添加[day.js 插件](https://dayjs.fenxianglu.cn/category/getset.html)为包装器添加功能。
  * 包装器自带插件：
+ *
  * [QuarterOfYear（.quarter() 返回/设置季度 & quarter unit）](https://dayjs.fenxianglu.cn/category/plugin.html#quarterofyear)
  *
  * [advancedFormat（为提供 format 更多的格式选项）](https://dayjs.fenxianglu.cn/category/plugin.html#advancedformat)
@@ -27,9 +36,6 @@ dayjs.extend(utc)
  * [dayOfYear（.dayOfYear() 返回/设置年中第几天））](https://dayjs.fenxianglu.cn/category/plugin.html#dayofyear)
  *
  * [UTC（世界时）](https://dayjs.fenxianglu.cn/category/plugin.html#utc)
- *
- * 可以通过添加[Day.js 插件](https://dayjs.fenxianglu.cn/category/getset.html)为包装器添加功能。
- * 通过传入`config`配置对象给定时间和其他配置项。
  *
  * @example
  * useDayjs({ time: '2012-12-21', change: 'format' })
@@ -48,5 +54,3 @@ export function useDayjs<C extends DayjsConfig>(config?: C) {
   }
   return dayjsChangeTo(change, dayjs(time), format) as DayjsTo<C['change']>
 }
-
-console.log('🚀 ~~ path: useDayjs.ts ~ line: 52 : ', useDayjs({ time: '2020', change: 'format' }))

@@ -23,34 +23,26 @@
     "dist"
   ],
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs.js"
-    },
-    "./babel": {
-      "import": "./dist/babel.es.js",
-      "require": "./dist/babel.cjs.js"
-    }
+    "import": "./dist/index.js",
+    "default": "./dist/index.cjs.js",
+    "types": "./dist/index.d.ts"
   },
-  "main": "dist/index.cjs.js",
-  "babel_main": "dist/babel.cjs.js",
   "module": "dist",
-  "babel_module": "dist/babel.es.js",
-  "browser": "dist/index.umd.js",
+  "main": "dist/index.cjs.js",
   "types": "dist/index.d.ts",
+  "browser": "dist/index.umd.js",
   "buildOptions": {
-    "name": "_storage",
+    "name": "sdkStorage",
     "formats": [
       "es",
-      "babel_es",
       "cjs",
-      "babel_cjs",
       "umd"
     ]
   },
-  "dependencies": {
+  "devDependencies": {
     "@sdkset/types": "workspace:*"
   },
+  "dependencies": {},
   "peerDependencies": {
     "@sdkset/types": "*"
   }
