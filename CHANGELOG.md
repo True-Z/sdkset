@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+## [3.2.0](https://github.com/True-Z/sdkset-utils/compare/v3.1.2...v3.2.0) (2023-08-10)
+
+
+### ✨ Features | 新功能
+
+* **core:** axios dayjs numeral socket 支持 UMD ([63a609d](https://github.com/True-Z/sdkset-utils/commit/63a609d5c691bcd72c5084fc47c6c60fdace9ad0))
+
 ### [3.1.2](https://github.com/True-Z/sdkset-utils/compare/v3.1.1...v3.1.2) (2023-08-09)
 
 ### [3.1.1](https://github.com/True-Z/sdkset-utils/compare/v3.1.0...v3.1.1) (2023-08-09)
