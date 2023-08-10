@@ -9,4 +9,4 @@ async function publish(target) {
   await execa('pnpm', ['--filter', target, 'publish:package'], { stdio: 'inherit' })
 }
 
-runParallel(conversArr, publish).catch()
+runParallel(conversArr, publish).catch((err) => err)

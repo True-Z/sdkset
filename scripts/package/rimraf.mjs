@@ -9,4 +9,4 @@ async function rimraf(target) {
   await execa('pnpm', ['--filter', target, 'rimraf:package'], { stdio: 'inherit' })
 }
 
-runParallel(conversArr, rimraf).catch()
+runParallel(conversArr, rimraf).catch((err) => err)

@@ -9,4 +9,4 @@ async function vitest(target) {
   await execa('pnpm', ['--filter', target, 'vitest:package'], { stdio: 'inherit' })
 }
 
-runParallel(conversArr, vitest).catch()
+runParallel(conversArr, vitest).catch((err) => err)

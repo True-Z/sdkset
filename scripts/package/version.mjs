@@ -1,5 +1,5 @@
 import { targets } from './setup.mjs'
-import fs from 'fs'
+import fs from 'node:fs'
 
 const mainPackage = fs.readFileSync('package.json', 'utf-8')
 const mainVersion = JSON.parse(mainPackage).version
