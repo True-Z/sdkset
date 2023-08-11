@@ -29,7 +29,7 @@ try {
  *
  * [QuarterOfYear（.quarter() 返回/设置季度 & quarter unit）](https://dayjs.fenxianglu.cn/category/plugin.html#quarterofyear)
  *
- * [advancedFormat（为提供 format 更多的格式选项）](https://dayjs.fenxianglu.cn/category/plugin.html#advancedformat)
+ * [advancedFormat（为 format 提供更多的格式选项）](https://dayjs.fenxianglu.cn/category/plugin.html#advancedformat)
  *
  * [WeekOfYear（.week() 返回/设置年中第几周）](https://dayjs.fenxianglu.cn/category/plugin.html#weekofyear)
  *
