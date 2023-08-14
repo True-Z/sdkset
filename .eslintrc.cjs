@@ -195,7 +195,7 @@ module.exports = {
     // ? typescript parser
     /** @type {string}
      * 附加解析器 */
-    parser: '@typescript-eslint/parser',
+    parser: '@typescript-eslint/parser'
 
     /** @type {number | 'Infinity'} 30 | 'Infinity'
      * 默认情况下，缓存条目将在 30 秒后被逐出，或者如果解析器推断它是单次运行，则将无限期保留。
@@ -260,63 +260,27 @@ module.exports = {
     /** @type {boolean} true
      * 如果您使用未明确支持的 TypeScript 版本，此选项允许您切换解析器将给您的警告 */
     // warnOnUnsupportedTypeScriptVersion: true,
-
-    // ? 指定如何解析与 Vue 功能相关的内容
-    vueFeatures: {
-      /** @type {boolean} true
-       * 解析 Vue2 过滤器 */
-      filter: false
-
-      /** @type {boolean} true
-       * 将插值解析为 HTML */
-      // interpolationAsNonHTML: true,
-
-      /** @type {boolean} true
-       * 解析标签v-bind内 CSS 函数中的表达式 <style> */
-      // styleCSSVariableInjection: true,
-
-      /** @type {string[]}
-       * 指定 Vue 标准宏以外的自定义宏名称的数组 */
-      // customMacros: []
-    }
   },
 
-  /** @type {object}
+  /** @type {Object}
+   * @param import/resolver {Object} 解析器
+   * @param import/parsers {Object} 解析器到文件扩展数组的映射
+   * @param import/extensions {string[]} ['.js'] 解析扩展名列表
+   * @param import/core-modules {string[]} 应该被视为已解析但在文件系统上没有路径的模块
+   * @param import/external-module-folders {string[]} ["node_modules"] 仅来自这些文件夹的解析模块将被视为“外部”
+   * @param import/internal-regex {string[]} 仅来自这些文件夹的解析模块将被视为“内部”
+   * @param import/cache {number | Infinity} 30 缓存行为的设置
    * 配置共享设置 */
   settings: {
-    /** @type {object}
-     * 解析器 */
     'import/resolver': {
       typescript: {
         alwaysTryTypes: true
       },
       node: true
     },
-
-    /** @type {object}
-     * 解析器到文件扩展数组的映射 */
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx']
     },
-
-    /** @type {string[]} ['.js']
-     * 解析扩展名列表 */
     'import/extensions': ['.js', '.jsx']
-
-    /** @type {string[]}
-     * 应该被视为已解析但在文件系统上没有路径的模块 */
-    // 'import/core-modules': []
-
-    /** @type {string[]} ["node_modules"]
-     * 仅来自这些文件夹的解析模块将被视为“外部” */
-    // 'import/external-module-folders': ['node_modules'],
-
-    /** @type {string[]}
-     * 仅来自这些文件夹的解析模块将被视为“内部” */
-    // 'import/internal-regex': []
-
-    /** @type {number | Infinity} 30
-     * 缓存行为的设置 */
-    // 'import/cache': Infinity
   }
 }
