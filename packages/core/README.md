@@ -1,3 +1,20 @@
+<p align="center"><a href="https://true-z.github.io/sdkset-utils-doc/" target="_blank" rel="noopener noreferrer"><img width="100" src="https://true-z.github.io/sdkset-utils-doc/tools.png" alt="sdkset logo"></a></p>
+
+<p align="center">
+	<a href="https://www.npmjs.com/package/@sdkset/utils">
+    <img src="https://img.shields.io/npm/v/@sdkset/utils.svg?sanitize=true" alt="Version">
+  </a>
+  <a href="https://npmcharts.com/compare/@sdkset/utils?minimal=true">
+    <img src="https://img.shields.io/npm/dm/@sdkset/utils.svg?sanitize=true" alt="Downloads">
+  </a>
+  <a href="https://packagephobia.com/result?p=@sdkset/utils">
+		<img src="https://packagephobia.com/badge?p=@sdkset/utils" alt="install size">
+  </a>
+  <a href="https://www.npmjs.com/package/@sdkset/utils">
+    <img src="https://img.shields.io/npm/l/@sdkset/utils.svg?sanitize=true" alt="License">
+  </a>
+</p>
+
 ## 简介
 
 > 简单易用，性能出色的前端工具库。使用`menorepo`组织项目结构，支持模块单独引入。
