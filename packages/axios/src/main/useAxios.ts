@@ -1,6 +1,5 @@
-import type { RequestConfig } from '../types'
 import type { Dictionary } from '@sdkset/types'
-import type { AxiosInstance } from 'axios'
+import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 
 /**
  * 返回一个基于`Promise`的[axios](https://www.axios-http.cn/)包装器对象，用于覆盖`axios.get`方法，并对请求`config`配置进行继承覆盖以便请求和使用自定义参数。
@@ -39,23 +38,37 @@ import type { AxiosInstance } from 'axios'
  * HTTP 的 OPTIONS 方法 用于获取目的资源所支持的通信选项
  *
  * @example
- * const serve = useAxios(AxiosInstance)
+ * import { axios, useAxios } from '@sdkset/axios'
+ * import type { AxiosInterceptor, AxiosRequestConfig } from '@sdkset/axios'
+ *
+ * interface RequestConfig extends AxiosRequestConfig {
+ *   [key: string]: unknown
+ *   noNeedToken?: boolean
+ *   ...
+ * }
+ *
+ * const interceptorConfig: AxiosInterceptor = { ... }
+ * axiosInstance.interceptors.request.use(interceptorConfig.reqResolve as any, interceptorConfig.reqReject)
+ * axiosInstance.interceptors.response.use(interceptorConfig.resResolve, interceptorConfig.resReject)
+ *
+ * const serve = useAxios<RequestConfig>(AxiosInstance)
  * await serve.get('url', params, config)
  * => response...
  *
  * @param axiosInstance axios 实例
  */
-export function useAxios(axiosInstance: AxiosInstance) {
+export function useAxios<T>(axiosInstance: AxiosInstance) {
   return {
-    request: (config: RequestConfig): Promise<any> => axiosInstance(config),
-    get: (url: string, params?: Dictionary, config?: RequestConfig): Promise<any> =>
-      axiosInstance({ url, params, ...config }),
-    post: (url: string, data?: unknown, config?: RequestConfig): Promise<any> => axiosInstance.post(url, data, config),
-    put: (url: string, data?: unknown, config?: RequestConfig): Promise<any> => axiosInstance.put(url, data, config),
-    delete: (url: string, config?: RequestConfig): Promise<any> => axiosInstance.delete(url, config),
-    patch: (url: string, data?: unknown, config?: RequestConfig): Promise<any> =>
-      axiosInstance.patch(url, data, config),
-    head: (url: string, config?: RequestConfig): Promise<any> => axiosInstance.head(url, config),
-    options: (url: string, config?: RequestConfig): Promise<any> => axiosInstance.options(url, config)
+    request: (config: T): Promise<any> => axiosInstance(config as AxiosRequestConfig),
+    get: (url: string, params?: Dictionary, config?: T): Promise<any> => axiosInstance({ url, params, ...config }),
+    post: (url: string, data?: unknown, config?: T): Promise<any> =>
+      axiosInstance.post(url, data, config as AxiosRequestConfig),
+    put: (url: string, data?: unknown, config?: T): Promise<any> =>
+      axiosInstance.put(url, data, config as AxiosRequestConfig),
+    delete: (url: string, config?: T): Promise<any> => axiosInstance.delete(url, config as AxiosRequestConfig),
+    patch: (url: string, data?: unknown, config?: T): Promise<any> =>
+      axiosInstance.patch(url, data, config as AxiosRequestConfig),
+    head: (url: string, config?: T): Promise<any> => axiosInstance.head(url, config as AxiosRequestConfig),
+    options: (url: string, config?: T): Promise<any> => axiosInstance.options(url, config as AxiosRequestConfig)
   }
 }
