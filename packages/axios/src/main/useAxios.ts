@@ -1,6 +1,6 @@
 import type { RequestConfig } from '../types'
 import type { Dictionary } from '@sdkset/types'
-import type { AxiosInstance, AxiosRequestConfig } from 'axios'
+import type { AxiosInstance } from 'axios'
 
 /**
  * 返回一个基于`Promise`的[axios](https://www.axios-http.cn/)包装器对象，用于覆盖`axios.get`方法，并对请求`config`配置进行继承覆盖以便请求和使用自定义参数。
@@ -47,17 +47,15 @@ import type { AxiosInstance, AxiosRequestConfig } from 'axios'
  */
 export function useAxios(axiosInstance: AxiosInstance) {
   return {
-    request: (config: RequestConfig) => axiosInstance(config as AxiosRequestConfig),
-    get: (url: string, params?: Dictionary, config?: RequestConfig) =>
-      axiosInstance({ url, params, ...config } as AxiosRequestConfig),
-    post: (url: string, data?: unknown, config?: RequestConfig) =>
-      axiosInstance.post(url, data, config as AxiosRequestConfig),
-    put: (url: string, data?: unknown, config?: RequestConfig) =>
-      axiosInstance.put(url, data, config as AxiosRequestConfig),
-    delete: (url: string, config?: RequestConfig) => axiosInstance.delete(url, config as AxiosRequestConfig),
-    patch: (url: string, data?: unknown, config?: RequestConfig) =>
-      axiosInstance.patch(url, data, config as AxiosRequestConfig),
-    head: (url: string, config?: RequestConfig) => axiosInstance.head(url, config as AxiosRequestConfig),
-    options: (url: string, config?: RequestConfig) => axiosInstance.options(url, config as AxiosRequestConfig)
+    request: (config: RequestConfig): Promise<any> => axiosInstance(config),
+    get: (url: string, params?: Dictionary, config?: RequestConfig): Promise<any> =>
+      axiosInstance({ url, params, ...config }),
+    post: (url: string, data?: unknown, config?: RequestConfig): Promise<any> => axiosInstance.post(url, data, config),
+    put: (url: string, data?: unknown, config?: RequestConfig): Promise<any> => axiosInstance.put(url, data, config),
+    delete: (url: string, config?: RequestConfig): Promise<any> => axiosInstance.delete(url, config),
+    patch: (url: string, data?: unknown, config?: RequestConfig): Promise<any> =>
+      axiosInstance.patch(url, data, config),
+    head: (url: string, config?: RequestConfig): Promise<any> => axiosInstance.head(url, config),
+    options: (url: string, config?: RequestConfig): Promise<any> => axiosInstance.options(url, config)
   }
 }

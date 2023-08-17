@@ -5,7 +5,7 @@ import quarterOfYear from 'dayjs/plugin/quarterOfYear.js'
 import utc from 'dayjs/plugin/utc.js'
 import weekOfYear from 'dayjs/plugin/weekOfYear.js'
 
-import { dayjsChangeTo, defineConfig } from '../_'
+import { dayjsChangeTo, defineConfig } from '../helpers'
 
 import type { DayjsConfig, DayjsTo } from '../types'
 

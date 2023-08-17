@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 
-import { defineConfig } from '../_'
+import { defineConfig } from '../helpers'
 
 import type { DayjsConfig } from '../types'
 import type { UnitType } from 'dayjs'

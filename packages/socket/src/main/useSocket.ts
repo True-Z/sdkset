@@ -1,7 +1,7 @@
 import * as sdkCore from '@sdkset/core'
 import { useObserver } from '@sdkset/mode'
 
-import { Socket } from '../_'
+import { Socket } from '../helpers'
 
 import type { SocketHandle, SocketQuery } from '../types'
 
