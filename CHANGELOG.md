@@ -1,4 +1,6 @@
 # 更新日志（CHANGELOG）
+### [3.3.1](https://github.com/True-Z/sdkset-utils/compare/v3.3.0...v3.3.1) (2023-08-17)
+
 ## [3.3.0](https://github.com/True-Z/sdkset-utils/compare/v3.2.0...v3.3.0) (2023-08-17)
 
 
