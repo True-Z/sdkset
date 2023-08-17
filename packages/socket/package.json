@@ -1,6 +1,6 @@
 {
   "name": "@sdkset/socket",
-  "version": "3.3.1",
+  "version": "3.3.2",
   "description": "WebSocket re encapsulation",
   "author": "True",
   "license": "MIT",
