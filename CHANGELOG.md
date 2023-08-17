@@ -1,4 +1,16 @@
 # 更新日志（CHANGELOG）
+## [3.3.0](https://github.com/True-Z/sdkset-utils/compare/v3.2.0...v3.3.0) (2023-08-17)
+
+
+### 📦‍ Build System | 打包构建
+
+* **build:** node 模块引入添加 node: 前缀 ([a0f43cf](https://github.com/True-Z/sdkset-utils/commit/a0f43cf84a3adfbfc1058030aea9e41a92c5a88a))
+
+
+### ✨ Features | 新功能
+
+* axios 模块导出 axios 拦截器对象类型 ([4d2f013](https://github.com/True-Z/sdkset-utils/commit/4d2f01392d7e0fda797e44f226eedbf244292ea9))
+
 ## [3.2.0](https://github.com/True-Z/sdkset-utils/compare/v3.1.2...v3.2.0) (2023-08-10)
 
 
