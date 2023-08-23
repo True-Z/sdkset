@@ -38,7 +38,7 @@ import type { AxiosInstance, AxiosRequestConfig } from 'axios'
  * HTTP 的 OPTIONS 方法 用于获取目的资源所支持的通信选项
  *
  * @example
- * import { axios, useAxios } from '@sdkset/axios'
+ * import { useAxios, useAxiosPack } from '@sdkset/axios'
  * import type { AxiosInterceptor, AxiosRequestConfig } from '@sdkset/axios'
  *
  * interface RequestConfig extends AxiosRequestConfig {
@@ -47,28 +47,37 @@ import type { AxiosInstance, AxiosRequestConfig } from 'axios'
  *   ...
  * }
  *
+ * const axios = useAxios()
+ *
  * const interceptorConfig: AxiosInterceptor = { ... }
  * axiosInstance.interceptors.request.use(interceptorConfig.reqResolve as any, interceptorConfig.reqReject)
  * axiosInstance.interceptors.response.use(interceptorConfig.resResolve, interceptorConfig.resReject)
  *
- * const serve = useAxios<RequestConfig>(AxiosInstance)
+ * const serve = useAxiosPack<RequestConfig>(AxiosInstance)
  * await serve.get('url', params, config)
  * => response...
  *
  * @param axiosInstance axios 实例
  */
-export function useAxios<T>(axiosInstance: AxiosInstance) {
+export function useAxiosPack<T>(axiosInstance: AxiosInstance) {
   return {
     request: (config: T): Promise<any> => axiosInstance(config as AxiosRequestConfig),
+
     get: (url: string, params?: Dictionary, config?: T): Promise<any> => axiosInstance({ url, params, ...config }),
+
     post: (url: string, data?: unknown, config?: T): Promise<any> =>
       axiosInstance.post(url, data, config as AxiosRequestConfig),
+
     put: (url: string, data?: unknown, config?: T): Promise<any> =>
       axiosInstance.put(url, data, config as AxiosRequestConfig),
+
     delete: (url: string, config?: T): Promise<any> => axiosInstance.delete(url, config as AxiosRequestConfig),
+
     patch: (url: string, data?: unknown, config?: T): Promise<any> =>
       axiosInstance.patch(url, data, config as AxiosRequestConfig),
+
     head: (url: string, config?: T): Promise<any> => axiosInstance.head(url, config as AxiosRequestConfig),
+
     options: (url: string, config?: T): Promise<any> => axiosInstance.options(url, config as AxiosRequestConfig)
   }
 }
