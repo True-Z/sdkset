@@ -1,6 +1,7 @@
 import type { Dictionary } from '@sdkset/types'
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 
+/** 包装器对象 */
 export class AxiosWrapper<T> {
   axios: AxiosInstance
 
