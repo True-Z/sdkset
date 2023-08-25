@@ -38,8 +38,8 @@ import { CreateAxiosOption } from '../types'
  *
  * const config: CreateAxiosDefaults = { ... }
  * const interceptor: AxiosInterceptor = { ... }
- * const serve = useAxios<RequestConfig>({ option, interceptor })
- * await serve.get('url', params, config)
+ * const axios = useAxios<RequestConfig>({ option, interceptor })
+ * await axios.get('url', params, config)
  * => response...
  *
  * @param option 包装器选项
