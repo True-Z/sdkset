@@ -10,12 +10,19 @@ import { CreateConfig } from '../types'
  *
  * @method
  * `axios.request(config)`
+ *
  * `axios.get(url, params, config)`
+ *
  * `axios.post(url, data, config)`
+ *
  * `axios.put(url, data, config)`
+ *
  * `axios.delete(url, config)`
+ *
  * `axios.patch(url, data, config)`
+ *
  * `axios.head(url, config)`
+ *
  * `axios.options(url, config)`
  *
  * @example
