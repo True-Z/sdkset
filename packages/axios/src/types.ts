@@ -25,7 +25,6 @@ export interface AxiosInterceptor {
 
 /** 包装器对象 */
 export interface AxiosWrapper<T> {
-  /** Axios request 方法使用自定义配置发起 axios 请求 */
   request: (config: T) => Promise<any>
   /** HTTP GET 方法请求指定的资源。使用 GET 的请求应该只用于获取数据 */
   get: (url: string, params?: Dictionary, config?: T) => Promise<any>
