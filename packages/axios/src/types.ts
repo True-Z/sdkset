@@ -19,6 +19,17 @@ export interface AxiosInterceptor {
   resOptions?: AxiosInterceptorOptions
 }
 
+export interface AxiosWrapper<T> {
+  request: (config: T) => Promise<any>
+  delete: (url: string, config?: T) => Promise<any>
+  get: (url: string, params?: Dictionary, config?: T) => Promise<any>
+  head: (url: string, config?: T) => Promise<any>
+  options: (url: string, config?: T) => Promise<any>
+  patch: (url: string, data?: unknown, config?: T) => Promise<any>
+  post: (url: string, data?: unknown, config?: T) => Promise<any>
+  put: (url: string, data?: unknown, config?: T) => Promise<any>
+}
+
 export interface CreateConfig extends Dictionary {
   self: boolean
   option?: CreateAxiosDefaults

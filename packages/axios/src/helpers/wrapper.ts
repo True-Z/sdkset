@@ -1,7 +1,8 @@
-import { Dictionary } from '@sdkset/types'
-import { AxiosInstance, AxiosRequestConfig } from 'axios'
+import type { AxiosWrapper } from '../types'
+import type { Dictionary } from '@sdkset/types'
+import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 
-export function wrapper<T>(axiosInstance: AxiosInstance) {
+export function wrapper<T>(axiosInstance: AxiosInstance): AxiosWrapper<T> {
   return {
     request: (config: T): Promise<any> => axiosInstance(config as AxiosRequestConfig),
 
