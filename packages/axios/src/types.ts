@@ -1,7 +1,7 @@
-import type { AxiosInterceptorOptions, AxiosRequestConfig, AxiosResponse } from 'axios'
+import { Dictionary } from '@sdkset/types'
+import { CreateAxiosDefaults } from 'axios'
 
-/** axios 配置对象 */
-export { AxiosRequestConfig }
+import type { AxiosInterceptorOptions, AxiosResponse } from 'axios'
 
 /** axios 拦截器配置对象 */
 export interface AxiosInterceptor {
@@ -17,4 +17,10 @@ export interface AxiosInterceptor {
   resReject?: ((error: any) => any) | null
   /** 响应拦截配置 */
   resOptions?: AxiosInterceptorOptions
+}
+
+export interface CreateConfig extends Dictionary {
+  self: boolean
+  option?: CreateAxiosDefaults
+  interceptor?: AxiosInterceptor
 }
