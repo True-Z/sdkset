@@ -1,2 +1,2 @@
-export * from './defineConfig'
+export * from './init'
 export * from './dayjsChangeTo'

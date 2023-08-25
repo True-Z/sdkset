@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 
-import { dayjsChangeTo, defineConfig } from '../helpers'
+import { dayjsChangeTo, init } from '../helpers'
 
 import type { DayjsConfig, DayjsTo } from '../types'
 import type { OpUnitType, QUnitType } from 'dayjs'
@@ -21,9 +21,7 @@ import type { OpUnitType, QUnitType } from 'dayjs'
  * @param config.useUTC 使用 UTC 模式
  */
 export function startDate<C extends DayjsConfig>(timeUnit: QUnitType | OpUnitType, config?: C) {
-  const { time, change, format, useUTC } = defineConfig(config)
-  if (useUTC) {
-    return dayjsChangeTo(change, dayjs(time).startOf(timeUnit).utc(), format) as DayjsTo<C['change']>
-  }
+  const { time, change, format } = init(config)
+
   return dayjsChangeTo(change, dayjs(time).startOf(timeUnit), format) as DayjsTo<C['change']>
 }

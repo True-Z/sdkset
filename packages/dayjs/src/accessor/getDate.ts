@@ -1,6 +1,6 @@
 import dayjs from 'dayjs'
 
-import { defineConfig } from '../helpers'
+import { init } from '../helpers'
 
 import type { DayjsConfig } from '../types'
 import type { UnitType } from 'dayjs'
@@ -19,9 +19,7 @@ import type { UnitType } from 'dayjs'
  * @param config.useUTC 使用 UTC 模式
  */
 export function getDate(timeUnit: UnitType, config?: Omit<DayjsConfig, 'change' | 'format'>) {
-  const { time, useUTC } = defineConfig(config)
-  if (useUTC) {
-    return dayjs(time).utc().get(timeUnit)
-  }
+  const { time } = init(config)
+
   return dayjs(time).get(timeUnit)
 }

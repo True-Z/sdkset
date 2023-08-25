@@ -21,7 +21,7 @@ const defaultConfig: Required<DayjsConfig> = {
  * @param updateConfig 包装器更新配置
  */
 
-export function defineConfig<C extends DayjsConfig>(updateConfig?: C) {
+export function init<C extends DayjsConfig>(updateConfig?: C) {
   if (updateConfig == null) {
     return defaultConfig
   }

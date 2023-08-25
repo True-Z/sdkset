@@ -1,14 +1,17 @@
-import { defaultConfig } from './config'
-import { CreateConfig } from '../types'
+import { CreateAxiosOption } from '../types'
 
-export function init<C extends CreateConfig>(updateConfig: C) {
-  if (updateConfig == null) {
-    return defaultConfig
+const defaultOption: Required<CreateAxiosOption> = {
+  config: {},
+  interceptor: {}
+}
+
+export function init<C extends CreateAxiosOption>(customOption: C) {
+  if (customOption == null) {
+    return defaultOption
   }
-
-  const config = {} as Required<CreateConfig>
-  Object.keys(defaultConfig).forEach((key) => {
-    config[key] = updateConfig[key] || defaultConfig[key]
+  const config = {} as Required<CreateAxiosOption>
+  Object.keys(defaultOption).forEach((key) => {
+    config[key] = customOption[key] || defaultOption[key]
   })
   return config
 }

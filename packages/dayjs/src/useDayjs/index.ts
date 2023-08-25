@@ -2,10 +2,9 @@ import dayjs from 'dayjs'
 import advancedFormat from 'dayjs/plugin/advancedFormat.js'
 import dayOfYear from 'dayjs/plugin/dayOfYear.js'
 import quarterOfYear from 'dayjs/plugin/quarterOfYear.js'
-import utc from 'dayjs/plugin/utc.js'
 import weekOfYear from 'dayjs/plugin/weekOfYear.js'
 
-import { dayjsChangeTo, defineConfig } from '../helpers'
+import { dayjsChangeTo, init } from '../helpers'
 
 import type { DayjsConfig, DayjsTo } from '../types'
 
@@ -14,9 +13,8 @@ try {
   dayjs.extend(advancedFormat)
   dayjs.extend(weekOfYear)
   dayjs.extend(dayOfYear)
-  dayjs.extend(utc)
 } catch {
-  console.log(
+  console.warn(
     'browser 环境下，需自行添加安装 dayjs 包装器插件：https://day.js.org/docs/zh-CN/plugin/loading-into-browser'
   )
 }
@@ -35,22 +33,40 @@ try {
  *
  * [dayOfYear（.dayOfYear() 返回/设置年中第几天））](https://dayjs.fenxianglu.cn/category/plugin.html#dayofyear)
  *
- * [UTC（世界时）](https://dayjs.fenxianglu.cn/category/plugin.html#utc)
- *
  * @example
  * useDayjs({ time: '2012-12-21', change: 'format' })
  * => '2012-12-21 00:00:00'
  *
  * @param config 包装器配置
- * @param config.time 给定时间
  * @param config.change 转换格式
  * @param config.format 格式化字符串
  * @param config.useUTC 使用 UTC 模式
  */
 export function useDayjs<C extends DayjsConfig>(config?: C) {
-  const { time, change, format, useUTC } = defineConfig(config)
-  if (useUTC) {
-    return dayjsChangeTo(change, dayjs(time).utc(), format) as DayjsTo<C['change']>
-  }
+  const { time, change, format } = init(config)
   return dayjsChangeTo(change, dayjs(time), format) as DayjsTo<C['change']>
 }
+//
+// const date = useDayjs({
+//   change: 'date',
+//   format: 'YYYY-MM-DD HH:mm:ss'
+// })
+//
+// interface Demo {
+//   type: 'custom' | 'dayjs'
+// }
+// const changeType = {
+//   custom: (date: string) => {
+//     const data = dayjs(date)
+//     return () => {}
+//   },
+//   dayjs: (date: string) => dayjs(date)
+// }
+// export function useDayjsUp(date?: DayjsTime, option?: DayjsConfig) {
+//   if (option) {
+//     return customDate(option)
+//   }
+//   return dayjs(date)
+// }
+//
+// useDayjsUp()

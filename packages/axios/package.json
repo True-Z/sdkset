@@ -45,7 +45,6 @@
   },
   "dependencies": {},
   "peerDependencies": {
-    "@sdkset/types": "*",
-    "axios": "^1.4.0"
+    "@sdkset/types": "*"
   }
 }

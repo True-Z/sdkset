@@ -1,9 +1,13 @@
-import { Dictionary } from '@sdkset/types'
-import { CreateAxiosDefaults } from 'axios'
+import type { Dictionary } from '@sdkset/types'
+import type { AxiosInterceptorOptions, AxiosResponse, CreateAxiosDefaults } from 'axios'
 
-import type { AxiosInterceptorOptions, AxiosResponse } from 'axios'
+/** 创建配置对象 */
+export interface CreateAxiosOption extends Dictionary {
+  config?: CreateAxiosDefaults
+  interceptor?: AxiosInterceptor
+}
 
-/** axios 拦截器配置对象 */
+/** 拦截器对象 */
 export interface AxiosInterceptor {
   /** 请求发送前，需要注意的是，`reqResolve`接收`config`对象为继承覆盖对象，便于 ts 拓展的同时，原有的拦截器函数已不满足约束`config`，暂行解决方案为（as any）  */
   reqResolve?: ((value: any) => any | Promise<any>) | null
@@ -19,6 +23,7 @@ export interface AxiosInterceptor {
   resOptions?: AxiosInterceptorOptions
 }
 
+/** 包装器对象 */
 export interface AxiosWrapper<T> {
   /** Axios request 方法使用自定义配置发起 axios 请求 */
   request: (config: T) => Promise<any>
@@ -36,10 +41,4 @@ export interface AxiosWrapper<T> {
   head: (url: string, config?: T) => Promise<any>
   /** HTTP 的 OPTIONS 方法 用于获取目的资源所支持的通信选项 */
   options: (url: string, config?: T) => Promise<any>
-}
-
-export interface CreateConfig extends Dictionary {
-  self: boolean
-  option?: CreateAxiosDefaults
-  interceptor?: AxiosInterceptor
 }

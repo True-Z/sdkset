@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-import { init, wrapper } from '../helpers'
-import { CreateConfig } from '../types'
+import { init } from '../helpers'
+import { CreateAxiosOption } from '../types'
 
 /**
  * 返回一个基于`Promise`的[axios](https://www.axios-http.cn/)包装器对象。
@@ -26,32 +26,42 @@ import { CreateConfig } from '../types'
  * `axios.options(url, config)`
  *
  * @example
- * import { useAxios, useAxiosPack } from '@sdkset/axios'
- * import type { AxiosInterceptor, AxiosRequestConfig } from '@sdkset/axios'
+ * import { useAxios } from '@sdkset/axios'
+ *
+ * import type { AxiosRequestConfig, CreateAxiosDefaults } from 'axios'
+ * import type { AxiosInterceptor } from '@sdkset/axios'
  *
  * interface RequestConfig extends AxiosRequestConfig {
- *   [key: string]: unknown
  *   noNeedToken?: boolean
  *   ...
  * }
  *
- * const serve = useAxios<RequestConfig>({ option: { ... }, interceptor: { ... } })
+ * const config: CreateAxiosDefaults = { ... }
+ * const interceptor: AxiosInterceptor = { ... }
+ * const serve = useAxios<RequestConfig>({ option, interceptor })
  * await serve.get('url', params, config)
  * => response...
  *
- * @param config axios 实例
+ * @param option 包装器选项
+ * @param option.config 创建配置对象
+ * @param option.interceptor 拦截器对象
  */
 
-export function useAxios<T, C extends CreateConfig = CreateConfig>(config: C) {
-  const { self, interceptor, option } = init(config)
+export function useAxios<T, C extends CreateAxiosOption>(option: C) {
+  const { interceptor, config } = init(option)
 
-  if (self) {
-    return axios
-  }
-
-  const axiosInstance = axios.create(option)
+  const axiosInstance = axios.create(config)
   axiosInstance.interceptors.request.use(interceptor.reqResolve, interceptor.reqReject, interceptor.reqOptions)
   axiosInstance.interceptors.response.use(interceptor.resResolve, interceptor.resReject, interceptor.resOptions)
+  return new Demo()
+}
 
-  return wrapper<T>(axiosInstance)
+class Demo {
+  constructor() {
+    console.log('🚀 ~~ path: index.ts ~ line: 61 : ', 1)
+  }
+
+  add() {
+    console.log('🚀 ~~ path: index.ts ~ line: 64 : ', 'add')
+  }
 }
