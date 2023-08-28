@@ -4,9 +4,9 @@ import dayOfYear from 'dayjs/plugin/dayOfYear.js'
 import quarterOfYear from 'dayjs/plugin/quarterOfYear.js'
 import weekOfYear from 'dayjs/plugin/weekOfYear.js'
 
-import { DayjsWrapper, init } from '../helpers'
+import { DayjsWrapper, initDayjs } from '../helpers'
 
-import type { CreateDayjsOption } from '../types'
+import type { CreateDayjsOption, DayjsDate } from '../types'
 
 try {
   dayjs.extend(quarterOfYear)
@@ -39,15 +39,15 @@ try {
  * dayjs.add('year', 1)
  * => '2013-12-21 00:00:00'
  *
+ * @param date 给定时间
  * @param option 包装器选项
- * @param option.date 给定时间（default：new Date()）
- * @param option.convers 转换格式（default：'format'）
- * @param option.template 格式化模板（default: 'YYYY-MM-DD HH:MM:ss'）
+ * @param option.convers 转换格式（default：'dayjs'）
+ * @param option.template 格式化模板（default: 'YYYY-MM-DD HH:mm:ss'）
  */
-export function useDayjs<C extends CreateDayjsOption>(option?: C) {
-  const { date, convers, template } = init(option)
+export function useDayjs<C extends CreateDayjsOption>(date?: DayjsDate, option?: C) {
+  const { convers, template } = initDayjs(option)
 
-  const dayjsInstance = dayjs(date)
+  const dayjsInstance = dayjs(date ?? undefined)
 
   return new DayjsWrapper<C>(dayjsInstance, convers, template)
 }

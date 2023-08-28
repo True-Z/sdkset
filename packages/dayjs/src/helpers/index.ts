@@ -1,2 +1,2 @@
-export * from './init'
-export * from './wrapper'
+export * from './initDayjs'
+export * from './DayjsWrapper'

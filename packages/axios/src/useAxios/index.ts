@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { AxiosWrapper, init } from '../helpers'
+import { AxiosWrapper, initAxios } from '../helpers'
 import { CreateAxiosOption } from '../types'
 
 /**
@@ -43,11 +43,11 @@ import { CreateAxiosOption } from '../types'
  * => response...
  *
  * @param option 包装器选项
- * @param option.config 创建配置对象
- * @param option.interceptor 拦截器对象
+ * @param option.config 创建配置对象（default：{}）
+ * @param option.interceptor 拦截器对象（default：{}）
  */
 export function useAxios<T>(option: CreateAxiosOption) {
-  const { interceptor, config } = init(option)
+  const { interceptor, config } = initAxios(option)
 
   const axiosInstance = axios.create(config)
   axiosInstance.interceptors.request.use(interceptor.reqResolve, interceptor.reqReject, interceptor.reqOptions)
