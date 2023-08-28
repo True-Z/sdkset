@@ -4,9 +4,9 @@ import dayOfYear from 'dayjs/plugin/dayOfYear.js'
 import quarterOfYear from 'dayjs/plugin/quarterOfYear.js'
 import weekOfYear from 'dayjs/plugin/weekOfYear.js'
 
-import { dayjsChangeTo, init } from '../helpers'
+import { DayjsWrapper, init } from '../helpers'
 
-import type { DayjsConfig, DayjsTo } from '../types'
+import type { CreateDayjsOption } from '../types'
 
 try {
   dayjs.extend(quarterOfYear)
@@ -14,9 +14,7 @@ try {
   dayjs.extend(weekOfYear)
   dayjs.extend(dayOfYear)
 } catch {
-  console.warn(
-    'browser 环境下，需自行添加安装 dayjs 包装器插件：https://day.js.org/docs/zh-CN/plugin/loading-into-browser'
-  )
+  console.warn('browser 环境下，如需使用插件，请参阅：https://day.js.org/docs/zh-CN/plugin/loading-into-browser')
 }
 
 /**
@@ -34,39 +32,22 @@ try {
  * [dayOfYear（.dayOfYear() 返回/设置年中第几天））](https://dayjs.fenxianglu.cn/category/plugin.html#dayofyear)
  *
  * @example
- * useDayjs({ time: '2012-12-21', change: 'format' })
+ * const dayjs = useDayjs({ date: '2012-01-21 00:00:00', convers: 'format' })
+ * dayjs.format()
  * => '2012-12-21 00:00:00'
  *
- * @param config 包装器配置
- * @param config.change 转换格式
- * @param config.format 格式化字符串
- * @param config.useUTC 使用 UTC 模式
+ * dayjs.add('year', 1)
+ * => '2013-12-21 00:00:00'
+ *
+ * @param option 包装器选项
+ * @param option.date 给定时间（default：new Date()）
+ * @param option.convers 转换格式（default：'format'）
+ * @param option.template 格式化模板（default: 'YYYY-MM-DD HH:MM:ss'）
  */
-export function useDayjs<C extends DayjsConfig>(config?: C) {
-  const { time, change, format } = init(config)
-  return dayjsChangeTo(change, dayjs(time), format) as DayjsTo<C['change']>
+export function useDayjs<C extends CreateDayjsOption>(option?: C) {
+  const { date, convers, template } = init(option)
+
+  const dayjsInstance = dayjs(date)
+
+  return new DayjsWrapper<C>(dayjsInstance, convers, template)
 }
-//
-// const date = useDayjs({
-//   change: 'date',
-//   format: 'YYYY-MM-DD HH:mm:ss'
-// })
-//
-// interface Demo {
-//   type: 'custom' | 'dayjs'
-// }
-// const changeType = {
-//   custom: (date: string) => {
-//     const data = dayjs(date)
-//     return () => {}
-//   },
-//   dayjs: (date: string) => dayjs(date)
-// }
-// export function useDayjsUp(date?: DayjsTime, option?: DayjsConfig) {
-//   if (option) {
-//     return customDate(option)
-//   }
-//   return dayjs(date)
-// }
-//
-// useDayjsUp()

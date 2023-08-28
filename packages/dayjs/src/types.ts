@@ -1,11 +1,21 @@
 import type { Dictionary } from '@sdkset/types'
 import type { Dayjs } from 'dayjs'
 
-/** 给定时间格式 */
-export type DayjsTime = string | number | Dayjs | Date | null | undefined
-
-/** 格式化字符串 */
-export type DayjsFormat =
+/** 包装器选项 */
+export interface CreateDayjsOption extends Dictionary {
+  /** 给定时间 */
+  date?: DayjsDate
+  /** 转换类型 */
+  convers?: DayjsConvers
+  /** 格式化模板 */
+  template?: DayjsTemplate
+}
+/** 给定时间 */
+export type DayjsDate = string | number | Dayjs | Date | null | undefined
+/** 转换类型 */
+export type DayjsConvers = 'format' | 'date' | 'timeStamp'
+/** 格式化模板 */
+export type DayjsTemplate =
   | 'YYYY-MM-DD HH:mm:ss'
   | 'YYYY-MM-DD'
   | 'HH:mm:ss'
@@ -44,43 +54,14 @@ export type DayjsFormat =
   | 'w'
   | 'ww'
   | 'wo'
-  | string
 
-/** 转换类型 */
-export type DayjsChange = 'dayjs' | 'format' | 'date' | 'timeStamp'
-
-/** 自定义时间集合类型 */
-export type DayjsCustomType = 'date' | 'dateTime' | 'thisDay' | 'thisWeek' | 'thisMonth' | 'thisYear'
-
-/** 包装器配置 */
-export interface DayjsConfig {
-  [key: string]: unknown
-  /** 给定时间 */
-  time?: DayjsTime
-  /** 转换类型 */
-  change?: DayjsChange
-  /** 格式化字符串 */
-  format?: DayjsFormat
-  /** 是否使用 UTC 模式 */
-  useUTC?: boolean
-}
-
-/** 包装器返回类型 */
-export type DayjsTo<T> = undefined extends T
-  ? Dayjs
-  : T extends 'dayjs'
-  ? Dayjs
-  : T extends 'format'
+/** 包装器转换 */
+export type DayjsTypeTo<C extends CreateDayjsOption> = undefined extends C['convers']
   ? string
-  : T extends 'date'
+  : C['convers'] extends 'format'
+  ? string
+  : C['convers'] extends 'date'
   ? Date
-  : T extends 'timeStamp'
+  : C['convers'] extends 'timeStamp'
   ? number
   : never
-
-/** 自定义时间集合返回类型 */
-export type CustomDateTo<T extends DayjsCustomType, K> = T extends 'date'
-  ? Dictionary<DayjsTo<K>>
-  : T extends 'dateTime'
-  ? Dictionary<[DayjsTo<K>, DayjsTo<K>]>
-  : [DayjsTo<K>, DayjsTo<K>]

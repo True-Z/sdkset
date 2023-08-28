@@ -4,7 +4,7 @@ import { AxiosWrapper, init } from '../helpers'
 import { CreateAxiosOption } from '../types'
 
 /**
- * 返回一个基于`Promise`的[axios](https://www.axios-http.cn/)包装器对象。
+ * 返回一个[axios](https://www.axios-http.cn/)包装器对象。
  * 包装器对`axios.get`方法调用方式进行了改写。
  * 使用`TypeScript`时，可以通过传递泛型参数的形式控制请求`config`对象类型。
  *
@@ -46,12 +46,12 @@ import { CreateAxiosOption } from '../types'
  * @param option.config 创建配置对象
  * @param option.interceptor 拦截器对象
  */
-
 export function useAxios<T>(option: CreateAxiosOption) {
   const { interceptor, config } = init(option)
 
   const axiosInstance = axios.create(config)
   axiosInstance.interceptors.request.use(interceptor.reqResolve, interceptor.reqReject, interceptor.reqOptions)
   axiosInstance.interceptors.response.use(interceptor.resResolve, interceptor.resReject, interceptor.resOptions)
+
   return new AxiosWrapper<T>(axiosInstance)
 }

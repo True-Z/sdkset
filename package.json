@@ -10,7 +10,7 @@
   },
   "scripts": {
     "commit": "git add . && cz",
-    "dev": "rimraf dist/* -g && rollup --bundleConfigAsCjs -wc rollup.dev.config.js --environment target:axios",
+    "dev": "rimraf dist/* -g && rollup --bundleConfigAsCjs -wc rollup.dev.config.js --environment target:dayjs",
     "test": "vitest",
     "lint": "eslint packages/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint packages/**/*.{js,jsx,ts,tsx} --fix",
@@ -24,6 +24,7 @@
     "doc:deploy:html": "pnpm scripts/global/deploy.html.bat",
     "doc:deploy:markdown": "rimraf docs/.vitepress/dist/* -g && pnpm doc:build && pnpm scripts/global/deploy.markdown.bat",
     "typedoc:summary": " pnpm typedoc:html && pnpm typedoc:markdown",
+    "typedoc:test": "typedoc --options typedoc.markdown.json && node scripts/package/copyFile.mjs && node docs/scripts/createFrontmatter.cjs",
     "typedoc:html": "typedoc --options typedoc.html.json",
     "typedoc:markdown": "typedoc --options typedoc.markdown.json && node scripts/package/copyFile.mjs && pnpm scripts/global/package.markdown.bat && node docs/scripts/createFrontmatter.cjs",
     "package:vitest": "node scripts/package/vitest.mjs",

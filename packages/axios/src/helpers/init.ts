@@ -5,6 +5,7 @@ const defaultOption: Required<CreateAxiosOption> = {
   interceptor: {}
 }
 
+/** 选项初始化 */
 export function init<C extends CreateAxiosOption>(customOption: C) {
   if (customOption == null) {
     return defaultOption

@@ -1,33 +1,19 @@
-import type { DayjsConfig } from '../types'
+import type { CreateDayjsOption } from '../types'
 
-/** `dayjs`包装器默认配置 */
-const defaultConfig: Required<DayjsConfig> = {
-  time: new Date(),
-  change: 'dayjs',
-  format: 'YYYY-MM-DD HH:mm:ss',
-  useUTC: false
+const defaultOption: Required<CreateDayjsOption> = {
+  date: new Date(),
+  convers: 'format',
+  template: 'YYYY-MM-DD HH:mm:ss'
 }
 
-/**
- * 返回`dayjs`包装器配置，如有更新配置则使用新配置，无则默认，返回处理完成的配置。
- *
- * @example
- * defineConfig({});
- * => defaultConfig
- *
- * defineConfig({...});
- * => {...}
- *
- * @param updateConfig 包装器更新配置
- */
-
-export function init<C extends DayjsConfig>(updateConfig?: C) {
-  if (updateConfig == null) {
-    return defaultConfig
+/** 选项初始化 */
+export function init<C extends CreateDayjsOption>(customOption?: C) {
+  if (customOption == null) {
+    return defaultOption
   }
-  const config = {} as Required<DayjsConfig>
-  Object.keys(defaultConfig).forEach((key) => {
-    config[key] = updateConfig[key] || defaultConfig[key]
+  const config = {} as Required<CreateDayjsOption>
+  Object.keys(defaultOption).forEach((key) => {
+    config[key] = customOption[key] || defaultOption[key]
   })
   return config
 }
