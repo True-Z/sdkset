@@ -5,7 +5,7 @@ import { getBabelOutputPlugin } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-import strip from '@rollup/plugin-strip'
+// import strip from '@rollup/plugin-strip'
 import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import _esbuild from 'rollup-plugin-esbuild'
@@ -105,9 +105,9 @@ function createConfig(format, output) {
         tsconfig: resolve('tsconfig.json')
       }),
       json(),
-      strip({
-        include: '**/*.(js|jsx|ts|tsx)'
-      }),
+      // strip({
+      //   include: '**/*.(js|jsx|ts|tsx)'
+      // }),
       esbuild()
     ]
   }

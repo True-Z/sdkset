@@ -17,12 +17,10 @@
     "网络（network）": null,
     "Ajax（axios）": "axios",
     "WebSocket（socket）": "socket",
-    "缓存（storage）": null,
-    "本地缓存（local）": "storage_src_localStorage",
-    "超时缓存（expire）": "storage_src_expireLocal",
-    "会话缓存（session）": "storage_src_sessionStorage",
+    "工具集（toolset）": null,
+    "存储（storage）": "storage",
     "设计模式（mode）": null,
-    "观察者（发布/订阅）（observer）": "mode_src_observer"
+    "观察者（发布/订阅）（observer）": "mode_src_useObserver"
   },
   "shallowList": ["README", "CHANGELOG"]
 }

@@ -1,7 +1,0 @@
-export * from './getLocal'
-export * from './setLocal'
-export * from './removeLocal'
-export * from './clearLocal'
-export * from './localKeys'
-export * from './localValues'
-export * from './localEntries'

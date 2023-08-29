@@ -1,2 +1,1 @@
-export * from './main'
-export type * from './types'
+export * from './useSocket'

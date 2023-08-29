@@ -12,10 +12,8 @@
     "packages/dayjs/index.ts",
     "packages/numeral/index.ts",
     "packages/socket/index.ts",
-    "packages/storage/src/expireLocal/index.ts",
-    "packages/storage/src/localStorage/index.ts",
-    "packages/storage/src/sessionStorage/index.ts",
-    "packages/mode/src/observer/index.ts",
+    "packages/storage/index.ts",
+    "packages/mode/src/useObserver/index.ts",
     "packages/types/index.ts"
   ],
   "out": "docs/dist",
