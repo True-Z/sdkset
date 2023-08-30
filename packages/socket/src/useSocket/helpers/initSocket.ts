@@ -3,10 +3,10 @@ import type { CreateSocketOption, RequiredSocketOption } from '../types'
 const defaultOption: Required<CreateSocketOption> = {
   config: {
     url: '',
-    checkHeartbeatData: 'heartbeat',
-    checkHeartbeatTime: 30 * 1000,
+    heartbeatData: 'heartbeat',
+    heartbeatInterval: 30 * 1000,
     maxReconnectNum: 3,
-    checkReconnectTime: 5 * 1000
+    reconnectInterval: 5 * 1000
   },
   interceptor: {}
 }

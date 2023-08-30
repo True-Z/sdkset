@@ -1,6 +1,6 @@
 import { useObserver } from '@sdkset/mode'
 
-import { SocketWrapper } from './helpers'
+import { WrapperSocket } from './helpers'
 import { initSocket } from './helpers/initSocket'
 
 import type { CreateSocketOption } from './types'
@@ -43,7 +43,7 @@ import type { CreateSocketOption } from './types'
  *
  * @param option 请求配置对象
  */
-export async function useSocket(option?: CreateSocketOption): Promise<SocketWrapper> {
+export async function useSocket(option?: CreateSocketOption): Promise<WrapperSocket> {
   const { config, interceptor } = initSocket(option)
 
   return new Promise((resolve, reject) => {
@@ -56,7 +56,9 @@ export async function useSocket(option?: CreateSocketOption): Promise<SocketWrap
     }
 
     const observer = useObserver()
-    const ws = new SocketWrapper(config, observer)
+    const ws = new WrapperSocket(config, observer)
+
+    ws.mountInterceptors(interceptor)
 
     ws.interceptors.use(interceptor)
     observer.depend('load', () => {
@@ -64,3 +66,36 @@ export async function useSocket(option?: CreateSocketOption): Promise<SocketWrap
     })
   })
 }
+
+async function demo() {
+  useSocket({
+    config: {
+      url: 'ws://124.222.224.186:8800',
+      heartbeatInterval: 5 * 1000
+    },
+    interceptor: {
+      open(e) {
+        console.log('🚀 ~~ path: useSocket.ts ~ line: 75 : ', e, '已连接')
+      },
+      message(e) {
+        console.log('🚀 ~~ path: useSocket.ts ~ line: 78 : ', e, '接收数据')
+      },
+      close(e) {
+        console.log('🚀 ~~ path: useSocket.ts ~ line: 76 : ', e, '已关闭')
+      },
+      error(e) {
+        console.log('🚀 ~~ path: useSocket.ts ~ line: 78 : ', e, '错误')
+      },
+      reconnect(e) {
+        console.log('🚀 ~~ path: useSocket.ts ~ line: 76 : ', e, '重连')
+      },
+      fail() {
+        console.log('🚀 ~~ path: useSocket.ts ~ line: 76 : ', '连接失败')
+      }
+    }
+  }).then((ws) => {
+    console.log('🚀 ~~ path: useSocket.ts ~ line: 95 : ', ws)
+    window.ws = ws
+  })
+}
+demo()

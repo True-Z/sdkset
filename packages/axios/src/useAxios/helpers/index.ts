@@ -1,2 +1,2 @@
 export * from './initAxios'
-export * from './AxiosWrapper'
+export * from './wrapperAxios'

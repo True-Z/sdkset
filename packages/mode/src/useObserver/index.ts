@@ -1,2 +1,3 @@
 export * from './useObserver'
-export type { ObserverWrapper } from './helpers'
+
+export type { WrapperObserver } from './helpers'

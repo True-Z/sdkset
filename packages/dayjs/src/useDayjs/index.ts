@@ -1,3 +1,4 @@
 export * from './useDayjs'
-export type { DayjsWrapper } from './helpers'
-export type * from './types'
+export * from './types'
+
+export type { WrapperDayjs } from './helpers'

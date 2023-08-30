@@ -9,7 +9,7 @@ const conversMethods = {
 }
 
 /** 包装器类 */
-export class DayjsWrapper<C extends CreateDayjsOption> {
+export class WrapperDayjs<C extends CreateDayjsOption> {
   readonly #dayjs: Dayjs
 
   readonly #convers: DayjsConvers
@@ -67,7 +67,7 @@ export class DayjsWrapper<C extends CreateDayjsOption> {
    * @param unit 时间单位
    */
   set(unit: UnitType, value: number) {
-    return new DayjsWrapper(this.#dayjs.set(unit, value), this.#convers, this.#template)
+    return new WrapperDayjs(this.#dayjs.set(unit, value), this.#convers, this.#template)
   }
 
   /**
@@ -81,7 +81,7 @@ export class DayjsWrapper<C extends CreateDayjsOption> {
    * @param unit 时间单位
    */
   add(value: number, unit: QUnitType | OpUnitType) {
-    return new DayjsWrapper(this.#dayjs.add(value, unit as never), this.#convers, this.#template)
+    return new WrapperDayjs(this.#dayjs.add(value, unit as never), this.#convers, this.#template)
   }
 
   /**
@@ -95,7 +95,7 @@ export class DayjsWrapper<C extends CreateDayjsOption> {
    * @param unit 时间单位
    */
   subtract(value: number, unit: QUnitType | OpUnitType) {
-    return new DayjsWrapper(this.#dayjs.subtract(value, unit as never), this.#convers, this.#template)
+    return new WrapperDayjs(this.#dayjs.subtract(value, unit as never), this.#convers, this.#template)
   }
 
   /**
@@ -108,7 +108,7 @@ export class DayjsWrapper<C extends CreateDayjsOption> {
    * @param unit 时间单位
    */
   startOf(unit: QUnitType | OpUnitType) {
-    return new DayjsWrapper(this.#dayjs.startOf(unit as never), this.#convers, this.#template)
+    return new WrapperDayjs(this.#dayjs.startOf(unit as never), this.#convers, this.#template)
   }
 
   /**
@@ -121,7 +121,7 @@ export class DayjsWrapper<C extends CreateDayjsOption> {
    * @param unit 时间单位
    */
   endOf(unit: QUnitType | OpUnitType) {
-    return new DayjsWrapper(this.#dayjs.endOf(unit as never), this.#convers, this.#template)
+    return new WrapperDayjs(this.#dayjs.endOf(unit as never), this.#convers, this.#template)
   }
 
   /**

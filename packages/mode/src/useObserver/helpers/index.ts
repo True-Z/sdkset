@@ -1,1 +1,1 @@
-export * from './ObserverWrapper'
+export * from './WrapperObserver'

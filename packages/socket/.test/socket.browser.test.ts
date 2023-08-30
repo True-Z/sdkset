@@ -3,10 +3,10 @@ import { describe, test } from 'vitest'
 import * as sdk from '../src'
 
 describe('socket', () => {
-  test('useSocket', () => {
-    sdk.useSocket(
-      { url: 'ws://121.40.165.18:8800', params: { id: 1 } },
-      {
+  test('useSocket', async () => {
+    const ws = await sdk.useSocket({
+      config: { url: 'ws://121.40.165.18:8800', params: { id: 10086 } },
+      interceptor: {
         open: (event) => {
           console.log('🚀 ~~ path: socket.browser.test.ts ~ line: 11 : ', event)
         },
@@ -26,6 +26,8 @@ describe('socket', () => {
           console.log('🚀 ~~ path: socket.browser.test.ts ~ line: 26 : ', '失败')
         }
       }
-    )
+    })
+
+    ws.send('hello!')
   })
 })

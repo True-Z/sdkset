@@ -1,3 +1,4 @@
 export * from './useStorage'
-export type { StorageWrapper } from './helpers'
-export type * from './types'
+export * from './types'
+
+export type { WrapperStorage } from './helpers'

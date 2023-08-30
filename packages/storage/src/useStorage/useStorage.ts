@@ -1,9 +1,9 @@
-import { initStorage, StorageWrapper } from './helpers'
+import { initStorage, WrapperStorage } from './helpers'
 
 import type { CreateStorageOption } from './types'
 import type { Dictionary } from '@sdkset/types'
 
-const storageCache: Dictionary<StorageWrapper> = {}
+const storageCache: Dictionary<WrapperStorage> = {}
 
 /**
  * 返回一个[Storage](https://developer.mozilla.org/zh-CN/docs/Web/API/Storage)包装器对象。
@@ -66,7 +66,7 @@ export function useStorage(option?: CreateStorageOption) {
   const { storageType, expireTime } = initStorage(option)
 
   if (!storageCache[storageType]) {
-    storageCache[storageType] = new StorageWrapper(storageType, expireTime)
+    storageCache[storageType] = new WrapperStorage(storageType, expireTime)
   }
 
   return storageCache[storageType]

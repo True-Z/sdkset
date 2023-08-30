@@ -4,7 +4,7 @@ import dayOfYear from 'dayjs/plugin/dayOfYear.js'
 import quarterOfYear from 'dayjs/plugin/quarterOfYear.js'
 import weekOfYear from 'dayjs/plugin/weekOfYear.js'
 
-import { DayjsWrapper, initDayjs } from './helpers'
+import { initDayjs, WrapperDayjs } from './helpers'
 
 import type { CreateDayjsOption, DayjsDate } from './types'
 
@@ -14,7 +14,7 @@ try {
   dayjs.extend(weekOfYear)
   dayjs.extend(dayOfYear)
 } catch {
-  console.warn('browser 环境下，如需使用插件，请参阅：https://day.js.org/docs/zh-CN/plugin/loading-into-browser')
+  console.info('browser 环境下，如需使用插件，请参阅：https://day.js.org/docs/zh-CN/plugin/loading-into-browser')
 }
 
 /**
@@ -86,5 +86,5 @@ export function useDayjs<C extends CreateDayjsOption>(date?: DayjsDate, option?:
 
   const dayjsInstance = dayjs(date ?? undefined)
 
-  return new DayjsWrapper<C>(dayjsInstance, convers, template)
+  return new WrapperDayjs<C>(dayjsInstance, convers, template)
 }

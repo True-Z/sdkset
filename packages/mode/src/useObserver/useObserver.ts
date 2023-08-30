@@ -1,4 +1,4 @@
-import { ObserverWrapper } from './helpers'
+import { WrapperObserver } from './helpers'
 
 /**
  * 返回一个[观察者（发布/订阅）模式](https://refactoringguru.cn/design-patterns/observer)包装器对象。
@@ -26,5 +26,5 @@ import { ObserverWrapper } from './helpers'
  *
  */
 export function useObserver() {
-  return new ObserverWrapper()
+  return new WrapperObserver()
 }

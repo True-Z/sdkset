@@ -2,7 +2,7 @@ import type { StorageFormat, StorageProperty, StorageType } from '../types'
 import type { Dictionary } from '@sdkset/types'
 
 /** 包装器类 */
-export class StorageWrapper {
+export class WrapperStorage {
   readonly #storage: Storage
 
   readonly #expireTime: number
@@ -100,9 +100,9 @@ export class StorageWrapper {
   keys() {
     const result = []
     for (let i = 0, { length } = this.#storage; i < length; i++) {
-      const curKey = this.#storage.key(i)
-      if (curKey) {
-        result.push(curKey)
+      const currKey = this.#storage.key(i)
+      if (currKey) {
+        result.push(currKey)
       }
     }
     return result

@@ -1,2 +1,2 @@
 export * from './initStorage'
-export * from './StorageWrapper'
+export * from './wrapperStorage'

@@ -1,7 +1,7 @@
 import type { Dictionary, Func } from '@sdkset/types'
 
 /** 包装器类 */
-export class ObserverWrapper {
+export class WrapperObserver {
   #eventCenter: Dictionary<Func[]>
 
   constructor() {

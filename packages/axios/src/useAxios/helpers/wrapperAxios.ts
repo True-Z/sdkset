@@ -2,7 +2,7 @@ import type { Dictionary } from '@sdkset/types'
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 
 /** 包装器类 */
-export class AxiosWrapper<T> {
+export class WrapperAxios<T> {
   readonly #axios: AxiosInstance
 
   constructor(axios: AxiosInstance) {

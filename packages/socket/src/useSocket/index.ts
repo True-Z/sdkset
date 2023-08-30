@@ -1,3 +1,4 @@
 export * from './useSocket'
-export type { SocketWrapper } from './helpers'
-export type * from './types'
+export * from './types'
+
+export type { WrapperSocket } from './helpers'

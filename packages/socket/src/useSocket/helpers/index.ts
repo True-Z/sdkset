@@ -1,1 +1,1 @@
-export * from './SocketWrapper'
+export * from './WrapperSocket'

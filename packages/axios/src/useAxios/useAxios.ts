@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-import { AxiosWrapper, initAxios } from './helpers'
+import { initAxios, WrapperAxios } from './helpers'
 
 import type { CreateAxiosOption } from './types'
 
@@ -72,5 +72,6 @@ export function useAxios<T>(option?: CreateAxiosOption) {
   const axiosInstance = axios.create(config)
   axiosInstance.interceptors.request.use(interceptor.reqResolve, interceptor.reqReject, interceptor.reqOptions)
   axiosInstance.interceptors.response.use(interceptor.resResolve, interceptor.resReject, interceptor.resOptions)
-  return new AxiosWrapper<T>(axiosInstance)
+
+  return new WrapperAxios<T>(axiosInstance)
 }
