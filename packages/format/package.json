@@ -1,7 +1,7 @@
 {
-  "name": "@sdkset/utils",
+  "name": "@sdkset/format",
   "version": "3.3.2",
-  "description": "Re encapsulation of commonly used libraries",
+  "description": "Dayjs re encapsulation",
   "author": "True",
   "license": "MIT",
   "type": "module",
@@ -12,11 +12,13 @@
   "scripts": {
     "publish:package": "npm publish",
     "rimraf:package": "rimraf dist/* -g",
-    "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:utils"
+    "vitest:package": "vitest run -c vitest.config.unit.ts",
+    "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:format"
   },
   "keywords": [
     "@sdkset/utils",
-    "summary"
+    "dayjs",
+    "Intl.NumberFormat"
   ],
   "files": [
     "dist"
@@ -31,27 +33,19 @@
   "types": "dist/index.d.ts",
   "browser": "dist/index.umd.js",
   "buildOptions": {
-    "name": "*",
+    "name": "sdkFormat",
     "formats": [
+      "es",
       "cjs",
-      "es"
+      "umd"
     ]
   },
   "devDependencies": {
-    "@sdkset/core": "workspace:*",
-    "@sdkset/format": "workspace:*",
-    "@sdkset/mode": "workspace:*",
-    "@sdkset/network": "workspace:*",
-    "@sdkset/state": "workspace:*",
+    "dayjs": "^1.11.7",
     "@sdkset/types": "workspace:*"
   },
   "dependencies": {},
   "peerDependencies": {
-    "@sdkset/core": "*",
-    "@sdkset/format": "*",
-    "@sdkset/mode": "*",
-    "@sdkset/network": "*",
-    "@sdkset/state": "*",
     "@sdkset/types": "*"
   }
 }

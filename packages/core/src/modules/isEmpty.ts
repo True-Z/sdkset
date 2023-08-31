@@ -1,4 +1,3 @@
-import { _has } from './_has'
 import { nativeKeys } from './_setup'
 import { isArguments } from './isArguments'
 import { isArray } from './isArray'
@@ -36,10 +35,10 @@ export function isEmpty(value: unknown): boolean {
   if (isPrototype(value)) {
     return !nativeKeys(value).length
   }
-  for (const key in value) {
-    if (_has(value, key)) {
-      return false
-    }
-  }
+  // for (const key in value) {
+  //   if (_has(value, key)) {
+  //     return false
+  //   }
+  // }
   return true
 }

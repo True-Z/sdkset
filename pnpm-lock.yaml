@@ -142,22 +142,13 @@ importers:
         specifier: ^0.32.0
         version: 0.32.0(jsdom@22.1.0)
 
-  packages/axios:
-    devDependencies:
-      '@sdkset/types':
-        specifier: workspace:*
-        version: link:../types
-      axios:
-        specifier: ^1.4.0
-        version: 1.4.0
-
   packages/core:
     devDependencies:
       '@sdkset/types':
         specifier: workspace:*
         version: link:../types
 
-  packages/dayjs:
+  packages/format:
     devDependencies:
       '@sdkset/types':
         specifier: workspace:*
@@ -172,31 +163,19 @@ importers:
         specifier: workspace:*
         version: link:../types
 
-  packages/numeral:
+  packages/network:
     devDependencies:
-      '@sdkset/types':
-        specifier: workspace:*
-        version: link:../types
-      '@types/numeral':
-        specifier: ^2.0.2
-        version: 2.0.2
-      numeral:
-        specifier: ^2.0.6
-        version: 2.0.6
-
-  packages/socket:
-    devDependencies:
-      '@sdkset/core':
-        specifier: workspace:*
-        version: link:../core
       '@sdkset/mode':
         specifier: workspace:*
         version: link:../mode
       '@sdkset/types':
         specifier: workspace:*
         version: link:../types
+      axios:
+        specifier: ^1.4.0
+        version: 1.4.0
 
-  packages/storage:
+  packages/state:
     devDependencies:
       '@sdkset/types':
         specifier: workspace:*
@@ -206,27 +185,21 @@ importers:
 
   packages/utils:
     devDependencies:
-      '@sdkset/axios':
-        specifier: workspace:*
-        version: link:../axios
       '@sdkset/core':
         specifier: workspace:*
         version: link:../core
-      '@sdkset/dayjs':
+      '@sdkset/format':
         specifier: workspace:*
-        version: link:../dayjs
+        version: link:../format
       '@sdkset/mode':
         specifier: workspace:*
         version: link:../mode
-      '@sdkset/numeral':
+      '@sdkset/network':
         specifier: workspace:*
-        version: link:../numeral
-      '@sdkset/socket':
+        version: link:../network
+      '@sdkset/state':
         specifier: workspace:*
-        version: link:../socket
-      '@sdkset/storage':
-        specifier: workspace:*
-        version: link:../storage
+        version: link:../state
       '@sdkset/types':
         specifier: workspace:*
         version: link:../types
@@ -2324,10 +2297,6 @@ packages:
 
   /@types/normalize-package-data@2.4.1:
     resolution: {integrity: sha512-Gj7cI7z+98M282Tqmp2K5EIsoouUEzbBJhQQzDE3jSIRk6r9gsz0oUokqIUR4u1R3dMHo0pDHM7sNOHyhulypw==}
-    dev: true
-
-  /@types/numeral@2.0.2:
-    resolution: {integrity: sha512-A8F30k2gYJ/6e07spSCPpkuZu79LCnkPTvqmIWQzNGcrzwFKpVOydG41lNt5wZXjSI149qjyzC2L1+F2PD/NUA==}
     dev: true
 
   /@types/resolve@1.20.2:
@@ -5802,10 +5771,6 @@ packages:
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     dependencies:
       path-key: 4.0.0
-    dev: true
-
-  /numeral@2.0.6:
-    resolution: {integrity: sha512-qaKRmtYPZ5qdw4jWJD6bxEf1FJEqllJrwxCLIm0sQU/A7v2/czigzOb+C2uSiFsa9lBUzeH7M1oK+Q+OLxL3kA==}
     dev: true
 
   /nwsapi@2.2.5:

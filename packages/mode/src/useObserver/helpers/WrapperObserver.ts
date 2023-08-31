@@ -2,45 +2,63 @@ import type { Dictionary, Func } from '@sdkset/types'
 
 /** 包装器类 */
 export class WrapperObserver {
-  #eventCenter: Dictionary<Func[]>
+  #eventChannel: Dictionary<Func[]>
 
   constructor() {
-    this.#eventCenter = {}
+    this.#eventChannel = {}
   }
 
   /**
-   * 订阅特定事件，待特定事件发布时触发相应订阅的回调，`once`参数为`true`时订阅回调只会触发一次。
+   * 订阅特定事件，待特定事件发布时触发相应订阅的回调。
    *
    * @example
    * const observer = useObserver()
    *
-   * observer.depend('open', func)
+   * observer.on('open', func)
    * => eventCenter 'open' event append func
    *
-   * @param event 事件
-   * @param handle 订阅回调
-   * @param once 控制订阅回调只触发一次
+   * @param event 事件名称
+   * @param callback 订阅回调
    */
-  depend(event: string, handle: Func, once?: boolean) {
-    if (typeof handle !== 'function') {
-      console.error('"handle" is not a function')
+  on(event: string, callback: Func) {
+    if (typeof callback !== 'function') {
+      console.error(new TypeError(`The callback subscribed to for event ${event} is not a function`))
       return
     }
 
-    let conversHandle: Func = handle
-    if (once) {
-      conversHandle = () => {
-        handle()
-        this.cancel(event)
-      }
-    }
-
-    const handleList = this.#eventCenter[event]
-    if (handleList) {
-      handleList.push(conversHandle)
+    const callbackList = this.#eventChannel[event]
+    if (callbackList) {
+      callbackList.push(callback)
     } else {
-      this.#eventCenter[event] = [conversHandle]
+      this.#eventChannel[event] = [callback]
     }
+  }
+
+  /**
+   * 订阅特定事件，待特定事件发布时触发一次相应订阅的回调。
+   *
+   * @example
+   * const observer = useObserver()
+   *
+   * observer.onOnce('open', func)
+   * => eventCenter 'open' event append func
+   *
+   * observer.dependOnce('open', func)
+   * => No response
+   *
+   * @param event 事件名称
+   * @param callback 订阅回调
+   */
+  once(event: string, callback: Func) {
+    if (typeof callback !== 'function') {
+      console.error(new TypeError(`The callback subscribed to for event ${event} is not a function`))
+      return
+    }
+    const callbackConvers = (params: unknown) => {
+      callback(params)
+      this.off(event)
+    }
+    this.on(event, callbackConvers)
   }
 
   /**
@@ -54,37 +72,42 @@ export class WrapperObserver {
    * observer.notify('open')
    * => func()
    *
-   * @param event 事件
-   * @param params 触发订阅回调时附加参数
+   * @param event 事件名称
+   * @param params 回调参数
    */
-  notify(event: string, params?: unknown) {
-    if (this.#eventCenter[event]) {
-      const handleList = this.#eventCenter[event]
-      for (let i = 0, { length } = handleList; i < length; i++) {
-        handleList[i](params)
+  emit(event: string, params?: unknown) {
+    if (this.#eventChannel[event]) {
+      const callbackList = this.#eventChannel[event]
+      for (let i = 0, { length } = callbackList; i < length; i++) {
+        callbackList[i](params)
       }
     }
   }
 
   /**
-   * 取消订阅特定事件，`whole`参数为`true`时取消全部订阅。
+   * 取消订阅特定事件。
    *
    * @example
    * ...
-   * dep.notify('open')
+   * observer.emit('open')
    * => func()
    *
-   * dep.cancel('open')
-   * dep.notify('open')
+   * observer.off('open')
+   * observer.emit('open')
+   * => No response
    *
-   * @param event 事件
-   * @param whole 控制取消全部订阅
+   * @param event 事件名或事件名组成的数组，不传则默认所有
    */
-  cancel(event: string, whole?: boolean) {
-    if (whole) {
-      this.#eventCenter = {}
-    } else if (this.#eventCenter[event]) {
-      this.#eventCenter[event] = []
+  off(...event: string[]) {
+    event = event.flat()
+    if (!event.length) {
+      this.#eventChannel = {}
+    }
+    for (let i = 0, { length } = event; i < length; i++) {
+      const currKey = event[i]
+      if (this.#eventChannel[currKey]) {
+        this.#eventChannel[currKey] = []
+      }
     }
   }
 }
