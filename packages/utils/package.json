@@ -31,27 +31,24 @@
   "types": "dist/index.d.ts",
   "browser": "dist/index.umd.js",
   "buildOptions": {
-    "name": "*",
+    "name": "sdkset",
     "formats": [
       "cjs",
       "es"
-    ]
+    ],
+    "globals": {}
   },
   "devDependencies": {
     "@sdkset/core": "workspace:*",
-    "@sdkset/format": "workspace:*",
     "@sdkset/mode": "workspace:*",
-    "@sdkset/network": "workspace:*",
-    "@sdkset/state": "workspace:*",
+    "@sdkset/tools": "workspace:*",
     "@sdkset/types": "workspace:*"
   },
   "dependencies": {},
   "peerDependencies": {
     "@sdkset/core": "*",
-    "@sdkset/format": "*",
     "@sdkset/mode": "*",
-    "@sdkset/network": "*",
-    "@sdkset/state": "*",
+    "@sdkset/tools": "*",
     "@sdkset/types": "*"
   }
 }

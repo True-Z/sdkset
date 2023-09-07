@@ -11,7 +11,7 @@ hero:
   actions:
     - theme: brand
       text: API 文档
-      link: dist/modules/core_src_modules___indexCollections
+      link: dist/modules/tools_src_modules___indexCollections
     - theme: alt
       text: 起步
       link: dist/README#安装

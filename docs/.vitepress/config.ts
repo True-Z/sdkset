@@ -1,6 +1,7 @@
 import { defineConfig } from 'vitepress'
 
-import { createSiteBarConfig, markdownConfig } from '../scripts'
+import { createSiteBarConfig } from '../scripts'
+import markdownConfig from '../markdownConfig.json'
 
 const isProd = process.env.NODE_ENV === 'production'
 

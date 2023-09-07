@@ -1,7 +1,7 @@
 const fs = require('node:fs')
 const path = require('node:path')
 const { Buffer } = require('buffer')
-const markdownPath = require('./markdownConfig.json')
+const markdownPath = require('../markdownConfig.json')
 
 const shallowList = markdownPath.shallowList
 createFrontMatter(markdownPath.path)

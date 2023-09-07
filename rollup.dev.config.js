@@ -2,10 +2,10 @@ import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import typescript from '@rollup/plugin-typescript'
-import livereload from 'rollup-plugin-livereload'
+// import livereload from 'rollup-plugin-livereload'
 import externals from 'rollup-plugin-node-externals'
 import nodePolyfills from 'rollup-plugin-polyfill-node'
-import serve from 'rollup-plugin-serve'
+// import serve from 'rollup-plugin-serve'
 
 /**
  * @plugins
@@ -19,27 +19,31 @@ export default {
     file: 'dist/dev.umd.js',
     format: 'umd',
     name: '_',
-    sourcemap: true
+    sourcemap: true,
+    globals: {
+      '@sdkset/mode': 'sdkset',
+      '@sdkset/tools': 'sdkset'
+    }
   },
   plugins: [
     commonjs(),
     externals({
       builtins: false,
       packagePath: `packages/${process.env.target}/package.json`,
-      devDeps: false,
+      devDeps: true,
       deps: false,
-      peerDeps: false
+      peerDeps: true
     }),
     nodeResolve(),
     typescript({
       declaration: false
     }),
     json(),
-    nodePolyfills(),
-    livereload(),
-    serve({
-      open: false,
-      port: 7810
-    })
+    nodePolyfills()
+    // livereload(),
+    // serve({
+    //   open: false,
+    //   port: 7810
+    // })
   ]
 }

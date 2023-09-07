@@ -1,8 +1,8 @@
 <p align="center"><a href="https://true-z.github.io/sdkset-utils-doc/" target="_blank" rel="noopener noreferrer"><img width="100" src="https://true-z.github.io/sdkset-utils-doc/tools.png" alt="sdkset logo"></a></p>
 
-<p align="center">
+<p align="center" class="shields">
 	<a href="https://www.npmjs.com/package/@sdkset/utils">
-    <img src="https://img.shields.io/npm/v/@sdkset/utils.svg?sanitize=true" alt="Version">
+    <img  src="https://img.shields.io/npm/v/@sdkset/utils.svg?sanitize=true" alt="Version">
   </a>
   <a href="https://npmcharts.com/compare/@sdkset/utils?minimal=true">
     <img src="https://img.shields.io/npm/dm/@sdkset/utils.svg?sanitize=true" alt="Downloads">
@@ -14,6 +14,7 @@
     <img src="https://img.shields.io/npm/l/@sdkset/utils.svg?sanitize=true" alt="License">
   </a>
 </p>
+
 
 ## 简介
 
@@ -29,17 +30,7 @@
 > 强烈建议使用`pnpm or yran`安装（`npm`暂不支持`workspace`语法，）。
 
 ```sh
-# 汇总
-pnpm add @sdkset/utils
-or
 pnpm add @sdkset/<pluginName>
-```
-
-`or`
-
-```sh
-# 汇总
-yran add @sdkset/utils
 or
 yran add @sdkset/<pluginName>
 ```
@@ -49,11 +40,7 @@ yran add @sdkset/<pluginName>
 ### 类型支持
 
 ```typescript
-/* 引入 */
 import type { List } from '@sdkset/types'
-
-/* 使用 */
-...
 ```
 
 ### ES module
@@ -75,15 +62,13 @@ const { ... } = require('@sdkset/<pluginName>')
 ### UMD
 
 ```html
-<!-- 引入插件，全局对象：sdk<PlginName> -->
+<!-- 引入插件，全局对象：sdkset -->
 <script src="https://cdn.jsdelivr.net/npm/@sdkset/sdk<PlginName>"></script>
 
-<!-- 注意，对于存在对等依赖的 UMD 插件，需提前引入对应依赖，示例： -->
-<script src="https://cdn.jsdelivr.net/npm/@sdkset/core"></script>
-<script src="https://cdn.jsdelivr.net/npm/@sdkset/mode"></script>
-<script src="https://cdn.jsdelivr.net/npm/@sdkset/socket"></script>
+<!-- 示例 -->
+<script src="https://cdn.jsdelivr.net/npm/@sdkset/tools"></script>
 <script>
-  sdkSocket.useSocket().then( ... )
+  sdkset.isNumber(1)
 </script>
 ```
 
@@ -164,17 +149,13 @@ export default {
 
 ## 相关项目
 
-| 插件名称       | 插件简介                                                                             | 对等依赖                                                                                                                                      | ES Module 支持 | Common 支持 | UMD 支持 |
-| -------------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- | -------------- | ----------- | -------- |
-| sdkset/types   | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 类型声明                          |                                                                                                                                               | &#x2705;       |             |          |
-| sdkset/utils   | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 插件集合                          | sdkset/types<br />sdkset/core<br />sdkset/axios<br />sdkset/dayjs<br />sdkset/numeral<br />sdkset/socket<br />sdkset/storage<br />sdkset/mode | &#x2705;       | &#x2705;    |          |
-| sdkset/core    | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 函数库实现                        |                                                                                                                                               | &#x2705;       | &#x2705;    | &#x2705; |
-| sdkset/axios   | [axios](https://www.axios-http.cn/) 包装器，Ajax 请求                                | axios                                                                                                                                         | &#x2705;       | &#x2705;    | &#x2705; |
-| sdkset/dayjs   | [dayjs](https://dayjs.fenxianglu.cn/category/) 包装器，格式化时间                    | dayjs                                                                                                                                         | &#x2705;       | &#x2705;    | &#x2705; |
-| sdkset/numeral | [numeral](http://numeraljs.com/) 包装器，格式化数值                                  | numeral                                                                                                                                       | &#x2705;       | &#x2705;    | &#x2705; |
-| sdkset/socket  | [webSocket](https://developer.mozilla.org/zh-CN/docs/Web/API/WebSocket) API 简化封装 | sdkset/core<br />sdkset/mode                                                                                                                  | &#x2705;       | &#x2705;    | &#x2705; |
-| sdkset/storage | [storage](https://developer.mozilla.org/zh-CN/docs/Web/API/Storage) API 简化封装     |                                                                                                                                               | &#x2705;       | &#x2705;    | &#x2705; |
-| sdkset/mode    | [mode](https://refactoringguru.cn/design-patterns/catalog) 设计模式实现              |                                                                                                                                               | &#x2705;       | &#x2705;    | &#x2705; |
+| 插件名称     | 插件简介                                                     | 对等依赖                                                     | ES Module 支持 | Common 支持 | UMD 支持 |
+| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------- | ----------- | -------- |
+| sdkset/utils | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 插件集合  | sdkset/types<br />sdkset/core<br />sdkset/mode<br />sdkset/tools | &#x2705;       | &#x2705;    |          |
+| sdkset/types | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 类型声明  |                                                              | &#x2705;       |             |          |
+| sdkset/core  | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 工具插件集合 | sdkset/types<br />dayjs<br />axios<br />sdkset/mode          | &#x2705;       | &#x2705;    |          |
+| sdkset/mode  | [mode](https://refactoringguru.cn/design-patterns/catalog) 设计模式实现 | sdkset/types                                                 | &#x2705;       | &#x2705;    | &#x2705; |
+| sdkset/tools | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 函数库实现 | sdkset/types                                                 | &#x2705;       | &#x2705;    | &#x2705; |
 
 ## 主要项目负责人
 
