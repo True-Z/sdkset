@@ -1,0 +1,54 @@
+{
+  "name": "@sdkset/all",
+  "version": "3.3.2",
+  "description": "Re encapsulation of commonly used libraries",
+  "author": "True",
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "publish:package": "npm publish",
+    "rimraf:package": "rimraf dist/* -g",
+    "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:all"
+  },
+  "keywords": [
+    "@sdkset/utils",
+    "summary"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "import": "./dist/index.js",
+    "default": "./dist/index.cjs.js",
+    "types": "./dist/index.d.ts"
+  },
+  "module": "dist",
+  "main": "dist/index.cjs.js",
+  "types": "dist/index.d.ts",
+  "browser": "dist/index.umd.js",
+  "buildOptions": {
+    "name": "sdk",
+    "formats": [
+      "cjs",
+      "es"
+    ],
+    "globals": {}
+  },
+  "devDependencies": {
+    "@sdkset/core": "workspace:*",
+    "@sdkset/mode": "workspace:*",
+    "@sdkset/utils": "workspace:*",
+    "@sdkset/types": "workspace:*"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@sdkset/core": "*",
+    "@sdkset/mode": "*",
+    "@sdkset/utils": "*",
+    "@sdkset/types": "*"
+  }
+}

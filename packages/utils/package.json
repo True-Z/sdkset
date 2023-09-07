@@ -1,7 +1,7 @@
 {
   "name": "@sdkset/utils",
   "version": "3.3.2",
-  "description": "Re encapsulation of commonly used libraries",
+  "description": "Function library implementation",
   "author": "True",
   "license": "MIT",
   "type": "module",
@@ -12,11 +12,13 @@
   "scripts": {
     "publish:package": "npm publish",
     "rimraf:package": "rimraf dist/* -g",
+    "vitest:package": "vitest run -c vitest.config.unit.ts",
     "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:utils"
   },
   "keywords": [
     "@sdkset/utils",
-    "summary"
+    "underscore",
+    "tools"
   ],
   "files": [
     "dist"
@@ -31,27 +33,23 @@
   "types": "dist/index.d.ts",
   "browser": "dist/index.umd.js",
   "buildOptions": {
-    "name": "*",
+    "name": "sdk",
     "formats": [
+      "es",
       "cjs",
-      "es"
-    ]
+      "umd"
+    ],
+    "globals": {
+      "@sdkset/mode": "sdkset"
+    }
   },
   "devDependencies": {
-    "@sdkset/core": "workspace:*",
-    "@sdkset/format": "workspace:*",
-    "@sdkset/mode": "workspace:*",
-    "@sdkset/network": "workspace:*",
-    "@sdkset/state": "workspace:*",
-    "@sdkset/types": "workspace:*"
+    "@sdkset/types": "workspace:*",
+    "@sdkset/mode": "workspace:*"
   },
   "dependencies": {},
   "peerDependencies": {
-    "@sdkset/core": "*",
-    "@sdkset/format": "*",
-    "@sdkset/mode": "*",
-    "@sdkset/network": "*",
-    "@sdkset/state": "*",
-    "@sdkset/types": "*"
+    "@sdkset/types": "*",
+    "@sdkset/mode": "*"
   }
 }

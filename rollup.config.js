@@ -80,12 +80,13 @@ const outputConfig = {
  */
 function createConfig(format, output) {
   output.name = options.name
+  output.globals = options.globals
   output.sourcemap = false
 
   return {
     /** @type {string | string []| { [entryName: string]: string }}
      * 该选项用于指定 bundle 的入口文件 */
-    input: resolve('src/index.ts'),
+    input: resolve('index.ts'),
 
     /** @type {Object} true after false
      * 指定输出配置 */
