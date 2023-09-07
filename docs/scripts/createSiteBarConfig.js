@@ -1,4 +1,4 @@
-import markdownPath from '../markdownConfig.json'
+import markdownPath from './markdownConfig.json'
 
 const shallowList = markdownPath.shallowList
 

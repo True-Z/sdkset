@@ -1,0 +1,51 @@
+{
+  "name": "@sdkset/format",
+  "version": "3.3.2",
+  "description": "Dayjs re encapsulation",
+  "author": "True",
+  "license": "MIT",
+  "type": "module",
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "scripts": {
+    "publish:package": "npm publish",
+    "rimraf:package": "rimraf dist/* -g",
+    "vitest:package": "vitest run -c vitest.config.unit.ts",
+    "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:format"
+  },
+  "keywords": [
+    "@sdkset/utils",
+    "dayjs",
+    "Intl.NumberFormat"
+  ],
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "import": "./dist/index.js",
+    "default": "./dist/index.cjs.js",
+    "types": "./dist/index.d.ts"
+  },
+  "module": "dist",
+  "main": "dist/index.cjs.js",
+  "types": "dist/index.d.ts",
+  "browser": "dist/index.umd.js",
+  "buildOptions": {
+    "name": "sdkFormat",
+    "formats": [
+      "es",
+      "cjs",
+      "umd"
+    ]
+  },
+  "devDependencies": {
+    "dayjs": "^1.11.7",
+    "@sdkset/types": "workspace:*"
+  },
+  "dependencies": {},
+  "peerDependencies": {
+    "@sdkset/types": "*"
+  }
+}

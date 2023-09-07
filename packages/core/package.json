@@ -1,7 +1,7 @@
 {
   "name": "@sdkset/core",
   "version": "3.3.2",
-  "description": "Axios re encapsulation",
+  "description": "Function library implementation",
   "author": "True",
   "license": "MIT",
   "type": "module",
@@ -17,10 +17,7 @@
   },
   "keywords": [
     "@sdkset/utils",
-    "storage",
-    "format",
-    "axios",
-    "WebSocket"
+    "underscore"
   ],
   "files": [
     "dist"
@@ -35,26 +32,18 @@
   "types": "dist/index.d.ts",
   "browser": "dist/index.umd.js",
   "buildOptions": {
-    "name": "sdkset",
+    "name": "sdkCore",
     "formats": [
       "es",
-      "cjs"
-    ],
-    "globals": {
-      "@sdkset/mode": "sdkset"
-    }
+      "cjs",
+      "umd"
+    ]
   },
   "devDependencies": {
-    "dayjs": "^1.11.7",
-    "axios": "^1.4.0",
-    "@sdkset/mode": "workspace:*",
     "@sdkset/types": "workspace:*"
   },
   "dependencies": {},
   "peerDependencies": {
-    "dayjs": "^1.11.7",
-    "axios": "^1.4.0",
-    "@sdkset/mode": "*",
     "@sdkset/types": "*"
   }
 }

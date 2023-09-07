@@ -1,24 +1,19 @@
 {
   "entryPoints": [
-    "packages/tools/src/modules/__indexArrays.ts",
-    "packages/tools/src/modules/__indexCollections.ts",
-    "packages/tools/src/modules/__indexObjects.ts",
-    "packages/tools/src/modules/__indexFunctions.ts",
-    "packages/tools/src/modules/__indexLanguage.ts",
-    "packages/tools/src/modules/__indexUtility.ts",
-    "packages/tools/src/__indexChaining.ts",
-
-    "packages/core/useStorage/index.ts",
-    "packages/core/useLocalStorage/index.ts",
-    "packages/core/useSessionStorage/index.ts",
-
-    "packages/core/useAxios/index.ts",
-    "packages/core/useWebSocket/index.ts",
-
-    "packages/core/useDayjs/index.ts",
-
-    "packages/mode/useObserver/index.ts",
-
+    "packages/axios/index.ts",
+    "packages/core/src/modules/__indexArrays.ts",
+    "packages/core/src/modules/__indexCollections.ts",
+    "packages/core/src/modules/__indexObjects.ts",
+    "packages/core/src/modules/__indexFunctions.ts",
+    "packages/core/src/modules/__indexLanguage.ts",
+    "packages/core/src/modules/__indexUtility.ts",
+    "packages/core/src/__indexChaining.ts",
+    "packages/core/src/types.ts",
+    "packages/dayjs/index.ts",
+    "packages/numeral/index.ts",
+    "packages/socket/index.ts",
+    "packages/storage/index.ts",
+    "packages/mode/src/useObserver/index.ts",
     "packages/types/index.ts"
   ],
   "out": "docs/dist",

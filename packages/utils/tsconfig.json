@@ -5,5 +5,5 @@
     "declarationDir": "dist",
     "types": ["node"]
   },
-  "include": ["./*.ts"]
+  "include": ["src"]
 }

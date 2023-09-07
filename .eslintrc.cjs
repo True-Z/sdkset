@@ -39,7 +39,6 @@ module.exports = {
     'keyword-spacing': ['error', { overrides: { this: { before: false } } }], // 强制关键字周围空格的一致性
     'implicit-arrow-linebreak': 'off', // 强制隐式返回的箭头函数体的位置
     'no-multi-assign': 'warn', // 禁止连续赋值
-    'no-continue': 'warn', // 禁止 continue
     'linebreak-style': ['error', 'windows'], // 统一行尾字符
 
     // ? airbnb cover
@@ -51,7 +50,6 @@ module.exports = {
     'no-use-before-define': 'off', // 禁止在定义之前使用
     'no-shadow': 'off', // 禁止变量声明覆盖外层作用域的变量
     'space-before-function-paren': 'off', // 禁止函数圆括号之前空格
-    'no-redeclare': 'off', // 禁止变量重新声明
     '@typescript-eslint/no-this-alias': ['error', { allowDestructuring: true, allowedNames: ['lastThis'] }], // this设置
 
     // ? import cover

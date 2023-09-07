@@ -17,7 +17,7 @@
   },
   "keywords": [
     "@sdkset/utils",
-    "Design patterns"
+    "model"
   ],
   "files": [
     "dist"
@@ -32,13 +32,12 @@
   "types": "dist/index.d.ts",
   "browser": "dist/index.umd.js",
   "buildOptions": {
-    "name": "sdkset",
+    "name": "sdkMode",
     "formats": [
       "es",
       "cjs",
       "umd"
-    ],
-    "globals": {}
+    ]
   },
   "devDependencies": {
     "@sdkset/types": "workspace:*"

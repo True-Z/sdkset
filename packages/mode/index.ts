@@ -1,1 +1,1 @@
-export * from './useObserver'
+export * from './src'
