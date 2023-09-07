@@ -22,8 +22,6 @@
     "doc:dev": "vitepress dev docs --host",
     "doc:build": "vitepress build docs",
     "doc:serve": "vitepress serve docs",
-    "doc:deploy:summary": "pnpm doc:deploy:html && pnpm doc:deploy:markdown",
-    "doc:deploy:html": "pnpm scripts/global/deploy.html.bat",
     "doc:deploy:markdown": "rimraf docs/.vitepress/dist/* -g && pnpm doc:build && pnpm scripts/global/deploy.markdown.bat",
     "typedoc:test": "typedoc --options typedoc.markdown.json && node scripts/package/copyFile.mjs && node docs/scripts/createFrontmatter.cjs",
     "typedoc:markdown": "typedoc --options typedoc.markdown.json && node scripts/package/copyFile.mjs && pnpm scripts/global/package.markdown.bat && node docs/scripts/createFrontmatter.cjs",
