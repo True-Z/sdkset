@@ -1,6 +1,0 @@
-{
-  "entryPoints": ["packages/all/index.ts"],
-  "out": "docs/typeDoc",
-  "hideGenerator": true,
-  "disableSources": true
-}

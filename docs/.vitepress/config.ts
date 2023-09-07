@@ -102,8 +102,14 @@ export default defineConfig({
     /** @type {object}
      * 导航菜单项的配置 */
     nav: [
-      { text: '文档', items: [{ text: 'Modules', link: 'dist/modules.md' }] },
-      { text: 'API', link: 'https://true-z.github.io/sdkset-utils-typedoc/' },
+      {
+        text: '指南',
+        items: [
+          { text: '起步', link: 'dist/README.md' },
+          { text: '更新日志', link: 'dist/CHANGELOG.md' },
+          { text: '一览', items: [{ text: '模块', link: 'dist/modules.md' }] }
+        ]
+      },
       {
         text: '关于',
         items: [{ text: 'gitee', link: 'https://gitee.com/trueAlways/sdkset-utils' }]

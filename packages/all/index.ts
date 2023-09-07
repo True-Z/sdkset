@@ -1,4 +1,5 @@
-export * from '@sdkset/core'
-export * from '@sdkset/mode'
-export * from '@sdkset/utils'
-export type * from '@sdkset/types'
+export * from './src'
+
+export function fn() {
+  console.log('🚀 ~~ path: index.ts ~ line: 4 : ', 1)
+}
