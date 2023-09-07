@@ -10,11 +10,12 @@ hero:
     alt: '@sdkset/utils'
   actions:
     - theme: brand
-      text: API 文档
-      link: dist/modules/utils_src_modules___indexCollections
-    - theme: alt
       text: 起步
       link: dist/README#安装
+    - theme: alt
+      text: API 文档
+      link: dist/modules/utils_src_modules___indexCollections
+
 features:
   - icon: ⚡️
     title: 性能优先，优化实现
