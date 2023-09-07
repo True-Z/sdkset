@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+## [4.0.0](https://github.com/True-Z/sdkset-utils/compare/v3.3.2...v4.0.0) (2023-09-07)
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* axios 模块，原有 RequestConfig 类型更改为 AxiosRequestConfig，useAxios 现接收一个泛型变量作为请求时的 config 类型 ([d4632d1](https://github.com/True-Z/sdkset-utils/commit/d4632d1277b774bb6456c8e57aeb9605abf778c4))
+* **core:** utils 模块改名 all，core 模块改名 utils，mode、types 模块独立，其余模块统一汇总至 core 中，删除 customDate 函数 ([1ac6cd0](https://github.com/True-Z/sdkset-utils/commit/1ac6cd0088a1e9c8eea74b369d77535de6c1cbde))
 
 ### [3.3.2](https://github.com/True-Z/sdkset-utils/compare/v3.3.1...v3.3.2) (2023-08-17)
 
