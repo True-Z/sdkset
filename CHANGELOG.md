@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+### [4.0.1](https://github.com/True-Z/sdkset-utils/compare/v4.0.0...v4.0.1) (2023-09-07)
+
+
+### ✨ Features | 新功能
+
+* **core:** core 模块支持 UMD ([40a98b7](https://github.com/True-Z/sdkset-utils/commit/40a98b798c8c3374feb9f730f86e74af7abed482))
+
 ## [4.0.0](https://github.com/True-Z/sdkset-utils/compare/v3.3.2...v4.0.0) (2023-09-07)
 
 
