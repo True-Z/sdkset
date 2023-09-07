@@ -1,10 +1,10 @@
-import { observer } from './observer'
+import { observer } from '../observer'
 
-import type { OmitCore } from './types'
+import type { OmitUtils } from './types'
 import type { Dictionary, New } from '@sdkset/types'
 
 /**
- * 返回`utils`包装器对象，如果`utils`作为函数调用，它将返回一个可以使用`OO-style`的包装器，通过`mixin`方法包装的自定义函数对象可以被链接使用。
+ * 返回`utils`包装器对象，如果`utils`作为函数调用，它将返回一个可以使用`OO-style`的包装器，通过`mixin`方法混入的自定义函数可以被链接使用。
  *
  * @example
  * utils(obj)
@@ -12,17 +12,17 @@ import type { Dictionary, New } from '@sdkset/types'
  *
  * @param value 给定值
  */
-export function utils<V>(this: unknown, value?: V): OmitCore<V> {
+export function utils<V>(this: unknown, value?: V): OmitUtils<V> {
   observer.emit('mountDefaultFunction')
 
   if (value instanceof utils) {
-    return value as unknown as OmitCore<V>
+    return value as unknown as OmitUtils<V>
   }
   if (!(this instanceof utils)) {
-    return new (utils as unknown as New<OmitCore<V>>)(value)
+    return new (utils as unknown as New<OmitUtils<V>>)(value)
   }
   ;(<Dictionary>this)._wrapped = value
-  return undefined as unknown as OmitCore<V>
+  return undefined as unknown as OmitUtils<V>
 }
 
 /** 返回被包装值。 */

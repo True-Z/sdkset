@@ -1,12 +1,12 @@
 {
   "entryPoints": [
-    "packages/tools/src/modules/__indexArrays.ts",
-    "packages/tools/src/modules/__indexCollections.ts",
-    "packages/tools/src/modules/__indexObjects.ts",
-    "packages/tools/src/modules/__indexFunctions.ts",
-    "packages/tools/src/modules/__indexLanguage.ts",
-    "packages/tools/src/modules/__indexUtility.ts",
-    "packages/tools/src/__indexChaining.ts",
+    "packages/utils/src/modules/__indexArrays.ts",
+    "packages/utils/src/modules/__indexCollections.ts",
+    "packages/utils/src/modules/__indexObjects.ts",
+    "packages/utils/src/modules/__indexFunctions.ts",
+    "packages/utils/src/modules/__indexLanguage.ts",
+    "packages/utils/src/modules/__indexUtility.ts",
+    "packages/utils/src/chain/index.ts",
 
     "packages/core/useStorage/index.ts",
     "packages/core/useLocalStorage/index.ts",

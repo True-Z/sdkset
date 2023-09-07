@@ -1,9 +1,9 @@
 import { chain } from './chain'
-import { observer } from './observer'
 import { utils } from './utils'
 import * as underscoreModules from '../modules/__index'
 import { forEach, functions } from '../modules/__index'
 import { ArrayProto, push } from '../modules/_setup'
+import { observer } from '../observer'
 
 import type { Dictionary, Func } from '@sdkset/types'
 

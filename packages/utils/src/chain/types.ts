@@ -5,7 +5,7 @@ import type { Dictionary } from '@sdkset/types'
 type Modules = typeof underscoreModules
 
 type ChainHeadArgs<T> = {
-  [K in keyof T]: T[K] extends (omit: never, ...args: infer P) => infer R ? (...args: P) => ChainCore<R> : T[K]
+  [K in keyof T]: T[K] extends (omit: never, ...args: infer P) => infer R ? (...args: P) => ChainUtils<R> : T[K]
 }
 
 type OmitHeadArgs<T> = {
@@ -13,7 +13,7 @@ type OmitHeadArgs<T> = {
 }
 
 /** 链式调用类型。 */
-export interface ChainCore<V> extends ChainHeadArgs<Modules>, ChainHeadArgs<ArrayNativeMethod>, Dictionary {
+export interface ChainUtils<V> extends ChainHeadArgs<Modules>, ChainHeadArgs<NativeArrayMethod>, Dictionary {
   /** 给定包装值。 */
   _wrapped: V
   /** 是否为链式调用。 */
@@ -27,13 +27,13 @@ export interface ChainCore<V> extends ChainHeadArgs<Modules>, ChainHeadArgs<Arra
   /** 返回被包装值的字符串原始值。 */
   toString: () => string
   /** 混入自定义函数。 */
-  mixin: () => (value?: unknown) => OmitCore<V>
+  mixin: () => (value?: unknown) => OmitUtils<V>
   /** 开启链式调用。 */
-  chain: () => ChainCore<V>
+  chain: () => ChainUtils<V>
 }
 
-/** 链式调用类型。 */
-export interface OmitCore<V> extends OmitHeadArgs<Modules>, OmitHeadArgs<ArrayNativeMethod>, Dictionary {
+/** OO-style 调用类型。 */
+export interface OmitUtils<V> extends OmitHeadArgs<Modules>, OmitHeadArgs<NativeArrayMethod>, Dictionary {
   /** 给定包装值。 */
   _wrapped: V
   /** 是否为链式调用。 */
@@ -47,13 +47,13 @@ export interface OmitCore<V> extends OmitHeadArgs<Modules>, OmitHeadArgs<ArrayNa
   /** 返回被包装值的字符串原始值。 */
   toString: () => string
   /** 混入自定义函数。 */
-  mixin: () => (value?: unknown) => OmitCore<V>
+  mixin: () => (value?: unknown) => OmitUtils<V>
   /** 开启链式调用。 */
-  chain: () => ChainCore<V>
+  chain: () => ChainUtils<V>
 }
 
 /** 原生 Array 方法。 */
-export interface ArrayNativeMethod {
+export interface NativeArrayMethod {
   /** 原生`Array.prototype.push`。 */
   push: []['push']
   /** 原生`Array.prototype.unshift`。 */

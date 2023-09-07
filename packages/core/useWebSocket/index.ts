@@ -24,7 +24,7 @@ export type { WrapperWebSocket } from './helpers'
  * ws.close()
  *
  * @param [url] 请求地址
- * @param [option] 请求配置对象
+ * @param [option] 包装器选项
  * @param [option.params] 请求参数
  * @param [option.protocols] 协议字符串 or 包含协议字符串的数组
  * @param [option.heartbeat = true] 心跳配置

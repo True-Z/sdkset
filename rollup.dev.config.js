@@ -19,7 +19,14 @@ export default {
     file: 'dist/dev.umd.js',
     format: 'umd',
     name: '_',
-    sourcemap: true
+    sourcemap: true,
+    globals: {
+      '@sdkset/mode': 'sdk',
+      '@sdkset/core': 'sdk',
+      '@sdkset/utils': 'sdk',
+      dayjs: 'dayjs',
+      axios: 'axios'
+    }
   },
   plugins: [
     commonjs(),

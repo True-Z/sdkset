@@ -40,7 +40,7 @@
       "umd"
     ],
     "globals": {
-      "@sdkset/mode": "sdkset"
+      "@sdkset/mode": "sdk"
     }
   },
   "devDependencies": {
