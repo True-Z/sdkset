@@ -36,7 +36,7 @@ const pkg = JSON.parse(readFileSync(resolve('package.json'), { encoding: 'utf8' 
 // 输出配置匹配
 const options = pkg.buildOptions
 
-/** @type {Object}
+/** @type {object}
  * @param output.dir <string> 该选项用于指定所有生成的 chunk 被放置在哪个目录中
  * @param output.file <string> 该选项用于指定要写入的文件
  * @param output.format <string> 该选项用于指定生成的 bundle 的格式
@@ -88,7 +88,7 @@ function createConfig(format, output) {
      * 该选项用于指定 bundle 的入口文件 */
     input: resolve('index.ts'),
 
-    /** @type {Object} true after false
+    /** @type {object} true after false
      * 指定输出配置 */
     output,
 

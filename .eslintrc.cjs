@@ -262,7 +262,7 @@ module.exports = {
     // warnOnUnsupportedTypeScriptVersion: true,
   },
 
-  /** @type {Object}
+  /** @type {object}
    * @param import/resolver {Object} 解析器
    * @param import/parsers {Object} 解析器到文件扩展数组的映射
    * @param import/extensions {string[]} ['.js'] 解析扩展名列表

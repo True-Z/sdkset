@@ -9,7 +9,7 @@
  * 解释：@type {类型} 默认值 | @param 选项 描述
  */
 module.exports = {
-  /** @type {Object}
+  /** @type {object}
    * 提交提示 */
   messages: {
     type: '选择一种你的提交类型：',
