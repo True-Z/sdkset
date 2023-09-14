@@ -4,7 +4,7 @@ import { initWebSocket, WrapperWebSocket } from './helpers'
 
 import type { CreateWebSocketOption } from './types'
 
-export type * from './types'
+export * from './types'
 
 export type { WrapperWebSocket } from './helpers'
 

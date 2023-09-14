@@ -8,7 +8,7 @@ import { initDateFormat, WrapperDateFormat } from './helpers'
 
 import type { CreateDayjsOption, DayjsDate } from './types'
 
-export type * from './types'
+export * from './types'
 
 export type { WrapperDateFormat } from './helpers'
 

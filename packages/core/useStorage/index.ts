@@ -2,7 +2,7 @@ import { initStorage, WrapperStorage } from './helpers'
 
 import type { CreateStorageOption, StorageType } from './types'
 
-export type * from './types'
+export * from './types'
 
 export type { WrapperStorage } from './helpers'
 

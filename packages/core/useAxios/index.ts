@@ -4,7 +4,7 @@ import { initAxios, WrapperAxios } from './helpers'
 
 import type { CreateAxiosOption } from './types'
 
-export type * from './types'
+export * from './types'
 
 export type { WrapperAxios } from './helpers'
 

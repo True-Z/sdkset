@@ -44,12 +44,12 @@
     }
   },
   "devDependencies": {
-    "@sdkset/types": "workspace:*",
-    "@sdkset/mode": "workspace:*"
+    "@sdkset/mode": "workspace:*",
+    "@sdkset/types": "workspace:*"
   },
   "dependencies": {},
   "peerDependencies": {
-    "@sdkset/types": "*",
-    "@sdkset/mode": "*"
+    "@sdkset/mode": "*",
+    "@sdkset/types": "*"
   }
 }
