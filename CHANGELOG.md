@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+### [4.0.2](https://github.com/True-Z/sdkset-utils/compare/v4.0.1...v4.0.2) (2023-09-14)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 解决模块types.d.ts导出异常 ([64d2651](https://github.com/True-Z/sdkset-utils/commit/64d2651e5c24f88ea4e78d43b33e43d2e963eefc))
+
 ### [4.0.1](https://github.com/True-Z/sdkset-utils/compare/v4.0.0...v4.0.1) (2023-09-07)
 
 
