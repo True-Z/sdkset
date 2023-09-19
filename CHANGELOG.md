@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+### [4.0.4](https://github.com/True-Z/sdkset-utils/compare/v4.0.3...v4.0.4) (2023-09-19)
+
+
+### 🐛 Bug Fixes | Bug 修复
+
+* 修复 useAxios  函数'i.create not a function'错误，现更改为自行创建axios实例传递给包装器使用 ([3113615](https://github.com/True-Z/sdkset-utils/commit/3113615a3e6633a67e9dd234977e5013af44b1cb))
+
 ### [4.0.3](https://github.com/True-Z/sdkset-utils/compare/v4.0.2...v4.0.3) (2023-09-14)
 
 ### [4.0.2](https://github.com/True-Z/sdkset-utils/compare/v4.0.1...v4.0.2) (2023-09-14)
