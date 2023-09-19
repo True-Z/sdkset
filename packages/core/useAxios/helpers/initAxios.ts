@@ -1,7 +1,6 @@
 import type { CreateAxiosOption } from '../types'
 
 const defaultOption: Required<CreateAxiosOption> = {
-  config: {},
   interceptor: {}
 }
 

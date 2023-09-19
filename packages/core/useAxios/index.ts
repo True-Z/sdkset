@@ -1,4 +1,4 @@
-import axios from 'axios'
+import { AxiosInstance } from 'axios/index'
 
 import { initAxios, WrapperAxios } from './helpers'
 
@@ -14,7 +14,7 @@ export type { WrapperAxios } from './helpers'
  * 使用`TypeScript`时，可以通过传递泛型参数控制请求`config`对象类型。
  *
  * @example
- * import type { AxiosRequestConfig, CreateAxiosDefaults } from 'axios'
+ * import type { CreateAxiosDefaults } from 'axios'
  * import type { AxiosInterceptor } from '@sdkset/core'
  *
  * interface RequestConfig extends AxiosRequestConfig {
@@ -22,18 +22,15 @@ export type { WrapperAxios } from './helpers'
  *   ...
  * }
  *
- * const config: CreateAxiosDefaults = {
- *   params: undefined， // 请求参数
- *   autoR,
- * }
+ * const axiosInstance = axios.create({ ... })
  * const interceptor: AxiosInterceptor = { ... }
- * const axios = useAxios<RequestConfig>({ option, interceptor })
+ * const axios = useAxios<RequestConfig>(axiosInstance, { interceptor })
  *
  * await axios.get('url', { ... }, config)
  * => response...
  *
+ * @param axiosInstance axios 实例
  * @param [option] 包装器选项
- * @param [option.config = {}] 创建配置对象
  * @param [option.interceptor = {}] 拦截器对象
  *
  * @default
@@ -42,10 +39,9 @@ export type { WrapperAxios } from './helpers'
  *   interceptor: {} // 拦截器对象
  * })
  */
-export function useAxios<T>(option?: CreateAxiosOption) {
-  const { config, interceptor } = initAxios(option)
+export function useAxios<T>(axiosInstance: AxiosInstance, option?: CreateAxiosOption) {
+  const { interceptor } = initAxios(option)
 
-  const axiosInstance = axios.create(config)
   axiosInstance.interceptors.request.use(
     interceptor.requestResolve,
     interceptor.requestReject,

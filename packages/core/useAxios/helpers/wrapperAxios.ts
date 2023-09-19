@@ -2,7 +2,7 @@ import type { Dictionary } from '@sdkset/types'
 import type { AxiosInstance, AxiosRequestConfig } from 'axios'
 
 /** 包装器类。 */
-export class WrapperAxios<T> {
+export class WrapperAxios<T = AxiosRequestConfig> {
   /** `axios`实例。 */
   get self() {
     return this.#axios
@@ -21,7 +21,7 @@ export class WrapperAxios<T> {
 
   /** 请求指定的资源。使用`GET`的请求应该只用于获取数据。 */
   get(url: string, params?: Dictionary, config?: T): Promise<any> {
-    return this.#axios({ ...config, url, params })
+    return this.#axios({ method: 'GET', url, params, ...config })
   }
 
   /** 发送数据给服务器。请求主体的类型由`Content-Type`首部指定。 */
