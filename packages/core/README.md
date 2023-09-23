@@ -1,4 +1,4 @@
-<p align="center"><a href="https://true-z.github.io/sdkset-utils-doc/" target="_blank" rel="noopener noreferrer"><img width="100" src="https://true-z.github.io/sdkset-utils-doc/tools.png" alt="sdkset logo"></a></p>
+<p align="center"><a href="https://true-z.github.io/sdkset-doc/" target="_blank" rel="noopener noreferrer"><img width="100" src="https://true-z.github.io/sdkset-doc/tools.png" alt="sdkset logo"></a></p>
 
 <p class="shields" align="center">
 	<a href="https://www.npmjs.com/package/@sdkset/utils">
@@ -20,10 +20,10 @@
 
 > 简单易用，性能出色的前端工具库。使用`menorepo`组织项目结构，支持模块单独引入。
 >
-> - 官网：https://true-z.github.io/sdkset-utils-doc/
+> - 官网：https://true-z.github.io/sdkset-doc/
 >
-> - github：https://github.com/True-Z/sdkset-utils
-> - gitee：https://gitee.com/trueAlways/sdkset-utils
+> - github：https://github.com/True-Z/sdkset
+> - gitee：https://gitee.com/trueAlways/sdkset
 
 ## 安装
 
