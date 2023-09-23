@@ -2,7 +2,7 @@ import markdownPath from '../markdownConfig.json'
 
 const shallowList = markdownPath.shallowList
 
-/* 动态为`vitepree`添加侧边导航栏 */
+/* 动态为`vitepress`添加侧边导航栏 */
 export function createSiteBarConfig(filePath) {
   const results = []
   let row = null

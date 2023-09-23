@@ -2,12 +2,12 @@
 layout: home
 
 hero:
-  name: '@sdkset/utils'
+  name: '@sdkset'
   text: 前端开发工具库
   tagline: 简单易用，性能出色的前端工具库。
   image:
     src: /tools.png
-    alt: '@sdkset/utils'
+    alt: '@sdkset'
   actions:
     - theme: brand
       text: 起步

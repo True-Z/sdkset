@@ -14,7 +14,7 @@ export default defineConfig({
   // ? Site Metadata
   /** @type {string} 'VitePress'
    * 网站的标题 */
-  title: '@sdkset/utils',
+  title: '@sdkset',
   /** @type {string | boolean}
    * 标题的后缀 */
   titleTemplate: true,
@@ -23,13 +23,13 @@ export default defineConfig({
   description: '简单易用，性能出色的前端工具库',
   /** @type {Array} []
    * 添加到HTML 的 <head> 标记中呈现的其他元素 */
-  head: [['link', { rel: 'icon', href: isProd ? '/sdkset-utils-doc/favicon.ico' : '/favicon.ico' }]],
+  head: [['link', { rel: 'icon', href: isProd ? '/sdkset-doc/favicon.ico' : '/favicon.ico' }]],
   /** @type {string} 'en-US'
    * 站点的 lang 属性 */
   lang: 'zh-CN',
   /** @type {string} '/'
    * 部署站点的 base URL */
-  base: isProd ? '/sdkset-utils-doc/' : '/',
+  base: isProd ? '/sdkset-doc/' : '/',
 
   // ? Routing
   /** @type {boolean} false
@@ -57,7 +57,7 @@ export default defineConfig({
   // ignoreDeadLinks: false,
 
   // ? Theming
-  /** @type {boolean | 'dark'} true
+  /** @type {boolean | "dark"} true
    * @param true 默认主题将由用户的首选配色方案决定
    * @param false 默认情况下主题将是深色的，除非用户手动切换它
    * @param 'dark' 用户将无法切换主题
@@ -97,7 +97,7 @@ export default defineConfig({
 
     /** @type {string | false}
      * 默认站点标题 */
-    siteTitle: '@sdkset/utils',
+    siteTitle: '@sdkset',
 
     /** @type {object}
      * 导航菜单项的配置 */
@@ -120,14 +120,14 @@ export default defineConfig({
      * 侧边栏菜单项的配置 */
     sidebar: createSiteBarConfig(markdownConfig.path),
 
-    /** @type {boolean | 'left'}
+    /** @type {boolean | "left"}
      * @param false 防止渲染旁边容器
      * @param true 将渲染到右侧
      * @param false 将渲染到左侧
      * 侧边栏菜单项的配置 */
     aside: true,
 
-    /** @type {number | [number, number] | 'deep' | false}
+    /** @type {number | [number, number] | "deep" | false}
      * 大纲中显示的标题级别 */
     outline: [2, 3],
 

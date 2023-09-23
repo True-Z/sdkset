@@ -15,7 +15,7 @@
     "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:all"
   },
   "keywords": [
-    "@sdkset/utils",
+    "@sdkset/all",
     "summary"
   ],
   "files": [
