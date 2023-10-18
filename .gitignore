@@ -1,14 +1,14 @@
 # Resource directory
-node_modules
+node_modules/
 
 # Editor directories and files
-.vscode
-.history
-.idea
+.vscode/
+.history/
+.idea/
 
 # Custom ignore directories
 .husk
-dist
+dist/
 docs/typeDoc
 docs/.vitepress/.temp
 docs/.vitepress/cache
