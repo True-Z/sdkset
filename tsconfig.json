@@ -1,37 +1,44 @@
+/**
+ * @tutorial https://www.tslang.cn/docs/handbook/compiler-options.html
+ */
 {
-  /**
-   * 参考：https://www.tslang.cn/docs/handbook/compiler-options.html
-   */
-
-  /** 编译选项 */
+  /** @type {Record<string, string | boolean>}
+   * * 编译选项。 */
   "compilerOptions": {
-    /** 构建选项 */
+    /** ? 构建选项 */
     "target": "ESNext",
     "useDefineForClassFields": true,
     "module": "ESNext",
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
     "skipLibCheck": true,
-    /** 构建模式 */
+
+    /** ? 构建模式 */
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    /** 代码校验 */
+
+    /** ? 代码校验 */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
     "noFallthroughCasesInSwitch": true,
-    /** 自定义 */
-    "allowSyntheticDefaultImports": true,
-    /** 类型声明 */
-    "types": ["node"]
+
+    /** ? 自定义 */
+    "allowSyntheticDefaultImports": true
+
+    /** ? 类型声明 */
+    // "types": ["node"]
   },
-  /** 指定一个包含相对或绝对文件路径的列表 */
+
+  /** * 指定一个包含相对或绝对文件路径的列表。 */
   //  "files": [],
-  /** 指定一个文件 glob 匹配模式 */
+
+  /** * 指定一个文件 glob 匹配模式。 */
   "include": ["packages", "docs/*.ts"],
   "exclude": ["packages/*/dist", "packages/*/node_modules"],
-  /** 项目引用 */
+
+  /** * 项目引用。 */
   "references": []
 }

@@ -1,16 +1,15 @@
 ﻿/**
+ * @tutorial https://github.com/commitizen/cz-cli
+ *
  * @plugins
- * "commitizen": 当您使用 Commitizen 提交时，系统会提示您在提交时填写任何必需的提交字段
- * "cz-customizable": 可定制的 Commitizen 插件（或独立实用程序）可帮助像 AngularJS 团队一样实现一致的提交消息
- */
-
-/**
- * 参考：https://github.com/commitizen/cz-cli
- * 解释：@type {类型} 默认值 | @param 选项 描述
- */
+ * "commitizen" - https://github.com/commitizen/cz-cli
+ * * 当您使用 Commitizen 提交时，系统会提示您在提交时填写任何必需的提交字段。
+ * "cz-customizable" - https://github.com/leoforfree/cz-customizable
+ * * 可定制的 Commitizen 插件（或独立实用程序）可帮助像 AngularJS 团队一样实现一致的提交消息。
+ * */
 module.exports = {
-  /** @type {object}
-   * 提交提示 */
+  /** @type {Record<string, string>}
+   * * 提交提示。 */
   messages: {
     type: '选择一种你的提交类型：',
     customScope: '选择一个scope（可选）：',
@@ -20,58 +19,53 @@ module.exports = {
     confirmCommit: '是否提交或修改commit？'
   },
 
-  /** @type {Array}
-   * 提交类型 */
+  /** @type {{ value: string; name: string }[]}
+   * * 提交类型。 */
   types: [
-    { value: 'feat', name: '新功能' },
-    { value: 'fix', name: 'Bug 修复' },
-    { value: 'perf', name: '性能优化' },
-    { value: 'refactor', name: '代码重构' },
-    { value: 'revert', name: '代码回退' },
-    { value: 'release', name: '代码发布' },
+    ['feat', '新功能'],
+    ['fix', 'Bug 修复'],
+    ['perf', '性能优化'],
+    ['refactor', '代码重构'],
+    ['revert', '代码回退'],
+    ['release', '代码发布'],
 
-    { value: 'docs', name: '文档' },
-    { value: 'style', name: '代码格式' },
-    { value: 'test', name: '测试' },
+    ['docs', '文档'],
+    ['style', '代码格式'],
+    ['test', '测试'],
 
-    { value: 'build', name: '构建流程、外部依赖变更' },
-    { value: 'ci', name: 'CI 配置、脚本' },
+    ['build', '构建流程、外部依赖变更'],
+    ['ci', 'CI 配置、脚本'],
 
-    { value: 'chore', name: '其他修改' },
-    { value: 'wip', name: '开发中' },
-    { value: 'init', name: '初始化' }
-  ].map(({ value, name: description }) => {
-    return {
-      value,
-      name: `${value.padEnd(30)} ${description}`
-      // name: '123'
-    }
-  }),
+    ['chore', '构建/工程依赖/工具'],
+    ['wip', '开发中'],
+    ['init', '初始化']
+  ].map(([value, description]) => ({
+    value,
+    name: `${value.padEnd(30)} ${description}`
+  })),
 
-  /** @type {Array} []
-   * 提交范围 */
+  /** @type {{ value: string; name: string }[]}
+   * * 提交范围。 */
   scopes: [
     ['core', '代码'],
     ['shared', '共享'],
     ['build', '构建'],
-    ['other', '其他'],
-    ['release', '发布']
-  ].map(([value]) => {
-    return {
-      value,
-      name: value
-    }
-  }),
+    ['release', '发布'],
+    ['other', '其他']
+  ].map(([value, description]) => ({
+    value,
+    name: `${value.padEnd(30)} ${description}`
+  })),
 
   /** @type {boolean} false
-   * 是否允许选择scope */
+   * * 是否允许选择scope。 */
   allowCustomScopes: true,
 
-  /** @type {Array} []
-   * breaking change 提示的问题的提交类型列表 */
+  /** @type {string[]} []
+   * * breaking change 提示的问题的提交类型列表。 */
   allowBreakingChanges: ['feat', 'fix'],
 
   /** @type {number}
-   * 变更描述长度限制 */
+   * * 变更描述长度限制。 */
   subjectLimit: 100
 }
