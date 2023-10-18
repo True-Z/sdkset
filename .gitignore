@@ -8,6 +8,7 @@ node_modules/
 
 # Custom ignore directories
 dist/
+docs/.vitepress/dist/
 docs/.vitepress/cache/
 
 # Custom ignore files
