@@ -1,5 +1,4 @@
 import { utils } from './utils'
-import { observer } from '../observer'
 
 import type { ChainUtils } from './types'
 
@@ -18,8 +17,6 @@ import type { ChainUtils } from './types'
  * @param value 给定值
  */
 export function chain<V>(value?: V) {
-  observer.emit('mountDefaultFunction')
-
   const instance = utils(value)
   instance._chain = true
   return instance as unknown as ChainUtils<V>

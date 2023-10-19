@@ -25,9 +25,9 @@ export default {
     name: '_',
     sourcemap: true,
     globals: {
-      '@sdkset/mode': 'sdk',
-      '@sdkset/core': 'sdk',
-      '@sdkset/utils': 'sdk',
+      '@sdkset/mode': 'sdkMode',
+      '@sdkset/core': 'sdkCore',
+      '@sdkset/utils': 'sdkUtils',
       dayjs: 'dayjs',
       axios: 'axios'
     }

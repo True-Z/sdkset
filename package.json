@@ -10,7 +10,7 @@
   },
   "scripts": {
     "commit": "git add . && cz",
-    "dev": "rimraf dist/* -g && rollup --bundleConfigAsCjs -wc rollup.dev.config.js --environment target:core",
+    "dev": "rimraf dist/* -g && rollup --bundleConfigAsCjs -wc rollup.dev.config.js --environment target:utils",
     "test": "vitest",
     "lint": "eslint packages/**/*.{js,jsx,ts,tsx}",
     "lint:fix": "eslint packages/**/*.{js,jsx,ts,tsx} --fix",

@@ -1,16 +1,16 @@
-import { chain } from './chain'
+// import { chain } from './chain'
+// import { observer } from './observer'
 import { utils } from './utils'
-import * as underscoreModules from '../modules/__index'
+// import * as utilsModules from '../modules/__index'
 import { forEach, functions } from '../modules/__index'
 import { ArrayProto, push } from '../modules/_setup'
-import { observer } from '../observer'
 
 import type { Dictionary, Func } from '@sdkset/types'
 
-observer.once('mountDefaultFunction', () => {
-  mixin({ mixin, chain, tools: utils })
-  mixin(underscoreModules as Dictionary<Func>)
-})
+// observer.once('mountDefaultFunction', async () => {
+//   mixin({ chain, utils })
+//   mixin(utilsModules as Dictionary<Func>)
+// })
 
 /**
  * 允许使用自定义函数扩展`_`对象，传递一个`{name: function}`定义的函数集对象添加到`_`对象，后续即可使用`core`链式调用自定义函数。

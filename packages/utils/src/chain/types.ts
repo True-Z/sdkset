@@ -26,8 +26,6 @@ export interface ChainUtils<V> extends ChainHeadArgs<Modules>, ChainHeadArgs<Nat
   toJSON: () => V
   /** 返回被包装值的字符串原始值。 */
   toString: () => string
-  /** 混入自定义函数。 */
-  mixin: () => (value?: unknown) => OmitUtils<V>
   /** 开启链式调用。 */
   chain: () => ChainUtils<V>
 }
@@ -46,8 +44,6 @@ export interface OmitUtils<V> extends OmitHeadArgs<Modules>, OmitHeadArgs<Native
   toJSON: () => V
   /** 返回被包装值的字符串原始值。 */
   toString: () => string
-  /** 混入自定义函数。 */
-  mixin: () => (value?: unknown) => OmitUtils<V>
   /** 开启链式调用。 */
   chain: () => ChainUtils<V>
 }

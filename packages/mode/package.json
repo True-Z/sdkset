@@ -1,7 +1,7 @@
 {
-  "name": "@sdkset/utils",
+  "name": "@sdkset/mode",
   "version": "4.0.4",
-  "description": "Function library implementation",
+  "description": "Mode re encapsulation",
   "author": "True",
   "license": "MIT",
   "type": "module",
@@ -13,12 +13,11 @@
     "publish:package": "npm publish",
     "rimraf:package": "rimraf dist/* -g",
     "vitest:package": "vitest run -c vitest.config.unit.ts",
-    "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:utils"
+    "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:mode"
   },
   "keywords": [
     "@sdkset/utils",
-    "underscore",
-    "tools"
+    "Design patterns"
   ],
   "files": [
     "dist"
@@ -33,7 +32,7 @@
   "types": "dist/index.d.ts",
   "browser": "dist/index.umd.js",
   "buildOptions": {
-    "name": "sdkUtils",
+    "name": "sdkMode",
     "formats": [
       "es",
       "cjs",

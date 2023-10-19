@@ -182,9 +182,6 @@ importers:
 
   packages/utils:
     devDependencies:
-      '@sdkset/mode':
-        specifier: workspace:*
-        version: link:../mode
       '@sdkset/types':
         specifier: workspace:*
         version: link:../types

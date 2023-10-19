@@ -36,14 +36,14 @@
   "types": "dist/index.d.ts",
   "browser": "dist/index.umd.js",
   "buildOptions": {
-    "name": "sdk",
+    "name": "sdkCore",
     "formats": [
       "es",
       "cjs",
       "umd"
     ],
     "globals": {
-      "@sdkset/mode": "sdk",
+      "@sdkset/mode": "sdkMode",
       "dayjs": "dayjs",
       "axios": "axios"
     }

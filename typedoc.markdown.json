@@ -6,7 +6,6 @@
     "packages/utils/src/modules/__indexFunctions.ts",
     "packages/utils/src/modules/__indexLanguage.ts",
     "packages/utils/src/modules/__indexUtility.ts",
-    "packages/utils/src/chain/index.ts",
 
     "packages/core/useStorage/index.ts",
     "packages/core/useLocalStorage/index.ts",

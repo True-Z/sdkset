@@ -40,13 +40,4 @@ describe('chaining', () => {
 
     expect(sdk.chain(1).constant().value()()).toStrictEqual(1)
   })
-
-  test('mixin', () => {
-    const fn = {
-      test: (num: unknown) => num
-    }
-    sdk.mixin(fn)
-
-    expect(sdk.utils(1).test()).toStrictEqual(1)
-  })
 })

@@ -1,4 +1,4 @@
-import { observer } from '../observer'
+// import { observer } from './observer'
 
 import type { OmitUtils } from './types'
 import type { Dictionary, New } from '@sdkset/types'
@@ -13,7 +13,7 @@ import type { Dictionary, New } from '@sdkset/types'
  * @param value 给定值
  */
 export function utils<V>(this: unknown, value?: V): OmitUtils<V> {
-  observer.emit('mountDefaultFunction')
+  // observer.emit('mountDefaultFunction')
 
   if (value instanceof utils) {
     return value as unknown as OmitUtils<V>
