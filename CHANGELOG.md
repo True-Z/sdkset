@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+### [4.0.5](https://github.com/True-Z/sdkset/compare/v4.0.4...v4.0.5) (2023-10-19)
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* **core:** 1. utils 模块为支持按需引入，不再支持链式调用；2. 模块 UMD 全局名称修改 ([73b9cbb](https://github.com/True-Z/sdkset/commit/73b9cbb54a52f34536818eb40a50bc074e234cf4))
+
 ### [4.0.4](https://github.com/True-Z/sdkset-utils/compare/v4.0.3...v4.0.4) (2023-09-19)
 
 
