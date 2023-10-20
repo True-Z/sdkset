@@ -107,7 +107,11 @@ module.exports = {
 
     /** @tutorial https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/prefer-default-export.md
      * * 禁止无默认导出。*/
-    'import/prefer-default-export': 'off' // 禁止无默认导出
+    'import/prefer-default-export': 'off',
+
+    /** @tutorial https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-unresolved.md
+     * * 确保导入的模块可以解析为本地文件系统上的模块，如标准节点require.resolve行为所定义。*/
+    'import/no-unresolved': [2, { ignore: ['virtual'] }]
   },
 
   /** @type {Record<string, 'writable' | 'readonly' | 'off' | boolean | 'readable' | 'writeable'>}
