@@ -36,7 +36,7 @@
   //  "files": [],
 
   /** * 指定一个文件 glob 匹配模式。 */
-  "include": ["packages", "docs/*.ts"],
+  "include": ["packages", "docs/*/**.ts"],
   "exclude": ["packages/*/dist", "packages/*/node_modules"],
 
   /** * 项目引用。 */

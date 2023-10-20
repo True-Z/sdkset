@@ -1,4 +1,10 @@
 :root {
+   /* Layout */
+  --vp-layout-max-width: 1450px;
+
+  /* Code font-size */
+  --vp-code-font-size: 13px;
+
   /* 标题 */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, #81fbb8 10%, #28c76f 100%);

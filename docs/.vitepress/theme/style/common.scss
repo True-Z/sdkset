@@ -1,0 +1,55 @@
+.shields {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+body {
+  font-size: 14px;
+}
+
+/* 浅色模式 */
+.main {
+  /* 加粗文字 */
+  strong {
+    color: var(--cus-c-strong);
+  }
+
+  /* 段落 */
+  p {
+    line-height: 1.3em !important;
+    margin: 1em 0 !important;
+  }
+
+  /* > 背景样式 */
+  blockquote {
+    padding: 1px 16px;
+    border-left: 2px solid #429488;
+    background: #f9f9f9;
+    border-radius: 4px;
+
+    ul {
+      margin: 8px 0;
+    }
+  }
+}
+
+/* 深色模式 */
+.dark {
+  .main {
+    /* > 背景样式 */
+    blockquote {
+      background: var(--vp-c-bg-soft);
+    }
+  }
+}
+
+/* Layout */
+.container {
+  .content {
+    .content-container {
+      max-width: 100% !important;
+    }
+  }
+}
+

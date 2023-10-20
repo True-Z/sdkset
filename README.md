@@ -27,7 +27,7 @@
 
 ## 安装
 
-> 强烈建议使用`pnpm or yran`安装（`npm`暂不支持`workspace`语法，）。
+> 强烈建议使用pnpm or yran安装（`npm`暂不支持`workspace`语法，）。
 
 ```sh
 pnpm add @sdkset/<pluginName>
@@ -150,13 +150,13 @@ export default {
 
 ## 相关项目
 
-| 插件名称     | 插件简介                                                     | 对等依赖                                                     | ES Module 支持 | Common 支持 | UMD 支持 | 全局对象 |
-| ------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | -------------- | ----------- | -------- | -------- |
-| sdkset/all   | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 插件集合  | sdkset/types<br />sdkset/core<br />sdkset/mode<br />sdkset/utils | &#x2705;       | &#x2705;    |          |          |
-| sdkset/types | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 类型声明  | sdkset/types                                                 | &#x2705;       |             |          |          |
-| sdkset/core  | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 工具插件集合 | sdkset/types<br />sdkset/mode<br />dayjs<br />axios          | &#x2705;       | &#x2705;    | &#x2705; | sdkCore  |
-| sdkset/mode  | [mode](https://refactoringguru.cn/design-patterns/catalog) 设计模式实现 | sdkset/types                                                 | &#x2705;       | &#x2705;    | &#x2705; | sdkMode  |
-| sdkset/utils | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 函数库实现 | sdkset/types<br />sdkset/mode                                | &#x2705;       | &#x2705;    | &#x2705; | sdkUtils |
+| 插件名称     | 插件简介                                                     | ES Module 支持 | Common 支持 | UMD 支持 | 全局对象 |
+| ------------ | ------------------------------------------------------------ | -------------- | ----------- | -------- | -------- |
+| sdkset/all   | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 插件集合  | &#x2705;       | &#x2705;    |          |          |
+| sdkset/types | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 类型声明  | &#x2705;       |             |          |          |
+| sdkset/core  | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 工具插件集合 | &#x2705;       | &#x2705;    | &#x2705; | sdkCore  |
+| sdkset/mode  | [mode](https://refactoringguru.cn/design-patterns/catalog) 设计模式实现 | &#x2705;       | &#x2705;    | &#x2705; | sdkMode  |
+| sdkset/utils | [sdkset](https://www.npmjs.com/search?q=%40sdkset) 函数库实现 | &#x2705;       | &#x2705;    | &#x2705; | sdkUtils |
 
 ## 主要项目负责人
 
