@@ -1,8 +1,7 @@
-import { AxiosInstance } from 'axios/index'
-
 import { initAxios, WrapperAxios } from './helpers'
 
 import type { CreateAxiosOption } from './types'
+import type { AxiosInstance } from 'axios'
 
 export * from './types'
 
