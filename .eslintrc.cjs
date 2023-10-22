@@ -99,7 +99,9 @@ module.exports = {
 
     /** @tutorial https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
      * * 解析扩展名规则。*/
-    'import/extensions': ['error', 'never'],
+    'import/extensions': ['error', 'never', {
+      'json': 'always'
+    }],
 
     /** @tutorial https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-extraneous-dependencies.md
      * * 禁止导入未在 package.json dependencies 声明的外部模块。*/
@@ -204,6 +206,6 @@ module.exports = {
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx']
     },
-    'import/extensions': ['.js', '.jsx']
+    'import/extensions': ['.js', '.jsx', '.json']
   }
 }

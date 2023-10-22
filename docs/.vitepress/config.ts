@@ -4,7 +4,7 @@ import { createSiteBarConfig } from '../scripts'
 
 import markdownConfig from '../markdownConfig.json'
 
-const isProd = process.env.NODE_ENV === 'production'
+const isProd = process.env['NODE_ENV'] === 'production'
 
 /**
  * @tutorial https://vitepress.dev/reference/site-config#routing
