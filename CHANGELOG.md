@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+### [4.0.6](https://github.com/True-Z/sdkset/compare/v4.0.5...v4.0.6) (2023-10-23)
+
+
+### ⚡️ Performance Improvements | 性能优化
+
+* **core:** 修改 core 模块 useStoreage 包装器对象中 get set 函数逻辑，现 set 无过期时间下直接存储 value 值，get 默认返回 value 值 ([8d6fd99](https://github.com/True-Z/sdkset/commit/8d6fd996e1509c4abbe2ab07b6fb3099b7acd129))
+
 ### [4.0.5](https://github.com/True-Z/sdkset/compare/v4.0.4...v4.0.5) (2023-10-19)
 
 
