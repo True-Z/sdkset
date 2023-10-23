@@ -9,12 +9,12 @@ export class WrapperStorage {
 
   readonly #storage: Storage
 
-  readonly #expireTime: number
+  readonly #expireTimeMs: number
 
   constructor(storage: Storage, option: Required<CreateStorageOption>) {
-    const { expireTime } = option
+    const { expireTimeMs } = option
     this.#storage = storage
-    this.#expireTime = expireTime
+    this.#expireTimeMs = expireTimeMs
   }
 
   /**
@@ -26,22 +26,22 @@ export class WrapperStorage {
    *
    * useStorage().get('key', null, 'expire')
    * => 1693275351948
-   * ...
+   * ...After time...
    * useStorage().get('key', null, 'expire')
    * => null
    *
-   * useStorage().get('key', null, false)
+   * useStorage().get('key')
    * => { value: 'value', expire: 1693275351948 }
    *
    *
    * @param key 给定键
    * @param def 默认值
-   * @param  property  萃取属性，传递 false 直接返回数据
+   * @param property 萃取属性
    */
-  get(key: string, def: unknown = null, property: false | StorageProperty = 'value') {
+  get(key: string, def?: unknown, property?: StorageProperty) {
     const json = this.#storage.getItem(key)
     if (!json) {
-      return def
+      return def || null
     }
     try {
       const storageData: StorageFormat = JSON.parse(json)
@@ -65,14 +65,16 @@ export class WrapperStorage {
    *
    * @param key 给定键
    * @param value 给定值
-   * @param customExpire 给定过期时间（毫秒），传递 true 则使用默认过期时间
+   * @param customExpireMs 给定过期时间（毫秒），传递 true 则使用默认选项的过期时间
    */
-  set(key: string, value: unknown, customExpire?: number | boolean) {
+  set(key: string, value: unknown, customExpireMs?: true | number) {
+    if (!customExpireMs) {
+      this.#storage.setItem(key, JSON.stringify(value))
+      return
+    }
     const now = new Date().getTime()
     const json = {} as StorageFormat
-    if (customExpire) {
-      json.expire = customExpire === true ? now + this.#expireTime : now + customExpire
-    }
+    json.expire = customExpireMs === true ? now + this.#expireTimeMs : now + customExpireMs
     json.value = value
     this.#storage.setItem(key, JSON.stringify(json))
   }

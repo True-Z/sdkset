@@ -2,8 +2,8 @@ import type { Dictionary } from '@sdkset/types'
 
 /** 包装器选项。 */
 export interface CreateStorageOption extends Dictionary {
-  /** 过期时间。 */
-  expireTime?: number
+  /** 过期时间（毫秒）。 */
+  expireTimeMs?: number
 }
 
 /** 存储类型。 */
@@ -13,8 +13,8 @@ export type StorageType = 'localStorage' | 'sessionStorage'
 export interface StorageFormat extends Dictionary {
   /** 需存储的值。 */
   value: unknown
-  /** 过期时间。 */
-  expire: number
+  /** 过期时间（毫秒）。 */
+  expireTimeMs: number
 }
 
 /** 存储数据属性。 */

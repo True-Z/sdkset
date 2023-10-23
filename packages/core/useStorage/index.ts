@@ -11,7 +11,7 @@ export type { WrapperStorage } from './helpers'
  * 包装器对`Storage`使用方式进行了简化并支持设置过期时间。
  *
  * @example
- * const storage = useStorage()
+ * const storage = useStorage('localStorage', { expireTimeMs: 30 * 24 * 60 * 60 * 1000 })
  *
  * storage.set('key', 'value')
  * storage.get('key')
@@ -24,14 +24,13 @@ export type { WrapperStorage } from './helpers'
  * storage.get('key')
  * => null
  *
- * storage.set('key', 'value', expireTime)
- * ...
+ * 30 days later ...
  * storage.get('key')
  * => null
  *
  * @param [storageType] 存储类型
  * @param [option] 包装器选项
- * @param [option.expireTime = 30 天] 默认过期时间毫秒数
+ * @param [option.expireTimeMs = 30 day] 默认过期时间毫秒数
  *
  * @default
  * useStorage('localStorage', {
