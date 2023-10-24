@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+### [4.0.7](https://github.com/True-Z/sdkset/compare/v4.0.6...v4.0.7) (2023-10-24)
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* **core:** 去除 useStorage get 函数萃取属性默认值 ([c7ba205](https://github.com/True-Z/sdkset/commit/c7ba2050bb3854376ee17cc781ee2a4e9fe3f024))
+
 ### [4.0.6](https://github.com/True-Z/sdkset/compare/v4.0.5...v4.0.6) (2023-10-23)
 
 
