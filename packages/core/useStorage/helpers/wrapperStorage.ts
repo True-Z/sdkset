@@ -40,7 +40,7 @@ export class WrapperStorage {
    */
   get(key: string, def?: unknown, property?: StorageProperty) {
     const json = this.#storage.getItem(key)
-    if (!json) {
+    if (json == null) {
       return def || null
     }
     try {
