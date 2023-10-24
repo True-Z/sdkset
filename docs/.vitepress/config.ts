@@ -106,11 +106,11 @@ export default defineConfig({
 
     /** @type {string}
      * * 显示在导航栏中网站标题之前的徽标文件。 */
-    // logo: "/logo.svg",
+    logo: '/logo.svg',
 
     /** @type {string | false}
      * * 默认站点标题。 */
-    siteTitle: 'DevOps',
+    siteTitle: '@sdkset',
 
     /** @type {object}
      * * 导航菜单项的配置。 */

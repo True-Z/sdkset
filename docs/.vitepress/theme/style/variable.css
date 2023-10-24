@@ -5,6 +5,10 @@
   /* Code font-size */
   --vp-code-font-size: 13px;
 
+  /* 主题颜色 */
+  --cus-c-strong: #3451b2;
+  --vp-c-brand-1: #279a5f;
+
   /* 标题 */
   --vp-home-hero-name-color: transparent;
   --vp-home-hero-name-background: linear-gradient(135deg, #81fbb8 10%, #28c76f 100%);
