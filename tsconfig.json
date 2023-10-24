@@ -14,6 +14,7 @@
 
     /** ? 构建模式 */
     "moduleResolution": "Node",
+    "allowImportingTsExtensions": false,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,

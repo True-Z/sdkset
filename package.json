@@ -4,7 +4,6 @@
   "description": "Re encapsulation of commonly used libraries",
   "author": "True",
   "license": "MIT",
-  "type": "module",
   "repository": {
     "type": "git",
     "url": "https://github.com/True-Z/sdkset"
