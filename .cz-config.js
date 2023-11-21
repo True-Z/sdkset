@@ -2,11 +2,11 @@
  * @tutorial https://github.com/commitizen/cz-cli
  *
  * @plugins
- * "commitizen" - https://github.com/commitizen/cz-cli
  * * 当您使用 Commitizen 提交时，系统会提示您在提交时填写任何必需的提交字段。
- * "cz-customizable" - https://github.com/leoforfree/cz-customizable
+ * "commitizen" - https://github.com/commitizen/cz-cli
  * * 可定制的 Commitizen 插件（或独立实用程序）可帮助像 AngularJS 团队一样实现一致的提交消息。
- * */
+ * "cz-customizable" - https://github.com/leoforfree/cz-customizable
+ */
 module.exports = {
   /** @type {Record<string, string>}
    * * 提交提示。 */

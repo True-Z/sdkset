@@ -2,26 +2,25 @@
  * @tutorial https://www.rollupjs.com/configuration-options/
  *
  * @plugins
- * "@rollup/plugin-babel"
  * * 用于 Rollup 和 Babel 之间的无缝集成，
- * "@rollup/plugin-commonjs"
+ * "@rollup/plugin-babel" - https://github.com/rollup/plugins/tree/master/packages/babel#readme
  * * 用于将 CommonJS 模块转换为 ES6，以便它们可以包含在 Rollup 包中，
- * "@rollup/plugin-json"
+ * "@rollup/plugin-commonjs" - https://github.com/rollup/plugins/tree/master/packages/commonjs/#readme
  * * 可将 .json 文件转换为 ES6 模块，
- * "@rollup/plugin-node-resolve"
+ * "@rollup/plugin-json" - https://github.com/rollup/plugins/tree/master/packages/json#readme
  * * 使用节点解析算法定位模块，用于在中使用第三方模块node_modules，
- * "@rollup/plugin-terser"
+ * "@rollup/plugin-node-resolve" - https://github.com/rollup/plugins/tree/master/packages/node-resolve/#readme
  * * 用于生成带有 terser 的缩小包，
- * "@rollup/plugin-strip"
+ * "@rollup/plugin-terser" - https://github.com/rollup/plugins/tree/master/packages/terser#readme
  * * 用于从代码中删除类似和 的debugger语句和函数。assert.equal console.log，
- * "@rollup/plugin-typescript"
+ * "@rollup/plugin-strip" - https://github.com/rollup/plugins/tree/master/packages/strip#readme
  * * 用于 Rollup 和 Typescript 之间的无缝集成，
- * "rollup-plugin-esbuild"
- * * esbuild是迄今为止最快的 TS/ES 之一，仅次于 ES6 编译器和压缩器，
- * * 该插件可以为您替换rollup-plugin-typescript2,@rollup/plugin-typescript 和 rollup-plugin-terser。
- * "rollup-plugin-node-externals"
+ * "@rollup/plugin-typescript" - https://github.com/rollup/plugins/tree/master/packages/typescript/#readme
+ * * esbuild是迄今为止最快的 TS/ES 之一，仅次于 ES6 编译器和压缩器，该插件可以为您替换rollup-plugin-typescript2，@rollup/plugin-typescript 和 rollup-plugin-terser。
+ * "rollup-plugin-esbuild" - https://github.com/egoist/rollup-plugin-esbuild#readme
  * * 自动将 NodeJS 内置模块声明为 external. 还处理 npm 依赖项、devDependency、peerDependency 和可选依赖项。
- * */
+ * "rollup-plugin-node-externals" - https://github.com/Septh/rollup-plugin-node-externals#readme
+ */
 
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
@@ -30,11 +29,11 @@ import { getBabelOutputPlugin } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
 import json from '@rollup/plugin-json'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
-// import strip from '@rollup/plugin-strip'
+import strip from '@rollup/plugin-strip'
 import terser from '@rollup/plugin-terser'
 import typescript from '@rollup/plugin-typescript'
 import _esbuild from 'rollup-plugin-esbuild'
-import externals from 'rollup-plugin-node-externals'
+import externals from 'rollup-plugin-node-externals' // esbuild common convers
 
 // esbuild common convers
 const esbuild = _esbuild.default ?? _esbuild
@@ -117,9 +116,10 @@ function createConfig(format, output) {
         tsconfig: resolve('tsconfig.json')
       }),
       json(),
-      // strip({
-      //   include: '**/*.(js|jsx|ts|tsx)'
-      // }),
+      strip({
+        include: '**/*.(js|jsx|ts|tsx|vue)',
+        functions: ['console.log']
+      }),
       esbuild()
     ]
   }

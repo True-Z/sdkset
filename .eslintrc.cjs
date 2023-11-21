@@ -3,27 +3,31 @@
  *
  * @plugins
  * ? airbnb-base：
- * "eslint-config-airbnb-base" - https://github.com/airbnb/javascript
  * * 该包提供 Airbnb 的基本 JS .eslintrc （无 React 插件）作为可扩展的共享配置。
+ * "eslint-config-airbnb-base" - https://github.com/airbnb/javascript
+ *
  * ? import：
- * "eslint-plugin-import" - https://github.com/import-js/eslint-plugin-import
  * * 此插件旨在支持 ES2015+ (ES6+) 导入/导出语法的检查，并防止文件路径和导入名称拼写错误的问题。
- * "eslint-import-resolver-typescript" - https://github.com/import-js/eslint-import-resolver-typescript
+ * "eslint-plugin-import" - https://github.com/import-js/eslint-plugin-import
  * * 这个插件增加了对（或者你想尝试更快的速度）TypeScript的支持。
+ * "eslint-import-resolver-typescript" - https://github.com/import-js/eslint-import-resolver-typescript
+ *
  * ? vue：
- * "eslint-plugin-vue" - https://eslint.vuejs.org/user-guide/
  * * Vue.js 官方 ESLint 插件，提供了一个 vue-eslint-parser 解析器。
+ * "eslint-plugin-vue" - https://eslint.vuejs.org/user-guide/
+ *
  * ? typescript：
- * "@typescript-eslint/eslint-plugin" - https://typescript-eslint.io/getting-started
  * * 一个为 TypeScript 代码库提供 lint 规则的 ESLint 插件。
- * "@typescript-eslint/parser" - https://typescript-eslint.io/getting-started
+ * "@typescript-eslint/eslint-plugin" - https://typescript-eslint.io/getting-started
  * * 一个 ESLint 解析器，它利用 TypeScript ESTree 允许 ESLint 对 TypeScript 源代码进行 lint。
+ * "@typescript-eslint/parser" - https://typescript-eslint.io/getting-started
+ *
  * ? prettier：
- * "eslint-plugin-prettier" - https://github.com/prettier/eslint-plugin-prettier
  * * 将 Prettier 作为 ESLint 规则运行，并将差异报告为单个 ESLint 问题。
- * "eslint-config-prettier" - https://github.com/prettier/eslint-config-prettier
+ * "eslint-plugin-prettier" - https://github.com/prettier/eslint-plugin-prettier
  * * 一次性设置 eslint-plugin-prettier 和 eslint-config-prettier。
- * */
+ * "eslint-config-prettier" - https://github.com/prettier/eslint-config-prettier
+ */
 module.exports = {
   /** @type {Record<string, 'error' | 'warn' | 'off' | 2 | 1 | 0 | []>}
    * 'error' | 2 - 将问题视作错误。当使用 ESLint CLI 时，错误导致 CLI 以非零代码退出
@@ -99,9 +103,13 @@ module.exports = {
 
     /** @tutorial https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/extensions.md
      * * 解析扩展名规则。*/
-    'import/extensions': ['error', 'never', {
-      'json': 'always'
-    }],
+    'import/extensions': [
+      'error',
+      'never',
+      {
+        json: 'always'
+      }
+    ],
 
     /** @tutorial https://github.com/import-js/eslint-plugin-import/blob/main/docs/rules/no-extraneous-dependencies.md
      * * 禁止导入未在 package.json dependencies 声明的外部模块。*/

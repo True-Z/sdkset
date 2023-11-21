@@ -2,13 +2,13 @@
  * @tutorial https://babeljs.io/docs/
  *
  * @plugins
- * "@babel/core" - https://babel.docschina.org/docs/babel-core
  * * Babel 编译器核心。
- * "@babel/preset-env" - https://babel.docschina.org/docs/babel-preset-env
+ * "@babel/core" - https://babel.docschina.org/docs/babel-core
  * * 智能预设，允许您使用最新的 JavaScript，而无需对目标环境所需的语法转换（以及可选的浏览器填充）进行微观管理。
- * "@babel/runtime-corejs3" - https://babel.docschina.org/docs/babel-plugin-transform-runtime#corejs
+ * "@babel/preset-env" - https://babel.docschina.org/docs/babel-preset-env
  * * babel 的模块化运行时助手，带有 core-js@3 polyfilling。
- * */
+ * "@babel/runtime-corejs3" - https://babel.docschina.org/docs/babel-plugin-transform-runtime#corejs
+ */
 module.exports = {
   // ? 插件和预设
   /** @type {unknown[]} []

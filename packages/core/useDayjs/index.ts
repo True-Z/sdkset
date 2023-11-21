@@ -18,8 +18,9 @@ try {
   dayjs.extend(weekOfYear)
   dayjs.extend(dayOfYear)
 } catch {
+  // browser 环境下，如需使用`day.js`插件，请参阅：https://day.js.org/docs/zh-CN/plugin/loading-into-browser
   console.warn(
-    'browser 环境下，如需使用`day.js`插件，请参阅：https://day.js.org/docs/zh-CN/plugin/loading-into-browser'
+    'In browser environment, if you need to use the `day.js` plug-in, please refer to: https://day.js.org/docs/zh-CN/plugin/loading-into-browser'
   )
 }
 

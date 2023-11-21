@@ -20,6 +20,7 @@ export class WrapperObserver {
    */
   on(event: string, callback: Func) {
     if (typeof callback !== 'function') {
+      // 事件 ${event} 订阅的回调不是函数
       console.error(new TypeError(`The callback subscribed to for event ${event} is not a function`))
       return
     }
@@ -47,6 +48,7 @@ export class WrapperObserver {
    */
   once(event: string, callback: Func) {
     if (typeof callback !== 'function') {
+      // 事件 ${event} 订阅的回调不是函数
       console.error(new TypeError(`The callback subscribed to for event ${event} is not a function`))
       return
     }

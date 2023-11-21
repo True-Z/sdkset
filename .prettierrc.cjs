@@ -1,6 +1,6 @@
 /**
  * @tutorial https://prettier.io/docs/en/options.html
- * */
+ */
 module.exports = {
   /** @type {number} 80
    * * 指定打印机将换行的行长。 */

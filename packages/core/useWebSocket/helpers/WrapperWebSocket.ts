@@ -53,6 +53,7 @@ export class WrapperWebSocket {
         continue // 不是指定拦截类型
       }
       if (typeof curInterceptors !== 'function') {
+        // ${currKey} 类型的拦截器需要是一个函数
         console.error(new TypeError(`Interceptor of type ${currKey} needs to be a function`))
         continue
       }

@@ -3,9 +3,9 @@
  * @tutorial https://github.com/conventional-changelog/conventional-changelog-config-spec/
  *
  * @plugins
- * "standard-version" - https://github.com/conventional-changelog/standard-version
  * * 一个使用semver和由传统提交支持的 CHANGELOG 生成进行版本控制的实用程序。
- * */
+ * "standard-version" - https://github.com/conventional-changelog/standard-version
+ */
 module.exports = {
   /** @type {string} "CHANGELOG"
    * * 用作 CHANGELOG 主标题的字符串。 */
