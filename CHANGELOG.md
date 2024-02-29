@@ -1,4 +1,6 @@
 # 更新日志（CHANGELOG）
+### [4.0.11](https://github.com/True-Z/sdkset/compare/v4.0.10...v4.0.11) (2024-02-29)
+
 ### [4.0.10](https://github.com/True-Z/sdkset/compare/v4.0.9...v4.0.10) (2024-02-29)
 
 ### [4.0.9](https://github.com/True-Z/sdkset/compare/v4.0.8...v4.0.9) (2023-10-24)
