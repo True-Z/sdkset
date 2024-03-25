@@ -23,7 +23,7 @@ export type { WrapperWebSocket } from './helpers'
  * ...
  * ws.close()
  *
- * @param [url] 请求地址
+ * @param url 请求地址
  * @param [option] 包装器选项
  * @param [option.params] 请求参数
  * @param [option.protocols] 协议字符串 or 包含协议字符串的数组
@@ -37,19 +37,27 @@ export type { WrapperWebSocket } from './helpers'
  *   protocols: undefined, // 协议字符串 or 包含协议字符串的数组
  *   heartbeat: true, // 心跳配置
  *   autoReconnect: false, // 重连配置
- *   interceptor: undefined, // 拦截器对象
+ *   interceptor: {}, // 拦截器对象
  * })
  *
- * // 心跳（默认开启），布尔值控制开启（默认配置）关闭，也可自行配置：
+ * // 心跳（默认开启），布尔值控制开启/关闭，也可自行配置（以下为默认配置）：
  * heartbeat: {
  *   message: 'ping', // 心跳间隔消息
  *   interval: 1000 // 心跳间隔毫秒数
  * }
  *
- * // 重连（默认关闭），布尔值控制开启（默认配置）关闭，也可自行配置：
+ * // 重连（默认关闭），布尔值控制开启/关闭，也可自行配置（以下为默认配置）：
  * heartbeat: {
  *   retries: 3, // 最大重连次数
  *   delay: 1000 // 重连间隔毫秒数
+ * }
+ *
+ * // 拦截器对象
+ * interceptor: {
+ *   error: () => {} // 连接发生错误时
+ *   message: () => {} // 接收到新消息时
+ *   close: () => {} // 连接关闭时
+ *   fail: () => {} // 重连失败时
  * }
  */
 export async function useWebSocket(url: string, option?: CreateWebSocketOption): Promise<WrapperWebSocket> {

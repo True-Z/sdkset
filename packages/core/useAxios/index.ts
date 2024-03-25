@@ -17,8 +17,10 @@ export type { WrapperAxios } from './helpers'
  * import type { AxiosInterceptor } from '@sdkset/core'
  *
  * interface RequestConfig extends AxiosRequestConfig {
- *   noNeedToken?: boolean
- *   ...
+ *   custom: {
+ *     noNeedToken?: boolean
+ *     ...
+ *   }
  * }
  *
  * const axiosInstance = axios.create({ ... })

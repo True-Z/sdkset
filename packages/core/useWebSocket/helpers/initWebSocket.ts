@@ -12,7 +12,8 @@ const defaultOption = {
     enable: false,
     retries: 3,
     delay: 1000
-  }
+  },
+  interceptor: {}
 } as RequiredWebSocketOption
 
 /** 选项初始化。 */
