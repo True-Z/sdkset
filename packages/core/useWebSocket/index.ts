@@ -29,7 +29,7 @@ export type { WrapperWebSocket } from './helpers'
  * @param [option.protocols] 协议字符串 or 包含协议字符串的数组
  * @param [option.heartbeat = true] 心跳配置
  * @param [option.autoReconnect = false] 重连配置
- * @param [option.interceptor] 拦截器对象
+ * @param [option.interceptor = {}] 拦截器对象
  *
  * @default
  * useWebSocket(undefined, {

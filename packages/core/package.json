@@ -13,7 +13,7 @@
     "publish:package": "npm publish",
     "rimraf:package": "rimraf dist/* -g",
     "vitest:package": "vitest run -c vitest.config.unit.ts",
-    "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:core"
+    "build:package": "rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:core"
   },
   "keywords": [
     "@sdkset/utils",

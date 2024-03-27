@@ -43,10 +43,10 @@ import type { Func } from '@sdkset/types'
  *
  * @param func 需防抖动的函数
  * @param wait 需要延迟的毫秒数
- * @param options 给定选项对象
- * @param options.leading 指定在延迟开始前调用
- * @param options.trailing 指定在延迟结束后调用
- * @param options.maxWait 设置 func 允许被延迟的最大值
+ * @param [options] 给定选项对象
+ * @param [options.maxWait] 设置 func 允许被延迟的最大值
+ * @param [options.leading = false] 指定在延迟开始前调用
+ * @param [options.trailing = true] 指定在延迟结束后调用
  */
 
 export function debounce(func: Func, wait: number, options?: DebounceOption) {

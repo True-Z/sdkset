@@ -35,9 +35,9 @@ import type { Func } from '@sdkset/types'
  *
  * @param func 给定函数
  * @param wait 给定毫秒值
- * @param options 给定选项对象
- * @param options.leading 是否在节流开始前调用
- * @param options.trailing 是否在节流结束后调用
+ * @param [options] 给定选项对象
+ * @param [options.leading = true] 是否在节流开始前调用
+ * @param [options.trailing = true] 是否在节流结束后调用
  */
 export function throttle(func: Func, wait: number, options?: Omit<DebounceOption, 'maxWait'>) {
   let leading = true

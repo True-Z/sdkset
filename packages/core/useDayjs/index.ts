@@ -46,7 +46,7 @@ try {
  * dayjs.add('year', 1).value()
  * => '2013-12-21 00:00:00'
  *
- * @param [date] 给定时间
+ * @param date 给定时间
  * @param [option] 包装器选项
  * @param [option.convers = 'dayjs'] 转换格式
  * @param [option.template = 'YYYY-MM-DD HH:mm:ss'] 格式化模板

@@ -13,8 +13,9 @@ export class WrapperStorage {
 
   constructor(storage: Storage, option: Required<CreateStorageOption>) {
     const { expireTimeMs } = option
-    this.#storage = storage
     this.#expireTimeMs = expireTimeMs
+
+    this.#storage = storage
   }
 
   /**
@@ -24,15 +25,15 @@ export class WrapperStorage {
    * useStorage().get('unknown', 'defValue')
    * => 'defValue'
    *
-   * useStorage().get('key', null, 'expire')
-   * => 1693275351948
+   * useStorage().set('key', 'value', 'expireTimeMs')
+   * useStorage().get('key')
+   * => { data }
    * ...After time...
-   * useStorage().get('key', null, 'expire')
+   * useStorage().get('key')
    * => null
    *
-   * useStorage().get('key')
-   * => { value: 'value', expire: 1693275351948 }
-   *
+   * useStorage().get('key', 'def', 'fieldName')
+   * => data[fieldName]
    *
    * @param key 给定键
    * @param def 默认值
@@ -45,11 +46,14 @@ export class WrapperStorage {
     }
     try {
       const storageData: StorageFormat = JSON.parse(json)
-      if (storageData.expire && new Date().getTime() > storageData.expire) {
+      if (!storageData.expireTimeMs) {
+        return property ? storageData[property] : storageData
+      }
+      if (new Date().getTime() > storageData.expireTimeMs) {
         this.remove(key)
         return null
       }
-      return property ? storageData[property] : storageData
+      return property ? storageData.value[property] : storageData.value
     } catch {
       return null
     }
@@ -74,7 +78,7 @@ export class WrapperStorage {
     }
     const now = new Date().getTime()
     const json = {} as StorageFormat
-    json.expire = customExpireMs === true ? now + this.#expireTimeMs : now + customExpireMs
+    json.expireTimeMs = customExpireMs === true ? now + this.#expireTimeMs : now + customExpireMs
     json.value = value
     this.#storage.setItem(key, JSON.stringify(json))
   }

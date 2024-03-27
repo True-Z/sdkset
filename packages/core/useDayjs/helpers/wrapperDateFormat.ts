@@ -36,10 +36,10 @@ export class WrapperDateFormat<C extends CreateDayjsOption> {
    * 返回转换格式后的`day.js`实例值。
    *
    * @example
-   * useDayjs('2012-12-21 00:00:00', { convers: 'timeStamp' }).value()
+   * useDayjs('2012-12-21 00:00:00', { convers: 'timeStamp' }).value
    * => 1356019200000
    */
-  value(): DayjsTypeTo<C> {
+  get value(): DayjsTypeTo<C> {
     return this.#conversTo(this.#dayjs)
   }
 

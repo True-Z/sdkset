@@ -8,16 +8,16 @@ describe('useDayjs', () => {
     const customDate = new Date(2012, 11, 21, 0, 0, 0)
     const dayjs = sdk.useDayjs(customDate)
     expect(dayjs.self).toStrictEqual(nativeDayjs(customDate))
-    expect(dayjs.value()).toStrictEqual(nativeDayjs(customDate))
+    expect(dayjs.value).toStrictEqual(nativeDayjs(customDate))
 
     const dayjsToDate = sdk.useDayjs(customDate, { convers: 'date' })
-    expect(dayjsToDate.value()).toStrictEqual(customDate)
+    expect(dayjsToDate.value).toStrictEqual(customDate)
 
     const dayjsToTimeStamp = sdk.useDayjs(customDate, { convers: 'timeStamp' })
-    expect(dayjsToTimeStamp.value()).toBe(1356019200000)
+    expect(dayjsToTimeStamp.value).toBe(1356019200000)
 
     const dayjsToFormat = sdk.useDayjs(customDate, { convers: 'format' })
-    expect(dayjsToFormat.value()).toBe('2012-12-21 00:00:00')
+    expect(dayjsToFormat.value).toBe('2012-12-21 00:00:00')
     expect(dayjsToFormat.format('YYYY-MM-DD')).toBe('2012-12-21')
   })
 
@@ -34,12 +34,12 @@ describe('useDayjs', () => {
   test('operate', () => {
     const dayjs = sdk.useDayjs('2012-12-21', { convers: 'format', template: 'YYYY-MM-DD' })
 
-    expect(dayjs.startOf('year').value()).toBe('2012-01-01')
+    expect(dayjs.startOf('year').value).toBe('2012-01-01')
 
-    expect(dayjs.endOf('year').value()).toBe('2012-12-31')
+    expect(dayjs.endOf('year').value).toBe('2012-12-31')
 
-    expect(dayjs.add(1, 'year').value()).toBe('2013-12-21')
+    expect(dayjs.add(1, 'year').value).toBe('2013-12-21')
 
-    expect(dayjs.subtract(1, 'year').value()).toBe('2011-12-21')
+    expect(dayjs.subtract(1, 'year').value).toBe('2011-12-21')
   })
 })

@@ -12,7 +12,7 @@ export type StorageType = 'localStorage' | 'sessionStorage'
 /** 存储数据格式。 */
 export interface StorageFormat extends Dictionary {
   /** 需存储的值。 */
-  value: unknown
+  value: any
   /** 过期时间（毫秒）。 */
   expireTimeMs: number
 }

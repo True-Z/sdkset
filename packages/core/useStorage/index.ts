@@ -28,9 +28,9 @@ export type { WrapperStorage } from './helpers'
  * storage.get('key')
  * => null
  *
- * @param [storageType] 存储类型
+ * @param storageType 存储类型
  * @param [option] 包装器选项
- * @param [option.expireTimeMs = 30 day] 默认过期时间毫秒数
+ * @param [option.expireTimeMs = 30day] 默认过期时间毫秒数
  *
  * @default
  * useStorage('localStorage', {

@@ -12,7 +12,7 @@
   "scripts": {
     "publish:package": "npm publish",
     "rimraf:package": "rimraf dist/* -g",
-    "build:package": "pnpm rimraf:package &&  rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:all"
+    "build:package": "rollup --bundleConfigAsCjs -c ../../rollup.config.js  --environment target:all"
   },
   "keywords": [
     "@sdkset/all",
@@ -33,8 +33,8 @@
   "buildOptions": {
     "name": "sdk",
     "formats": [
-      "cjs",
-      "es"
+      "es",
+      "cjs"
     ],
     "globals": {}
   },
