@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+### [4.0.12](https://github.com/True-Z/sdkset/compare/v4.0.11...v4.0.12) (2024-03-27)
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* **core:** 修改 useDayjs().value，从函数改为 getter 形式 ([3618aff](https://github.com/True-Z/sdkset/commit/3618affb49f00d7d3408c0064b3f877b208b07b6))
+
 ### [4.0.11](https://github.com/True-Z/sdkset/compare/v4.0.10...v4.0.11) (2024-02-29)
 
 ### [4.0.10](https://github.com/True-Z/sdkset/compare/v4.0.9...v4.0.10) (2024-02-29)
