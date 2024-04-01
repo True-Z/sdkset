@@ -1,4 +1,11 @@
 # 更新日志（CHANGELOG）
+### [4.0.13](https://github.com/True-Z/sdkset/compare/v4.0.12...v4.0.13) (2024-04-01)
+
+
+### ♻️ Code Refactoring | 代码重构
+
+* **core:** useDayjs 修改，现配置 template 在 format() 函数调用时默认给定，其余 api 与 dayjs 保持一致 ([65a2a2c](https://github.com/True-Z/sdkset/commit/65a2a2c0b0ffa699a857cc0832b0d06ebf76173f))
+
 ### [4.0.12](https://github.com/True-Z/sdkset/compare/v4.0.11...v4.0.12) (2024-03-27)
 
 
