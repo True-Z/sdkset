@@ -1,7 +1,7 @@
 import type { Dictionary } from '@sdkset/types'
 
 /** 包装器选项。 */
-export interface CreateStorageOption extends Dictionary {
+export interface CreateStorageOption {
   /** 过期时间（毫秒）。 */
   expireTimeMs?: number
 }

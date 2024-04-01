@@ -5,7 +5,7 @@ const defaultOption: Required<CreateAxiosOption> = {
 }
 
 /** 选项初始化 */
-export function initAxios<C extends CreateAxiosOption>(customOption?: C): Required<CreateAxiosOption> {
+export function initAxios(customOption?: CreateAxiosOption) {
   if (customOption == null) {
     return defaultOption
   }

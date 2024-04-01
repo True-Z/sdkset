@@ -5,7 +5,7 @@ const defaultOption = {
 } as Required<CreateStorageOption>
 
 /** 选项初始化。 */
-export function initStorage<C extends CreateStorageOption>(customOption?: C): Required<CreateStorageOption> {
+export function initStorage(customOption?: CreateStorageOption) {
   if (customOption == null) {
     return defaultOption
   }

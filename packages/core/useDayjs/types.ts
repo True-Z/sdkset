@@ -1,19 +1,17 @@
-import type { Dictionary } from '@sdkset/types'
 import type { Dayjs } from 'dayjs'
 
 /** 包装器选项。 */
-export interface CreateDayjsOption extends Dictionary {
-  /** 转换类型。 */
-  convers?: DayjsConvers
+export interface CreateDayjsOption {
   /** 格式化模板。 */
   template?: DayjsTemplate
 }
+
 /** 给定时间。 */
 export type DayjsDate = string | number | Dayjs | Date | null | undefined
-/** 转换类型。 */
-export type DayjsConvers = 'dayjs' | 'format' | 'date' | 'timeStamp'
+
 /** 格式化模板。 */
 export type DayjsTemplate =
+  | 'MM/DD/YY H:mm:ss A Z'
   | 'YYYY-MM-DD HH:mm:ss'
   | 'YYYY-MM-DD'
   | 'HH:mm:ss'
@@ -53,16 +51,3 @@ export type DayjsTemplate =
   | 'ww'
   | 'wo'
   | string
-
-/** 包装器转换。 */
-export type DayjsTypeTo<C extends CreateDayjsOption> = undefined extends C['convers']
-  ? Dayjs
-  : C['convers'] extends 'dayjs'
-  ? Dayjs
-  : C['convers'] extends 'format'
-  ? string
-  : C['convers'] extends 'date'
-  ? Date
-  : C['convers'] extends 'timeStamp'
-  ? number
-  : never

@@ -17,7 +17,7 @@ const defaultOption = {
 } as RequiredWebSocketOption
 
 /** 选项初始化。 */
-export function initWebSocket<C extends CreateWebSocketOption>(customOption?: C) {
+export function initWebSocket(customOption?: CreateWebSocketOption) {
   if (customOption == null) {
     return defaultOption
   }

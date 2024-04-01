@@ -4,13 +4,10 @@ import dayOfYear from 'dayjs/plugin/dayOfYear.js'
 import quarterOfYear from 'dayjs/plugin/quarterOfYear.js'
 import weekOfYear from 'dayjs/plugin/weekOfYear.js'
 
-import { initDateFormat, WrapperDateFormat } from './helpers'
-
-import type { CreateDayjsOption, DayjsDate } from './types'
+import { initDayjs, wrapperDayjs } from './helpers'
+import { CreateDayjsOption, DayjsDate } from './types'
 
 export * from './types'
-
-export type { WrapperDateFormat } from './helpers'
 
 try {
   dayjs.extend(quarterOfYear)
@@ -38,29 +35,24 @@ try {
  * [dayOfYear（.dayOfYear() 返回/设置年中第几天））](https://dayjs.fenxianglu.cn/category/plugin.html#dayofyear)
  *
  * @example
- * const dayjs = useDayjs(new Date('2012-01-21 00:00:00'), { convers: 'format' })
+ * const dayjs = useDayjs(new Date('2012-01-21 00:00:00'), { template: 'YYYY-MM-DD HH:mm:ss' })
  *
- * dayjs.format()
- * => '2012-12-21 00:00:00'
- *
- * dayjs.add('year', 1).value()
+ * dayjs.add('year', 1).format() // 未传递参数按照 template 配置返回
  * => '2013-12-21 00:00:00'
+ *
+ * dayjs other // 其余使用方法与 dayjs 一致
  *
  * @param date 给定时间
  * @param [option] 包装器选项
- * @param [option.convers = 'dayjs'] 转换格式
- * @param [option.template = 'YYYY-MM-DD HH:mm:ss'] 格式化模板
+ * @param [option.template = 'M/DD/YY H:mm:ss A Z'] 格式化模板
  *
  * @default
  * useDayjs(new Date(), {
- *   convers: 'dayjs', // 转换格式
- *   template: 'YYYY-MM-DD HH:mm:ss' // 格式化模板
+ *   template: 'MM/DD/YY H:mm:ss A Z' // 格式化模板
  * })
  */
-export function useDayjs<C extends CreateDayjsOption>(date?: DayjsDate, option?: C) {
-  const { convers, template } = initDateFormat(option)
-
+export function useDayjs(date?: DayjsDate, option?: CreateDayjsOption) {
   const dayjsInstance = dayjs(date ?? new Date())
 
-  return new WrapperDateFormat<C>(dayjsInstance, convers, template)
+  return wrapperDayjs(dayjsInstance, initDayjs(option))
 }

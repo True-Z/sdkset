@@ -1,8 +1,7 @@
-import type { Dictionary } from '@sdkset/types'
 import type { AxiosInterceptorOptions, AxiosResponse } from 'axios'
 
 /** 包装器选项。 */
-export interface CreateAxiosOption extends Dictionary {
+export interface CreateAxiosOption {
   /** 拦截器对象。 */
   interceptor?: AxiosInterceptor
 }

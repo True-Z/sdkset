@@ -1,2 +1,2 @@
-export * from './initDateFormat'
-export * from './wrapperDateFormat'
+export * from './initDayjs'
+export * from './wrapperDayjs'

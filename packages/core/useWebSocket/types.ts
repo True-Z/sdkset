@@ -1,7 +1,7 @@
 import type { Collection, Dictionary } from '@sdkset/types'
 
 /** 包装器选项。 */
-export interface CreateWebSocketOption extends Dictionary {
+export interface CreateWebSocketOption {
   /** 请求参数。 */
   params?: Collection
   /** 协议字符串 or 包含协议字符串的数组。 */
@@ -29,7 +29,7 @@ export interface CreateWebSocketOption extends Dictionary {
 }
 
 /** 包装器选项（内部）。 */
-export interface RequiredWebSocketOption extends Required<CreateWebSocketOption>, Dictionary {
+export interface RequiredWebSocketOption extends Required<CreateWebSocketOption> {
   /** 心跳配置。 */
   heartbeat: {
     /** 是否启用。 */

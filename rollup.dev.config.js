@@ -36,9 +36,9 @@ export default {
     externals({
       builtins: false,
       packagePath: `packages/${process.env.target}/package.json`,
-      devDeps: true,
+      devDeps: false,
       deps: false,
-      peerDeps: true
+      peerDeps: false
     }),
     nodeResolve(),
     typescript({
